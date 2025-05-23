@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,16 +16,51 @@ namespace InventariosCore.Data
     {
         private static readonly Logger _logger = LoggingManager.GetLogger("InvSis.Data.PostgreSQLDataAccess");
 
-        private readonly string _ConnectionString = ConfigurationManager.ConnectionStrings["ConexionBD"].ConnectionString;
+        // Campo estático para la cadena de conexión configurable externamente
+        private static string _connectionString;
+
+        // Propiedad pública para setear o obtener la cadena de conexión
+        public static string ConnectionString
+        {
+            get
+            {
+                if (string.IsNullOrEmpty(_connectionString))
+                {
+                    try
+                    {
+                        // En caso de que no se haya configurado externamente, intenta leer desde app.config (Windows Forms)
+                        _connectionString = ConfigurationManager.ConnectionStrings["ConexionBD"]?.ConnectionString;
+                    }
+                    catch (Exception ex)
+                    {
+                        _logger.Warn(ex, "No se pudo obtener la cadena de conexión desde ConfigurationManager");
+                    }
+                }
+                return _connectionString;
+            }
+            set
+            {
+                _connectionString = value;
+            }
+        }
+
+        // Ya no usar este campo, lo quitamos para usar la propiedad estática
+        // private readonly string _ConnectionString = ConfigurationManager.ConnectionStrings["ConexionBD"].ConnectionString;
 
         private NpgsqlConnection _connection;
         private static PostgreSQLDataAccess? _instance;
 
+        // Modificamos el constructor para usar la propiedad estática ConnectionString
         private PostgreSQLDataAccess()
         {
             try
             {
-                _connection = new NpgsqlConnection(_ConnectionString);
+                if (string.IsNullOrEmpty(ConnectionString))
+                {
+                    throw new InvalidOperationException("La cadena de conexión no está configurada. Asegúrate de establecer PostgreSQLDataAccess.ConnectionString antes de usar la clase.");
+                }
+
+                _connection = new NpgsqlConnection(ConnectionString);
                 _logger.Info("Instancia de acceso a datos creada correctamente");
             }
             catch (Exception ex)
@@ -71,7 +106,7 @@ namespace InventariosCore.Data
         {
             try
             {
-                if (_connection.State != ConnectionState.Open)
+                if (_connection.State == ConnectionState.Open)
                 {
                     _connection.Close();
                     _logger.Info("Conexión a la base de datos cerrada correctamente");
@@ -94,7 +129,7 @@ namespace InventariosCore.Data
                 {
                     using (NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(command))
                     {
-                        adapter.Fill(dataTable); //como el execute reader
+                        adapter.Fill(dataTable);
                     }
                     command.Dispose();
                 }
@@ -147,7 +182,7 @@ namespace InventariosCore.Data
                 using (NpgsqlCommand command = CreateCommand(query, parameters))
                 {
                     object? result = command.ExecuteScalar();
-                    return result;
+                    return result!;
                 }
             }
             catch (Exception ex)
