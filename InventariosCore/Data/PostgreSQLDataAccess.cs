@@ -16,10 +16,14 @@ namespace InventariosCore.Data
     {
         private static readonly Logger _logger = LoggingManager.GetLogger("InvSis.Data.PostgreSQLDataAccess");
 
-        // Campo estático para la cadena de conexión configurable externamente
+        // Comentamos esta línea porque ahora usaremos la propiedad estática para obtener la cadena
+        // private readonly string _ConnectionString = ConfigurationManager.ConnectionStrings["ConexionBD"].ConnectionString;
+
         private static string _connectionString;
 
-        // Propiedad pública para setear o obtener la cadena de conexión
+        /// <summary>
+        /// Propiedad para establecer o obtener la cadena de conexión desde fuera, por ejemplo, desde el API
+        /// </summary>
         public static string ConnectionString
         {
             get
@@ -28,7 +32,7 @@ namespace InventariosCore.Data
                 {
                     try
                     {
-                        // En caso de que no se haya configurado externamente, intenta leer desde app.config (Windows Forms)
+                        // Intentar obtener la cadena de conexión desde el config de Windows Forms (legacy)
                         _connectionString = ConfigurationManager.ConnectionStrings["ConexionBD"]?.ConnectionString;
                     }
                     catch (Exception ex)
@@ -44,13 +48,27 @@ namespace InventariosCore.Data
             }
         }
 
-        // Ya no usar este campo, lo quitamos para usar la propiedad estática
-        // private readonly string _ConnectionString = ConfigurationManager.ConnectionStrings["ConexionBD"].ConnectionString;
-
         private NpgsqlConnection _connection;
         private static PostgreSQLDataAccess? _instance;
 
-        // Modificamos el constructor para usar la propiedad estática ConnectionString
+        // Comentamos el constructor antiguo para el patrón singleton
+        /*
+        private PostgreSQLDataAccess()
+        {
+            try
+            {
+                _connection = new NpgsqlConnection(_ConnectionString);
+                _logger.Info("Instancia de acceso a datos creada correctamente");
+            }
+            catch (Exception ex)
+            {
+                _logger.Fatal(ex, "Error al inicializar el acceso a la base de datos");
+                throw;
+            }
+        }
+        */
+
+        // Nuevo constructor que usa la propiedad estática ConnectionString
         private PostgreSQLDataAccess()
         {
             try
