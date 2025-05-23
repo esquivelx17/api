@@ -1,5 +1,8 @@
 var builder = WebApplication.CreateBuilder(args);
 
+// Asignar cadena de conexión a la clase estática PostgreSQLDataAccess
+PostgreSQLDataAccess.ConnectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+
 // Add services to the container.
 builder.Services.AddControllers();
 // Swagger/OpenAPI
@@ -19,7 +22,7 @@ app.UseAuthorization();
 
 app.MapControllers();
 
-// Agrega esta línea para que el puerto sea dinámico según Render
+// Configurar puerto dinámico según Render
 var port = Environment.GetEnvironmentVariable("PORT") ?? "8080";
 app.Urls.Add($"http://*:{port}");
 
