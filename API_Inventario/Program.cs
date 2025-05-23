@@ -1,17 +1,22 @@
+using InventariosCore.Controllers;   // Asegúrate que el namespace coincide con tu proyecto
+using InventariosCore.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Asignar cadena de conexión a la clase estática PostgreSQLDataAccess
+// Configurar la cadena de conexión estática para PostgreSQLDataAccess
 PostgreSQLDataAccess.ConnectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 
-// Add services to the container.
+// Registrar los controladores para inyección de dependencias
+builder.Services.AddScoped<ProductosController>();
+
+// Agregar servicios básicos
 builder.Services.AddControllers();
-// Swagger/OpenAPI
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+// Configurar pipeline HTTP
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
