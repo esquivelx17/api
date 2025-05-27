@@ -1,0 +1,432 @@
+2025-05-26 14:45:57.2263 | INFO | LoggingManager | Sistema de logging configurado correctamente 
+2025-05-26 14:45:57.8844 | INFO | InvSis.Data.PostgreSQLDataAccess | Instancia de acceso a datos creada correctamente 
+2025-05-26 14:45:57.8844 | INFO | InvSis.Data.UsuariosDataAccess | UsuariosDataAccess inicializado correctamente 
+2025-05-26 14:46:04.5242 | INFO | InvSis.Data.PostgreSQLDataAccess | Conexión a la base de datos establecida correctamente 
+2025-05-26 14:46:04.5309 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @Nickname = Oscar 
+2025-05-26 14:46:04.5309 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @Contrasena = 123 
+2025-05-26 14:46:04.7032 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdPersona = 1 
+2025-05-26 14:46:04.8016 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdRol = 3 
+2025-05-26 14:46:04.8985 | INFO | InvSis.Data.UsuariosDataAccess | Usuario Oscar autenticado correctamente 
+2025-05-26 14:46:04.9983 | INFO | InvSis.Data.RolesDataAccess | Se obtuvieron 6 roles de la base de datos 
+2025-05-26 14:46:04.9983 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdRol = 3 
+2025-05-26 14:46:07.3579 | INFO | InvSis.Data.UsuariosDataAccess | UsuariosDataAccess inicializado correctamente 
+2025-05-26 14:46:07.4630 | INFO | InvSis.Data.PersonasDataAccess | Se obtuvieron 5 personas de la base de datos 
+2025-05-26 14:46:07.5627 | INFO | InvSis.Data.RolesDataAccess | Se obtuvieron 6 roles de la base de datos 
+2025-05-26 14:46:07.6588 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdPersona = 7 
+2025-05-26 14:46:07.7569 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdRol = 5 
+2025-05-26 14:46:07.8529 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdPersona = 4 
+2025-05-26 14:46:07.9551 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdRol = 1 
+2025-05-26 14:46:08.0530 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdPersona = 5 
+2025-05-26 14:46:08.1493 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdRol = 4 
+2025-05-26 14:46:08.2469 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdPersona = 6 
+2025-05-26 14:46:08.3419 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdRol = 6 
+2025-05-26 14:46:08.4411 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdPersona = 4 
+2025-05-26 14:46:08.5397 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdRol = 1 
+2025-05-26 14:46:08.6374 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdPersona = 1 
+2025-05-26 14:46:08.7362 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdRol = 3 
+2025-05-26 14:46:08.8315 | INFO | InvSis.Data.UsuariosDataAccess | Se obtuvieron 6 usuarios 
+2025-05-26 14:46:09.7917 | INFO | InvSis.Data.ProductosDataAccess | ProductosDataAccess inicializado correctamente 
+2025-05-26 14:46:09.9167 | INFO | InvSis.Data.ProductosDataAccess | Se obtuvieron 3 productos 
+2025-05-26 14:46:10.0117 | INFO | InvSis.Data.ProductosDataAccess | Se obtuvieron 3 productos 
+2025-05-26 14:46:15.2041 | INFO | InvSis.Data.ProductosDataAccess | ProductosDataAccess inicializado correctamente 
+2025-05-26 14:46:16.2084 | INFO | InvSis.Data.ProductosDataAccess | ProductosDataAccess inicializado correctamente 
+2025-05-26 14:46:16.2084 | INFO | InvSis.Data.MovimientoProductoDataAccess | MovimientoProductoDataAccess inicializado correctamente 
+2025-05-26 14:46:16.2084 | INFO | InvSis.Data.ProductosDataAccess | ProductosDataAccess inicializado correctamente 
+2025-05-26 14:46:16.3606 | ERROR | InvSis.Data.ProductosDataAccess | Error al obtener productos System.ArgumentException: Column 'costo_unitario' does not belong to table .
+   at System.Data.DataRow.GetDataColumn(String columnName)
+   at System.Data.DataRow.get_Item(String columnName)
+   at InventariosCore.Data.ProductosDataAccess.ObtenerProductos(Boolean soloActivos) in C:\Users\esqui\OneDrive\Documents\8 SEMESTRE\programacion version pendiente de apii\InventariosCore\Data\ProductosDataAccess.cs:line 401System.ArgumentException: Column 'costo_unitario' does not belong to table .
+   at System.Data.DataRow.GetDataColumn(String columnName)
+   at System.Data.DataRow.get_Item(String columnName)
+   at InventariosCore.Data.ProductosDataAccess.ObtenerProductos(Boolean soloActivos) in C:\Users\esqui\OneDrive\Documents\8 SEMESTRE\programacion version pendiente de apii\InventariosCore\Data\ProductosDataAccess.cs:line 401
+2025-05-26 14:46:17.6921 | INFO | InvSis.Data.UsuariosDataAccess | UsuariosDataAccess inicializado correctamente 
+2025-05-26 14:46:17.7892 | INFO | InvSis.Data.RolesDataAccess | Se obtuvieron 6 roles de la base de datos 
+2025-05-26 14:46:17.8862 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdPersona = 7 
+2025-05-26 14:46:17.9845 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdRol = 5 
+2025-05-26 14:46:18.0796 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdPersona = 4 
+2025-05-26 14:46:18.1734 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdRol = 1 
+2025-05-26 14:46:18.2673 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdPersona = 5 
+2025-05-26 14:46:18.3618 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdRol = 4 
+2025-05-26 14:46:18.4569 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdPersona = 6 
+2025-05-26 14:46:18.5515 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdRol = 6 
+2025-05-26 14:46:18.6490 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdPersona = 1 
+2025-05-26 14:46:18.7554 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdRol = 3 
+2025-05-26 14:46:18.8507 | INFO | InvSis.Data.UsuariosDataAccess | Se obtuvieron 5 usuarios 
+2025-05-26 14:46:18.9484 | INFO | InvSis.Data.ProductosDataAccess | Se obtuvieron 3 productos 
+2025-05-26 14:46:24.6048 | INFO | InvSis.Data.ProductosDataAccess | ProductosDataAccess inicializado correctamente 
+2025-05-26 14:46:24.7046 | INFO | InvSis.Data.ProductosDataAccess | Se obtuvieron 3 productos 
+2025-05-26 15:02:36.0776 | INFO | LoggingManager | Sistema de logging configurado correctamente 
+2025-05-26 15:02:36.3657 | INFO | InvSis.Data.PostgreSQLDataAccess | Instancia de acceso a datos creada correctamente 
+2025-05-26 15:02:36.3657 | INFO | InvSis.Data.UsuariosDataAccess | UsuariosDataAccess inicializado correctamente 
+2025-05-26 15:02:41.5140 | INFO | InvSis.Data.PostgreSQLDataAccess | Conexión a la base de datos establecida correctamente 
+2025-05-26 15:02:41.5179 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @Nickname = Oscar 
+2025-05-26 15:02:41.5179 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @Contrasena = 123 
+2025-05-26 15:02:41.6859 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdPersona = 1 
+2025-05-26 15:02:41.8375 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdRol = 3 
+2025-05-26 15:02:41.9398 | INFO | InvSis.Data.UsuariosDataAccess | Usuario Oscar autenticado correctamente 
+2025-05-26 15:02:42.0397 | INFO | InvSis.Data.RolesDataAccess | Se obtuvieron 6 roles de la base de datos 
+2025-05-26 15:02:42.0397 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdRol = 3 
+2025-05-26 15:02:44.7927 | INFO | InvSis.Data.BitacoraDataAccess | BitacoraDataAccess inicializado correctamente 
+2025-05-26 15:02:44.8980 | INFO | InvSis.Data.BitacoraDataAccess | Se obtuvieron 0 registros filtrados de bitácora 
+2025-05-26 15:02:47.6782 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @FechaInicio = 26/04/2025 12:00:00 a. m. 
+2025-05-26 15:02:47.6782 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @FechaFin = 26/05/2025 12:00:00 a. m. 
+2025-05-26 15:02:47.7806 | INFO | InvSis.Data.BitacoraDataAccess | Se obtuvieron 0 registros filtrados de bitácora 
+2025-05-26 15:03:06.3943 | INFO | InvSis.Data.ProductosDataAccess | ProductosDataAccess inicializado correctamente 
+2025-05-26 15:03:06.6576 | INFO | InvSis.Data.ProductosDataAccess | ProductosDataAccess inicializado correctamente 
+2025-05-26 15:03:06.6576 | INFO | InvSis.Data.MovimientoProductoDataAccess | MovimientoProductoDataAccess inicializado correctamente 
+2025-05-26 15:03:06.6576 | INFO | InvSis.Data.ProductosDataAccess | ProductosDataAccess inicializado correctamente 
+2025-05-26 15:03:06.8129 | ERROR | InvSis.Data.ProductosDataAccess | Error al obtener productos System.ArgumentException: Column 'costo_unitario' does not belong to table .
+   at System.Data.DataRow.GetDataColumn(String columnName)
+   at System.Data.DataRow.get_Item(String columnName)
+   at InventariosCore.Data.ProductosDataAccess.ObtenerProductos(Boolean soloActivos) in C:\Users\esqui\OneDrive\Documents\8 SEMESTRE\programacion version pendiente de apii\InventariosCore\Data\ProductosDataAccess.cs:line 401System.ArgumentException: Column 'costo_unitario' does not belong to table .
+   at System.Data.DataRow.GetDataColumn(String columnName)
+   at System.Data.DataRow.get_Item(String columnName)
+   at InventariosCore.Data.ProductosDataAccess.ObtenerProductos(Boolean soloActivos) in C:\Users\esqui\OneDrive\Documents\8 SEMESTRE\programacion version pendiente de apii\InventariosCore\Data\ProductosDataAccess.cs:line 401
+2025-05-26 15:03:08.0173 | INFO | InvSis.Data.UsuariosDataAccess | UsuariosDataAccess inicializado correctamente 
+2025-05-26 15:03:08.1174 | INFO | InvSis.Data.RolesDataAccess | Se obtuvieron 6 roles de la base de datos 
+2025-05-26 15:03:08.2616 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdPersona = 7 
+2025-05-26 15:03:08.3616 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdRol = 5 
+2025-05-26 15:03:08.4600 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdPersona = 4 
+2025-05-26 15:03:08.5704 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdRol = 1 
+2025-05-26 15:03:08.6691 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdPersona = 5 
+2025-05-26 15:03:08.7673 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdRol = 4 
+2025-05-26 15:03:08.8697 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdPersona = 6 
+2025-05-26 15:03:08.9701 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdRol = 6 
+2025-05-26 15:03:09.0682 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdPersona = 1 
+2025-05-26 15:03:09.1669 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdRol = 3 
+2025-05-26 15:03:09.2661 | INFO | InvSis.Data.UsuariosDataAccess | Se obtuvieron 5 usuarios 
+2025-05-26 15:03:09.3925 | INFO | InvSis.Data.ProductosDataAccess | Se obtuvieron 3 productos 
+2025-05-26 15:04:31.7057 | INFO | InvSis.Data.UsuariosDataAccess | UsuariosDataAccess inicializado correctamente 
+2025-05-26 15:04:31.8257 | INFO | InvSis.Data.PersonasDataAccess | Se obtuvieron 5 personas de la base de datos 
+2025-05-26 15:04:31.9415 | INFO | InvSis.Data.RolesDataAccess | Se obtuvieron 6 roles de la base de datos 
+2025-05-26 15:04:32.0419 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdPersona = 7 
+2025-05-26 15:04:32.1408 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdRol = 5 
+2025-05-26 15:04:32.2383 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdPersona = 4 
+2025-05-26 15:04:32.3380 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdRol = 1 
+2025-05-26 15:04:32.4364 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdPersona = 5 
+2025-05-26 15:04:32.5357 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdRol = 4 
+2025-05-26 15:04:32.6375 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdPersona = 6 
+2025-05-26 15:04:32.7384 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdRol = 6 
+2025-05-26 15:04:32.8374 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdPersona = 4 
+2025-05-26 15:04:32.9435 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdRol = 1 
+2025-05-26 15:04:33.0611 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdPersona = 1 
+2025-05-26 15:04:33.1608 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdRol = 3 
+2025-05-26 15:04:33.2764 | INFO | InvSis.Data.UsuariosDataAccess | Se obtuvieron 6 usuarios 
+2025-05-26 15:04:37.2669 | INFO | InvSis.Data.PersonasDataAccess | Se obtuvieron 5 personas de la base de datos 
+2025-05-26 15:04:41.4773 | INFO | InvSis.Data.PersonasDataAccess | Se obtuvieron 5 personas de la base de datos 
+2025-05-26 15:04:53.2010 | INFO | InvSis.Data.PersonasDataAccess | Se obtuvieron 5 personas de la base de datos 
+2025-05-26 15:04:59.4426 | INFO | InvSis.Data.PersonasDataAccess | Se obtuvieron 5 personas de la base de datos 
+2025-05-26 18:25:00.2725 | INFO | LoggingManager | Sistema de logging configurado correctamente 
+2025-05-26 18:25:00.8618 | INFO | InvSis.Data.PostgreSQLDataAccess | Instancia de acceso a datos creada correctamente 
+2025-05-26 18:25:00.8618 | INFO | InvSis.Data.UsuariosDataAccess | UsuariosDataAccess inicializado correctamente 
+2025-05-26 18:25:06.7337 | INFO | InvSis.Data.PostgreSQLDataAccess | Conexión a la base de datos establecida correctamente 
+2025-05-26 18:25:06.7377 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @Nickname = Oscar 
+2025-05-26 18:25:06.7377 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @Contrasena = 123 
+2025-05-26 18:25:06.8994 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdPersona = 1 
+2025-05-26 18:25:06.9934 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdRol = 3 
+2025-05-26 18:25:07.0888 | INFO | InvSis.Data.UsuariosDataAccess | Usuario Oscar autenticado correctamente 
+2025-05-26 18:25:07.1873 | INFO | InvSis.Data.RolesDataAccess | Se obtuvieron 6 roles de la base de datos 
+2025-05-26 18:25:07.1873 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdRol = 3 
+2025-05-26 18:25:09.9571 | INFO | InvSis.Data.UsuariosDataAccess | UsuariosDataAccess inicializado correctamente 
+2025-05-26 18:25:10.0601 | INFO | InvSis.Data.PersonasDataAccess | Se obtuvieron 6 personas de la base de datos 
+2025-05-26 18:25:10.1567 | INFO | InvSis.Data.RolesDataAccess | Se obtuvieron 6 roles de la base de datos 
+2025-05-26 18:25:10.2507 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdPersona = 8 
+2025-05-26 18:25:10.3445 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdRol = 6 
+2025-05-26 18:25:10.4376 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdPersona = 7 
+2025-05-26 18:25:10.5305 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdRol = 5 
+2025-05-26 18:25:10.6257 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdPersona = 4 
+2025-05-26 18:25:10.7185 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdRol = 1 
+2025-05-26 18:25:10.8135 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdPersona = 5 
+2025-05-26 18:25:10.9083 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdRol = 4 
+2025-05-26 18:25:11.0029 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdPersona = 6 
+2025-05-26 18:25:11.0965 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdRol = 6 
+2025-05-26 18:25:11.1898 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdPersona = 4 
+2025-05-26 18:25:11.2826 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdRol = 1 
+2025-05-26 18:25:11.3757 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdPersona = 1 
+2025-05-26 18:25:11.4689 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdRol = 3 
+2025-05-26 18:25:11.5614 | INFO | InvSis.Data.UsuariosDataAccess | Se obtuvieron 7 usuarios 
+2025-05-26 18:25:12.6103 | INFO | InvSis.Data.PermisosDataAccess | Se obtuvieron 21 permisos de la base de datos 
+2025-05-26 18:25:14.4312 | INFO | InvSis.Data.RolesDataAccess | Se obtuvieron 6 roles de la base de datos 
+2025-05-26 18:25:14.4431 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdRol = 3 
+2025-05-26 18:25:14.6347 | INFO | InvSis.Data.PermisosDataAccess | Se obtuvieron 17 permisos de la base de datos 
+2025-05-26 18:25:14.6347 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdRol = 3 
+2025-05-26 18:25:14.7476 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdRol = 3 
+2025-05-26 18:25:14.9387 | INFO | InvSis.Data.PermisosDataAccess | Se obtuvieron 17 permisos de la base de datos 
+2025-05-26 18:25:14.9387 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdRol = 3 
+2025-05-26 18:25:15.0423 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdRol = 3 
+2025-05-26 18:25:15.2486 | INFO | InvSis.Data.PermisosDataAccess | Se obtuvieron 17 permisos de la base de datos 
+2025-05-26 18:25:15.2486 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdRol = 3 
+2025-05-26 18:25:16.8959 | INFO | InvSis.Data.ProductosDataAccess | ProductosDataAccess inicializado correctamente 
+2025-05-26 18:25:17.2453 | INFO | InvSis.Data.ProductosDataAccess | ProductosDataAccess inicializado correctamente 
+2025-05-26 18:25:17.2453 | INFO | InvSis.Data.MovimientoProductoDataAccess | MovimientoProductoDataAccess inicializado correctamente 
+2025-05-26 18:25:17.2453 | INFO | InvSis.Data.ProductosDataAccess | ProductosDataAccess inicializado correctamente 
+2025-05-26 18:25:17.3882 | ERROR | InvSis.Data.ProductosDataAccess | Error al obtener productos System.ArgumentException: Column 'costo_unitario' does not belong to table .
+   at System.Data.DataRow.GetDataColumn(String columnName)
+   at System.Data.DataRow.get_Item(String columnName)
+   at InventariosCore.Data.ProductosDataAccess.ObtenerProductos(Boolean soloActivos) in C:\Users\esqui\OneDrive\Documents\8 SEMESTRE\programacion version pendiente de apii\InventariosCore\Data\ProductosDataAccess.cs:line 401System.ArgumentException: Column 'costo_unitario' does not belong to table .
+   at System.Data.DataRow.GetDataColumn(String columnName)
+   at System.Data.DataRow.get_Item(String columnName)
+   at InventariosCore.Data.ProductosDataAccess.ObtenerProductos(Boolean soloActivos) in C:\Users\esqui\OneDrive\Documents\8 SEMESTRE\programacion version pendiente de apii\InventariosCore\Data\ProductosDataAccess.cs:line 401
+2025-05-26 18:25:17.4388 | INFO | InvSis.Data.UsuariosDataAccess | UsuariosDataAccess inicializado correctamente 
+2025-05-26 18:25:17.5337 | INFO | InvSis.Data.RolesDataAccess | Se obtuvieron 6 roles de la base de datos 
+2025-05-26 18:25:17.6269 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdPersona = 8 
+2025-05-26 18:25:17.7210 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdRol = 6 
+2025-05-26 18:25:17.8179 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdPersona = 7 
+2025-05-26 18:25:17.9105 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdRol = 5 
+2025-05-26 18:25:18.0044 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdPersona = 4 
+2025-05-26 18:25:18.0973 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdRol = 1 
+2025-05-26 18:25:18.1903 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdPersona = 5 
+2025-05-26 18:25:18.2847 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdRol = 4 
+2025-05-26 18:25:18.3793 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdPersona = 6 
+2025-05-26 18:25:18.4738 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdRol = 6 
+2025-05-26 18:25:18.5666 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdPersona = 1 
+2025-05-26 18:25:18.6608 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdRol = 3 
+2025-05-26 18:25:18.7549 | INFO | InvSis.Data.UsuariosDataAccess | Se obtuvieron 6 usuarios 
+2025-05-26 18:25:18.8536 | INFO | InvSis.Data.ProductosDataAccess | Se obtuvieron 4 productos 
+2025-05-26 18:25:20.6047 | INFO | InvSis.Data.ProductosDataAccess | ProductosDataAccess inicializado correctamente 
+2025-05-26 18:25:20.7055 | INFO | InvSis.Data.ProductosDataAccess | Se obtuvieron 4 productos 
+2025-05-26 18:25:22.2852 | INFO | InvSis.Data.BitacoraDataAccess | BitacoraDataAccess inicializado correctamente 
+2025-05-26 18:25:22.3842 | INFO | InvSis.Data.BitacoraDataAccess | Se obtuvieron 0 registros filtrados de bitácora 
+2025-05-26 18:25:23.9838 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @FechaInicio = 26/04/2025 12:00:00 a. m. 
+2025-05-26 18:25:23.9838 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @FechaFin = 26/05/2025 12:00:00 a. m. 
+2025-05-26 18:25:24.0793 | INFO | InvSis.Data.BitacoraDataAccess | Se obtuvieron 0 registros filtrados de bitácora 
+2025-05-26 18:25:25.7039 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @FechaInicio = 26/04/2025 12:00:00 a. m. 
+2025-05-26 18:25:25.7039 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @FechaFin = 26/05/2025 12:00:00 a. m. 
+2025-05-26 18:25:25.7969 | INFO | InvSis.Data.BitacoraDataAccess | Se obtuvieron 0 registros filtrados de bitácora 
+2025-05-26 18:25:26.7612 | INFO | InvSis.Data.BitacoraDataAccess | Se obtuvieron 0 registros filtrados de bitácora 
+2025-05-26 18:25:27.9213 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @FechaInicio = 26/04/2025 12:00:00 a. m. 
+2025-05-26 18:25:27.9213 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @FechaFin = 26/05/2025 12:00:00 a. m. 
+2025-05-26 18:25:28.0172 | INFO | InvSis.Data.BitacoraDataAccess | Se obtuvieron 0 registros filtrados de bitácora 
+2025-05-26 19:11:40.2503 | INFO | LoggingManager | Sistema de logging configurado correctamente 
+2025-05-26 19:11:40.9088 | INFO | InvSis.Data.PostgreSQLDataAccess | Instancia de acceso a datos creada correctamente 
+2025-05-26 19:11:40.9088 | INFO | InvSis.Data.UsuariosDataAccess | UsuariosDataAccess inicializado correctamente 
+2025-05-26 19:11:46.6178 | INFO | InvSis.Data.PostgreSQLDataAccess | Conexión a la base de datos establecida correctamente 
+2025-05-26 19:11:46.6178 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @Nickname = Oscar 
+2025-05-26 19:11:46.6178 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @Contrasena = 123 
+2025-05-26 19:11:46.8359 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdPersona = 1 
+2025-05-26 19:11:46.9296 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdRol = 3 
+2025-05-26 19:11:47.0223 | INFO | InvSis.Data.UsuariosDataAccess | Usuario Oscar autenticado correctamente 
+2025-05-26 19:11:47.1215 | INFO | InvSis.Data.RolesDataAccess | Se obtuvieron 6 roles de la base de datos 
+2025-05-26 19:11:47.1215 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdRol = 3 
+2025-05-26 19:11:51.6440 | INFO | InvSis.Data.ProductosDataAccess | ProductosDataAccess inicializado correctamente 
+2025-05-26 19:11:51.8189 | INFO | InvSis.Data.ProductosDataAccess | Se obtuvieron 4 productos 
+2025-05-26 19:11:51.9640 | INFO | InvSis.Data.ProductosDataAccess | Se obtuvieron 4 productos 
+2025-05-26 19:11:52.0971 | INFO | InvSis.Data.ProductosDataAccess | Se obtuvieron 4 productos 
+2025-05-26 19:12:26.5471 | INFO | InvSis.Data.UsuariosDataAccess | UsuariosDataAccess inicializado correctamente 
+2025-05-26 19:12:26.6499 | INFO | InvSis.Data.PersonasDataAccess | Se obtuvieron 6 personas de la base de datos 
+2025-05-26 19:12:26.7911 | INFO | InvSis.Data.RolesDataAccess | Se obtuvieron 6 roles de la base de datos 
+2025-05-26 19:12:26.9960 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdPersona = 8 
+2025-05-26 19:12:27.2006 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdRol = 6 
+2025-05-26 19:12:27.3266 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdPersona = 7 
+2025-05-26 19:12:27.4286 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdRol = 5 
+2025-05-26 19:12:27.5225 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdPersona = 4 
+2025-05-26 19:12:27.7127 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdRol = 1 
+2025-05-26 19:12:27.8151 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdPersona = 5 
+2025-05-26 19:12:27.9126 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdRol = 4 
+2025-05-26 19:12:28.1226 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdPersona = 6 
+2025-05-26 19:12:28.2166 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdRol = 6 
+2025-05-26 19:12:28.3115 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdPersona = 4 
+2025-05-26 19:12:28.4044 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdRol = 1 
+2025-05-26 19:12:28.4970 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdPersona = 1 
+2025-05-26 19:12:28.5899 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdRol = 3 
+2025-05-26 19:12:28.6926 | INFO | InvSis.Data.UsuariosDataAccess | Se obtuvieron 7 usuarios 
+2025-05-26 19:12:33.4062 | INFO | InvSis.Data.ProductosDataAccess | ProductosDataAccess inicializado correctamente 
+2025-05-26 19:12:33.5453 | INFO | InvSis.Data.ProductosDataAccess | Se obtuvieron 4 productos 
+2025-05-26 19:12:33.6389 | INFO | InvSis.Data.ProductosDataAccess | Se obtuvieron 4 productos 
+2025-05-26 19:12:33.7361 | INFO | InvSis.Data.ProductosDataAccess | Se obtuvieron 4 productos 
+2025-05-26 19:20:04.9640 | INFO | LoggingManager | Sistema de logging configurado correctamente 
+2025-05-26 19:20:05.5218 | INFO | InvSis.Data.PostgreSQLDataAccess | Instancia de acceso a datos creada correctamente 
+2025-05-26 19:20:05.5218 | INFO | InvSis.Data.UsuariosDataAccess | UsuariosDataAccess inicializado correctamente 
+2025-05-26 19:20:10.7496 | INFO | InvSis.Data.PostgreSQLDataAccess | Conexión a la base de datos establecida correctamente 
+2025-05-26 19:20:10.7496 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @Nickname = Oscar 
+2025-05-26 19:20:10.7496 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @Contrasena = 123 
+2025-05-26 19:20:10.9554 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdPersona = 1 
+2025-05-26 19:20:11.0748 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdRol = 3 
+2025-05-26 19:20:11.1725 | INFO | InvSis.Data.UsuariosDataAccess | Usuario Oscar autenticado correctamente 
+2025-05-26 19:20:11.2733 | INFO | InvSis.Data.RolesDataAccess | Se obtuvieron 6 roles de la base de datos 
+2025-05-26 19:20:11.2733 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdRol = 3 
+2025-05-26 19:20:13.7661 | INFO | InvSis.Data.ProductosDataAccess | ProductosDataAccess inicializado correctamente 
+2025-05-26 19:20:13.9302 | INFO | InvSis.Data.ProductosDataAccess | Se obtuvieron 4 productos 
+2025-05-26 19:20:14.1464 | INFO | InvSis.Data.ProductosDataAccess | Se obtuvieron 4 productos 
+2025-05-26 19:20:14.2591 | INFO | InvSis.Data.ProductosDataAccess | Se obtuvieron 4 productos 
+2025-05-26 19:20:24.4786 | INFO | InvSis.Data.ProductosDataAccess | Se obtuvieron 4 productos 
+2025-05-26 19:20:24.5812 | INFO | InvSis.Data.ProductosDataAccess | Se obtuvieron 4 productos 
+2025-05-26 19:20:53.2976 | INFO | InvSis.Data.ProductosDataAccess | Se obtuvieron 4 productos 
+2025-05-26 19:20:53.3956 | INFO | InvSis.Data.ProductosDataAccess | Se obtuvieron 4 productos 
+2025-05-26 19:24:19.3016 | INFO | LoggingManager | Sistema de logging configurado correctamente 
+2025-05-26 19:24:19.5736 | INFO | InvSis.Data.PostgreSQLDataAccess | Instancia de acceso a datos creada correctamente 
+2025-05-26 19:24:19.5736 | INFO | InvSis.Data.UsuariosDataAccess | UsuariosDataAccess inicializado correctamente 
+2025-05-26 19:24:24.3520 | INFO | InvSis.Data.PostgreSQLDataAccess | Conexión a la base de datos establecida correctamente 
+2025-05-26 19:24:24.3520 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @Nickname = Oscar 
+2025-05-26 19:24:24.3520 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @Contrasena = 123 
+2025-05-26 19:24:24.5154 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdPersona = 1 
+2025-05-26 19:24:24.6113 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdRol = 3 
+2025-05-26 19:24:24.7046 | INFO | InvSis.Data.UsuariosDataAccess | Usuario Oscar autenticado correctamente 
+2025-05-26 19:24:24.8003 | INFO | InvSis.Data.RolesDataAccess | Se obtuvieron 6 roles de la base de datos 
+2025-05-26 19:24:24.8003 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdRol = 3 
+2025-05-26 19:24:26.5363 | INFO | InvSis.Data.UsuariosDataAccess | UsuariosDataAccess inicializado correctamente 
+2025-05-26 19:24:26.6388 | INFO | InvSis.Data.PersonasDataAccess | Se obtuvieron 6 personas de la base de datos 
+2025-05-26 19:24:26.7331 | INFO | InvSis.Data.RolesDataAccess | Se obtuvieron 6 roles de la base de datos 
+2025-05-26 19:24:26.8266 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdPersona = 8 
+2025-05-26 19:24:26.9201 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdRol = 6 
+2025-05-26 19:24:27.0172 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdPersona = 7 
+2025-05-26 19:24:27.1142 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdRol = 5 
+2025-05-26 19:24:27.2327 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdPersona = 4 
+2025-05-26 19:24:27.3322 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdRol = 1 
+2025-05-26 19:24:27.4397 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdPersona = 5 
+2025-05-26 19:24:27.5415 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdRol = 4 
+2025-05-26 19:24:27.6362 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdPersona = 6 
+2025-05-26 19:24:27.7324 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdRol = 6 
+2025-05-26 19:24:27.8306 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdPersona = 4 
+2025-05-26 19:24:27.9243 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdRol = 1 
+2025-05-26 19:24:28.0654 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdPersona = 1 
+2025-05-26 19:24:28.1691 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdRol = 3 
+2025-05-26 19:24:28.2624 | INFO | InvSis.Data.UsuariosDataAccess | Se obtuvieron 7 usuarios 
+2025-05-26 19:24:28.9268 | INFO | InvSis.Data.PermisosDataAccess | Se obtuvieron 21 permisos de la base de datos 
+2025-05-26 19:24:31.0641 | INFO | InvSis.Data.ProductosDataAccess | ProductosDataAccess inicializado correctamente 
+2025-05-26 19:24:31.1822 | INFO | InvSis.Data.ProductosDataAccess | Se obtuvieron 4 productos 
+2025-05-26 19:24:31.2764 | INFO | InvSis.Data.ProductosDataAccess | Se obtuvieron 4 productos 
+2025-05-26 19:24:31.3728 | INFO | InvSis.Data.ProductosDataAccess | Se obtuvieron 4 productos 
+2025-05-26 19:24:35.4009 | INFO | InvSis.Data.ProductosDataAccess | Se obtuvieron 4 productos 
+2025-05-26 19:24:35.4952 | INFO | InvSis.Data.ProductosDataAccess | Se obtuvieron 4 productos 
+2025-05-26 19:24:42.8851 | INFO | InvSis.Data.ProductosDataAccess | Se obtuvieron 4 productos 
+2025-05-26 19:24:42.9796 | INFO | InvSis.Data.ProductosDataAccess | Se obtuvieron 4 productos 
+2025-05-26 19:24:44.3794 | INFO | InvSis.Data.ProductosDataAccess | Se obtuvieron 4 productos 
+2025-05-26 19:24:44.4740 | INFO | InvSis.Data.ProductosDataAccess | Se obtuvieron 4 productos 
+2025-05-26 19:24:49.5787 | INFO | InvSis.Data.ProductosDataAccess | Se obtuvieron 4 productos 
+2025-05-26 19:24:49.6740 | INFO | InvSis.Data.ProductosDataAccess | Se obtuvieron 4 productos 
+2025-05-26 19:24:53.3749 | INFO | InvSis.Data.ProductosDataAccess | Se obtuvieron 4 productos 
+2025-05-26 19:24:53.4704 | INFO | InvSis.Data.ProductosDataAccess | Se obtuvieron 4 productos 
+2025-05-26 19:25:02.2356 | INFO | InvSis.Data.ProductosDataAccess | Se obtuvieron 4 productos 
+2025-05-26 19:25:02.3867 | INFO | InvSis.Data.ProductosDataAccess | Se obtuvieron 4 productos 
+2025-05-26 19:25:06.0022 | INFO | InvSis.Data.ProductosDataAccess | Se obtuvieron 4 productos 
+2025-05-26 19:25:06.0961 | INFO | InvSis.Data.ProductosDataAccess | Se obtuvieron 4 productos 
+2025-05-26 19:25:14.9297 | INFO | InvSis.Data.ProductosDataAccess | Se obtuvieron 4 productos 
+2025-05-26 19:25:15.0240 | INFO | InvSis.Data.ProductosDataAccess | Se obtuvieron 4 productos 
+2025-05-26 19:28:28.7513 | INFO | LoggingManager | Sistema de logging configurado correctamente 
+2025-05-26 19:28:29.0868 | INFO | InvSis.Data.PostgreSQLDataAccess | Instancia de acceso a datos creada correctamente 
+2025-05-26 19:28:29.0868 | INFO | InvSis.Data.UsuariosDataAccess | UsuariosDataAccess inicializado correctamente 
+2025-05-26 19:28:34.2457 | INFO | InvSis.Data.PostgreSQLDataAccess | Conexión a la base de datos establecida correctamente 
+2025-05-26 19:28:34.2496 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @Nickname = Oscar 
+2025-05-26 19:28:34.2496 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @Contrasena = 123 
+2025-05-26 19:28:34.4247 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdPersona = 1 
+2025-05-26 19:28:34.5246 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdRol = 3 
+2025-05-26 19:28:34.6219 | INFO | InvSis.Data.UsuariosDataAccess | Usuario Oscar autenticado correctamente 
+2025-05-26 19:28:34.7215 | INFO | InvSis.Data.RolesDataAccess | Se obtuvieron 6 roles de la base de datos 
+2025-05-26 19:28:34.7215 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdRol = 3 
+2025-05-26 19:28:36.7015 | INFO | InvSis.Data.ProductosDataAccess | ProductosDataAccess inicializado correctamente 
+2025-05-26 19:28:36.8409 | INFO | InvSis.Data.ProductosDataAccess | Se obtuvieron 4 productos 
+2025-05-26 19:28:36.9471 | INFO | InvSis.Data.ProductosDataAccess | Se obtuvieron 4 productos 
+2025-05-26 19:28:37.0567 | INFO | InvSis.Data.ProductosDataAccess | Se obtuvieron 4 productos 
+2025-05-26 19:28:39.8310 | INFO | InvSis.Data.ProductosDataAccess | Se obtuvieron 4 productos 
+2025-05-26 19:28:39.9306 | INFO | InvSis.Data.ProductosDataAccess | Se obtuvieron 4 productos 
+2025-05-26 19:29:13.6627 | INFO | LoggingManager | Sistema de logging configurado correctamente 
+2025-05-26 19:29:13.9222 | INFO | InvSis.Data.PostgreSQLDataAccess | Instancia de acceso a datos creada correctamente 
+2025-05-26 19:29:13.9222 | INFO | InvSis.Data.UsuariosDataAccess | UsuariosDataAccess inicializado correctamente 
+2025-05-26 19:29:18.5828 | INFO | InvSis.Data.PostgreSQLDataAccess | Conexión a la base de datos establecida correctamente 
+2025-05-26 19:29:18.5828 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @Nickname = Oscar 
+2025-05-26 19:29:18.5828 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @Contrasena = 123 
+2025-05-26 19:29:18.7605 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdPersona = 1 
+2025-05-26 19:29:18.8587 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdRol = 3 
+2025-05-26 19:29:18.9550 | INFO | InvSis.Data.UsuariosDataAccess | Usuario Oscar autenticado correctamente 
+2025-05-26 19:29:19.0548 | INFO | InvSis.Data.RolesDataAccess | Se obtuvieron 6 roles de la base de datos 
+2025-05-26 19:29:19.0548 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdRol = 3 
+2025-05-26 19:29:20.7014 | INFO | InvSis.Data.ProductosDataAccess | ProductosDataAccess inicializado correctamente 
+2025-05-26 19:29:20.8573 | INFO | InvSis.Data.ProductosDataAccess | Se obtuvieron 4 productos 
+2025-05-26 19:29:20.9567 | INFO | InvSis.Data.ProductosDataAccess | Se obtuvieron 4 productos 
+2025-05-26 19:29:21.0688 | INFO | InvSis.Data.ProductosDataAccess | Se obtuvieron 4 productos 
+2025-05-26 19:29:24.2838 | INFO | InvSis.Data.ProductosDataAccess | Se obtuvieron 4 productos 
+2025-05-26 19:29:24.3833 | INFO | InvSis.Data.ProductosDataAccess | Se obtuvieron 4 productos 
+2025-05-26 19:29:47.6840 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdProducto = 1 
+2025-05-26 19:29:47.6840 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @Nombre = ajajkajka 
+2025-05-26 19:29:47.6840 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @Categoria = Cat X 
+2025-05-26 19:29:47.6840 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @Costo = 10.00 
+2025-05-26 19:29:47.6840 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @Stock = 3 
+2025-05-26 19:29:47.6840 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @Ubicacion = Tijuana 
+2025-05-26 19:29:47.6840 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @Clave = 7501234567890 
+2025-05-26 19:29:47.6840 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @Estatus = 0 
+2025-05-26 19:29:47.6840 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @AplicaImpuesto = False 
+2025-05-26 19:29:47.6840 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdImpuesto =  
+2025-05-26 19:29:47.7896 | INFO | InvSis.Data.ProductosDataAccess | Producto con ID 1 actualizado correctamente 
+2025-05-26 19:29:48.9125 | INFO | InvSis.Data.ProductosDataAccess | Se obtuvieron 4 productos 
+2025-05-26 19:29:49.0110 | INFO | InvSis.Data.ProductosDataAccess | Se obtuvieron 4 productos 
+2025-05-26 19:29:51.1268 | INFO | InvSis.Data.ProductosDataAccess | Se obtuvieron 4 productos 
+2025-05-26 19:29:51.2249 | INFO | InvSis.Data.ProductosDataAccess | Se obtuvieron 4 productos 
+2025-05-26 19:30:15.3925 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdProducto = 1 
+2025-05-26 19:30:15.3925 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @Nombre = ajajkajka 
+2025-05-26 19:30:15.3925 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @Categoria = Cat X 
+2025-05-26 19:30:15.3925 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @Costo = 10.00 
+2025-05-26 19:30:15.3925 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @Stock = 3 
+2025-05-26 19:30:15.3925 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @Ubicacion = Tijuana 
+2025-05-26 19:30:15.3925 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @Clave = 7501234567890 
+2025-05-26 19:30:15.3925 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @Estatus = 1 
+2025-05-26 19:30:15.3925 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @AplicaImpuesto = False 
+2025-05-26 19:30:15.3925 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdImpuesto =  
+2025-05-26 19:30:15.4939 | INFO | InvSis.Data.ProductosDataAccess | Producto con ID 1 actualizado correctamente 
+2025-05-26 19:30:16.4949 | INFO | InvSis.Data.ProductosDataAccess | Se obtuvieron 4 productos 
+2025-05-26 19:30:16.5974 | INFO | InvSis.Data.ProductosDataAccess | Se obtuvieron 4 productos 
+2025-05-26 19:30:28.4535 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdProducto = 3 
+2025-05-26 19:30:28.4535 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @Nombre = Bolsas 
+2025-05-26 19:30:28.4535 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @Categoria = Cat Z 
+2025-05-26 19:30:28.4535 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @Costo = 50.00 
+2025-05-26 19:30:28.4535 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @Stock = 100 
+2025-05-26 19:30:28.4535 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @Ubicacion = Cancún 
+2025-05-26 19:30:28.4535 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @Clave = 7501234567892 
+2025-05-26 19:30:28.4535 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @Estatus = 0 
+2025-05-26 19:30:28.4535 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @AplicaImpuesto = False 
+2025-05-26 19:30:28.4535 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdImpuesto =  
+2025-05-26 19:30:28.5526 | INFO | InvSis.Data.ProductosDataAccess | Producto con ID 3 actualizado correctamente 
+2025-05-26 19:30:29.6706 | INFO | InvSis.Data.ProductosDataAccess | Se obtuvieron 4 productos 
+2025-05-26 19:30:29.7870 | INFO | InvSis.Data.ProductosDataAccess | Se obtuvieron 4 productos 
+2025-05-26 19:30:54.6950 | INFO | LoggingManager | Sistema de logging configurado correctamente 
+2025-05-26 19:30:54.9489 | INFO | InvSis.Data.PostgreSQLDataAccess | Instancia de acceso a datos creada correctamente 
+2025-05-26 19:30:54.9489 | INFO | InvSis.Data.UsuariosDataAccess | UsuariosDataAccess inicializado correctamente 
+2025-05-26 19:31:00.1754 | INFO | InvSis.Data.PostgreSQLDataAccess | Conexión a la base de datos establecida correctamente 
+2025-05-26 19:31:00.1754 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @Nickname = Oscar 
+2025-05-26 19:31:00.1754 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @Contrasena = 123 
+2025-05-26 19:31:00.3445 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdPersona = 1 
+2025-05-26 19:31:00.4500 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdRol = 3 
+2025-05-26 19:31:00.5476 | INFO | InvSis.Data.UsuariosDataAccess | Usuario Oscar autenticado correctamente 
+2025-05-26 19:31:00.6454 | INFO | InvSis.Data.RolesDataAccess | Se obtuvieron 6 roles de la base de datos 
+2025-05-26 19:31:00.6454 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdRol = 3 
+2025-05-26 19:31:02.8268 | INFO | InvSis.Data.ProductosDataAccess | ProductosDataAccess inicializado correctamente 
+2025-05-26 19:31:02.9743 | INFO | InvSis.Data.ProductosDataAccess | Se obtuvieron 4 productos 
+2025-05-26 19:31:03.0742 | INFO | InvSis.Data.ProductosDataAccess | Se obtuvieron 4 productos 
+2025-05-26 19:31:03.1853 | INFO | InvSis.Data.ProductosDataAccess | Se obtuvieron 4 productos 
+2025-05-26 19:31:06.9109 | INFO | InvSis.Data.ProductosDataAccess | ProductosDataAccess inicializado correctamente 
+2025-05-26 19:31:07.1647 | INFO | InvSis.Data.ProductosDataAccess | ProductosDataAccess inicializado correctamente 
+2025-05-26 19:31:07.1647 | INFO | InvSis.Data.MovimientoProductoDataAccess | MovimientoProductoDataAccess inicializado correctamente 
+2025-05-26 19:31:07.1647 | INFO | InvSis.Data.ProductosDataAccess | ProductosDataAccess inicializado correctamente 
+2025-05-26 19:31:07.3073 | ERROR | InvSis.Data.ProductosDataAccess | Error al obtener productos System.ArgumentException: Column 'costo_unitario' does not belong to table .
+   at System.Data.DataRow.GetDataColumn(String columnName)
+   at System.Data.DataRow.get_Item(String columnName)
+   at InventariosCore.Data.ProductosDataAccess.ObtenerProductos(Boolean soloActivos) in C:\Users\esqui\OneDrive\Documents\8 SEMESTRE\programacion version pendiente de apii\InventariosCore\Data\ProductosDataAccess.cs:line 401System.ArgumentException: Column 'costo_unitario' does not belong to table .
+   at System.Data.DataRow.GetDataColumn(String columnName)
+   at System.Data.DataRow.get_Item(String columnName)
+   at InventariosCore.Data.ProductosDataAccess.ObtenerProductos(Boolean soloActivos) in C:\Users\esqui\OneDrive\Documents\8 SEMESTRE\programacion version pendiente de apii\InventariosCore\Data\ProductosDataAccess.cs:line 401
+2025-05-26 19:31:07.3564 | INFO | InvSis.Data.UsuariosDataAccess | UsuariosDataAccess inicializado correctamente 
+2025-05-26 19:31:07.4533 | INFO | InvSis.Data.RolesDataAccess | Se obtuvieron 6 roles de la base de datos 
+2025-05-26 19:31:07.5525 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdPersona = 8 
+2025-05-26 19:31:07.6494 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdRol = 6 
+2025-05-26 19:31:07.7465 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdPersona = 7 
+2025-05-26 19:31:07.8426 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdRol = 5 
+2025-05-26 19:31:07.9856 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdPersona = 4 
+2025-05-26 19:31:08.0819 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdRol = 1 
+2025-05-26 19:31:08.1793 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdPersona = 5 
+2025-05-26 19:31:08.2771 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdRol = 4 
+2025-05-26 19:31:08.3742 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdPersona = 6 
+2025-05-26 19:31:08.4717 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdRol = 6 
+2025-05-26 19:31:08.5704 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdPersona = 1 
+2025-05-26 19:31:08.6811 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdRol = 3 
+2025-05-26 19:31:08.7784 | INFO | InvSis.Data.UsuariosDataAccess | Se obtuvieron 6 usuarios 
+2025-05-26 19:31:08.8785 | INFO | InvSis.Data.ProductosDataAccess | Se obtuvieron 4 productos 
+2025-05-26 19:31:22.8397 | INFO | InvSis.Data.ProductosDataAccess | ProductosDataAccess inicializado correctamente 
+2025-05-26 19:31:22.9494 | INFO | InvSis.Data.ProductosDataAccess | Se obtuvieron 4 productos 
+2025-05-26 19:31:24.5625 | INFO | InvSis.Data.BitacoraDataAccess | BitacoraDataAccess inicializado correctamente 
+2025-05-26 19:31:24.6826 | INFO | InvSis.Data.BitacoraDataAccess | Se obtuvieron 0 registros filtrados de bitácora 
+2025-05-26 19:31:25.7909 | INFO | InvSis.Data.ProductosDataAccess | ProductosDataAccess inicializado correctamente 
+2025-05-26 19:31:25.8889 | INFO | InvSis.Data.ProductosDataAccess | Se obtuvieron 4 productos 
+2025-05-26 19:32:20.3682 | INFO | InvSis.Data.UsuariosDataAccess | UsuariosDataAccess inicializado correctamente 
+2025-05-26 19:46:28.2482 | INFO | LoggingManager | Sistema de logging configurado correctamente 
+2025-05-26 19:46:28.5868 | INFO | InvSis.Data.PostgreSQLDataAccess | Instancia de acceso a datos creada correctamente 
+2025-05-26 19:46:28.5868 | INFO | InvSis.Data.UsuariosDataAccess | UsuariosDataAccess inicializado correctamente 
