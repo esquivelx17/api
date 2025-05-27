@@ -430,3 +430,14 @@
 2025-05-26 19:46:28.2482 | INFO | LoggingManager | Sistema de logging configurado correctamente 
 2025-05-26 19:46:28.5868 | INFO | InvSis.Data.PostgreSQLDataAccess | Instancia de acceso a datos creada correctamente 
 2025-05-26 19:46:28.5868 | INFO | InvSis.Data.UsuariosDataAccess | UsuariosDataAccess inicializado correctamente 
+2025-05-26 20:47:09.6329 | INFO | LoggingManager | Sistema de logging configurado correctamente 
+2025-05-26 20:47:10.2933 | INFO | InvSis.Data.PostgreSQLDataAccess | Instancia de acceso a datos creada correctamente 
+2025-05-26 20:47:10.2933 | INFO | InvSis.Data.UsuariosDataAccess | UsuariosDataAccess inicializado correctamente 
+2025-05-26 20:47:16.1384 | INFO | InvSis.Data.PostgreSQLDataAccess | Conexión a la base de datos establecida correctamente 
+2025-05-26 20:47:16.1434 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @Nickname = Oscar 
+2025-05-26 20:47:16.1434 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @Contrasena = 123 
+2025-05-26 20:47:16.3749 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdPersona = 1 
+2025-05-26 20:47:16.4703 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdRol = 3 
+2025-05-26 20:47:16.5675 | INFO | InvSis.Data.UsuariosDataAccess | Usuario Oscar autenticado correctamente 
+2025-05-26 20:47:16.7591 | INFO | InvSis.Data.RolesDataAccess | Se obtuvieron 6 roles de la base de datos 
+2025-05-26 20:47:16.7591 | TRACE | InvSis.Data.PostgreSQLDataAccess | [DETALLE COMPLETO] Parámetro: @IdRol = 3 

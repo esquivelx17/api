@@ -16,16 +16,46 @@ namespace InventariosCore.Data
     {
         private static readonly Logger _logger = LoggingManager.GetLogger("InvSis.Data.PostgreSQLDataAccess");
 
-        private readonly string _ConnectionString = ConfigurationManager.ConnectionStrings["ConexionBD"].ConnectionString;
+        // Campo estático para almacenar la cadena de conexión
+        private static string _connectionString;
+
+        // Propiedad para establecer o leer la cadena de conexión
+        public static string ConnectionString
+        {
+            get
+            {
+                if (string.IsNullOrEmpty(_connectionString))
+                {
+                    try
+                    {
+                        // Intenta obtener desde app.config (Windows Forms)
+                        _connectionString = ConfigurationManager.ConnectionStrings["ConexionBD"]?.ConnectionString;
+                    }
+                    catch (Exception ex)
+                    {
+                        _logger.Warn(ex, "No se pudo obtener la cadena de conexión desde ConfigurationManager");
+                    }
+                }
+                return _connectionString;
+            }
+            set { _connectionString = value; }
+        }
 
         private NpgsqlConnection _connection;
+
         private static PostgreSQLDataAccess? _instance;
 
+        // Constructor privado para que solo pueda instanciarse dentro de esta clase
         private PostgreSQLDataAccess()
         {
             try
             {
-                _connection = new NpgsqlConnection(_ConnectionString);
+                if (string.IsNullOrEmpty(ConnectionString))
+                {
+                    throw new InvalidOperationException("La cadena de conexión no está configurada. Asegúrate de establecer PostgreSQLDataAccess.ConnectionString antes de usar la clase.");
+                }
+
+                _connection = new NpgsqlConnection(ConnectionString);
                 _logger.Info("Instancia de acceso a datos creada correctamente");
             }
             catch (Exception ex)
@@ -35,11 +65,7 @@ namespace InventariosCore.Data
             }
         }
 
-        public NpgsqlParameter CreateParameter(string name, object value)
-        {
-            return new NpgsqlParameter(name, value ?? DBNull.Value);
-        }
-
+        // Método para obtener la instancia única (singleton)
         public static PostgreSQLDataAccess GetInstance()
         {
             if (_instance == null)
@@ -47,6 +73,11 @@ namespace InventariosCore.Data
                 _instance = new PostgreSQLDataAccess();
             }
             return _instance;
+        }
+
+        public NpgsqlParameter CreateParameter(string name, object value)
+        {
+            return new NpgsqlParameter(name, value ?? DBNull.Value);
         }
 
         public bool Connect()
@@ -71,7 +102,7 @@ namespace InventariosCore.Data
         {
             try
             {
-                if (_connection.State != ConnectionState.Open)
+                if (_connection.State == ConnectionState.Open)
                 {
                     _connection.Close();
                     _logger.Info("Conexión a la base de datos cerrada correctamente");
@@ -94,7 +125,7 @@ namespace InventariosCore.Data
                 {
                     using (NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(command))
                     {
-                        adapter.Fill(dataTable); //como el execute reader
+                        adapter.Fill(dataTable);
                     }
                     command.Dispose();
                 }

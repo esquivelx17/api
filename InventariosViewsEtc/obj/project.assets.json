@@ -1218,11 +1218,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\esqui\\OneDrive\\Documents\\8 SEMESTRE\\programacion version pendiente de apii\\repos\\InvSis.csproj",
+      "projectUniqueName": "C:\\Users\\esqui\\OneDrive\\Documents\\8 SEMESTRE\\version con api\\InventariosViewsEtc\\InvSis.csproj",
       "projectName": "InvSis",
-      "projectPath": "C:\\Users\\esqui\\OneDrive\\Documents\\8 SEMESTRE\\programacion version pendiente de apii\\repos\\InvSis.csproj",
+      "projectPath": "C:\\Users\\esqui\\OneDrive\\Documents\\8 SEMESTRE\\version con api\\InventariosViewsEtc\\InvSis.csproj",
       "packagesPath": "C:\\Users\\esqui\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\esqui\\OneDrive\\Documents\\8 SEMESTRE\\programacion version pendiente de apii\\repos\\obj\\",
+      "outputPath": "C:\\Users\\esqui\\OneDrive\\Documents\\8 SEMESTRE\\version con api\\InventariosViewsEtc\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -1243,8 +1243,8 @@
         "net8.0-windows7.0": {
           "targetAlias": "net8.0-windows",
           "projectReferences": {
-            "C:\\Users\\esqui\\OneDrive\\Documents\\8 SEMESTRE\\programacion version pendiente de apii\\InventariosCore\\InventariosCore.csproj": {
-              "projectPath": "C:\\Users\\esqui\\OneDrive\\Documents\\8 SEMESTRE\\programacion version pendiente de apii\\InventariosCore\\InventariosCore.csproj"
+            "C:\\Users\\esqui\\OneDrive\\Documents\\8 SEMESTRE\\version con api\\InventariosCore\\InventariosCore.csproj": {
+              "projectPath": "C:\\Users\\esqui\\OneDrive\\Documents\\8 SEMESTRE\\version con api\\InventariosCore\\InventariosCore.csproj"
             }
           }
         }
