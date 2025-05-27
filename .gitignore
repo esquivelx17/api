@@ -1,0 +1,27 @@
+# Ignorar carpetas y archivos de Visual Studio
+.vs/
+bin/
+obj/
+
+# Archivos de usuario
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Archivos temporales
+*.tmp
+*.log
+
+# Configuraciones de JetBrains (si usas Rider u otro)
+.idea/
+
+# Configuraciones de sistema
+.DS_Store
+
+# Archivos de paquetes NuGet
+*.nupkg
+packages/
+
+# Archivos de configuración local y secretos
+.env
