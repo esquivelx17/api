@@ -232,7 +232,7 @@ namespace InvSis.Views
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            if (dgvProductos.CurrentRow == null)
+            if (dgvRegMov.CurrentRow == null)
             {
                 MessageBox.Show("Seleccione un producto.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
