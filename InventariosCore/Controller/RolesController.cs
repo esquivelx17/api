@@ -10,23 +10,35 @@ namespace InventariosCore.Controllers
         internal readonly RolesDataAccess _rolesDataAccess;
         internal readonly PermisosController _permisosController;
         internal readonly RolPermisoDataAccess _rolPermisoDataAccess;
+        private readonly AuditoriaService _auditoriaService;
 
         public RolesController()
         {
             _rolesDataAccess = new RolesDataAccess();
-            _permisosController = new PermisosController(); // Si quieres pasar vista, ajusta
+            _permisosController = new PermisosController();
             _rolPermisoDataAccess = new RolPermisoDataAccess();
+            _auditoriaService = new AuditoriaService();
         }
 
         public bool AgregarRol(Rol rol)
         {
             int id = _rolesDataAccess.InsertarRol(rol);
-            return id > 0;
+            bool exito = id > 0;
+            if (exito)
+            {
+                _auditoriaService.RegistrarAccion("Inserción", "Roles");
+            }
+            return exito;
         }
 
         public bool ActualizarRol(Rol rol)
         {
-            return _rolesDataAccess.ActualizarRol(rol);
+            bool exito = _rolesDataAccess.ActualizarRol(rol);
+            if (exito)
+            {
+                _auditoriaService.RegistrarAccion("Actualización", "Roles");
+            }
+            return exito;
         }
 
         public Rol? GetRolPorNombre(string nombreRol)
@@ -47,19 +59,34 @@ namespace InventariosCore.Controllers
 
         public bool InhabilitarRolPorId(int idRol)
         {
-            return _rolesDataAccess.EliminarRol(idRol);
+            bool exito = _rolesDataAccess.EliminarRol(idRol);
+            if (exito)
+            {
+                _auditoriaService.RegistrarAccion("Inhabilitación", "Roles");
+            }
+            return exito;
         }
 
         // Asignar permiso a rol
         public bool AsignarPermisoARol(int idRol, int idPermiso)
         {
-            return _rolPermisoDataAccess.InsertarRolPermiso(idRol, idPermiso);
+            bool exito = _rolPermisoDataAccess.InsertarRolPermiso(idRol, idPermiso);
+            if (exito)
+            {
+                _auditoriaService.RegistrarAccion("AsignaciónPermiso", "RolPermisos");
+            }
+            return exito;
         }
 
         // Eliminar permiso asignado a rol
         public bool RemoverPermisoDeRol(int idRol, int idPermiso)
         {
-            return _rolPermisoDataAccess.EliminarRolPermiso(idRol, idPermiso);
+            bool exito = _rolPermisoDataAccess.EliminarRolPermiso(idRol, idPermiso);
+            if (exito)
+            {
+                _auditoriaService.RegistrarAccion("RemociónPermiso", "RolPermisos");
+            }
+            return exito;
         }
 
         // Obtener permisos asignados a un rol

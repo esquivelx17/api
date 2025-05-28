@@ -39,14 +39,14 @@ namespace InvSis.Views
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle10 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle16 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle11 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle12 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle13 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle14 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle15 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
             lblTitulo = new Label();
             cmbTipoMov = new ComboBox();
             lblMovi = new Label();
@@ -62,7 +62,7 @@ namespace InvSis.Views
             btnCancelar = new Button();
             dgvOperadores = new DataGridView();
             lbSeleccioneOperador = new Label();
-            dgvProductos = new DataGridView();
+            dgvRegMov = new DataGridView();
             colNombre = new DataGridViewTextBoxColumn();
             colCategoria = new DataGridViewTextBoxColumn();
             colCosto = new DataGridViewTextBoxColumn();
@@ -74,7 +74,7 @@ namespace InvSis.Views
             ((System.ComponentModel.ISupportInitialize)dgvSeleccion).BeginInit();
             ((System.ComponentModel.ISupportInitialize)nudCantidad).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvOperadores).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dgvProductos).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvRegMov).BeginInit();
             SuspendLayout();
             // 
             // lblTitulo
@@ -220,49 +220,48 @@ namespace InvSis.Views
             lbSeleccioneOperador.TabIndex = 15;
             lbSeleccioneOperador.Text = "Seleccione operador";
             // 
-            // dgvProductos
+            // dgvRegMov
             // 
-            dgvProductos.AllowUserToAddRows = false;
-            dgvProductos.AllowUserToDeleteRows = false;
-            dgvProductos.AllowUserToResizeColumns = false;
-            dgvProductos.AllowUserToResizeRows = false;
-            dataGridViewCellStyle9.BackColor = Color.FromArgb(250, 250, 250);
-            dgvProductos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle9;
-            dgvProductos.Anchor = AnchorStyles.None;
-            dgvProductos.BackgroundColor = Color.FromArgb(42, 34, 58);
-            dataGridViewCellStyle10.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = Color.FromArgb(159, 122, 234);
-            dataGridViewCellStyle10.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            dataGridViewCellStyle10.ForeColor = Color.MediumPurple;
-            dataGridViewCellStyle10.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = DataGridViewTriState.True;
-            dgvProductos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
-            dgvProductos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvProductos.Columns.AddRange(new DataGridViewColumn[] { colNombre, colCategoria, colCosto, colStock, colUbicacion, colImpuesto, colClave, colEstatus });
-            dataGridViewCellStyle16.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle16.BackColor = SystemColors.Window;
-            dataGridViewCellStyle16.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle16.ForeColor = Color.FromArgb(159, 122, 234);
-            dataGridViewCellStyle16.SelectionBackColor = Color.FromArgb(232, 218, 255);
-            dataGridViewCellStyle16.SelectionForeColor = Color.MediumPurple;
-            dataGridViewCellStyle16.WrapMode = DataGridViewTriState.False;
-            dgvProductos.DefaultCellStyle = dataGridViewCellStyle16;
-            dgvProductos.GridColor = SystemColors.Info;
-            dgvProductos.ImeMode = ImeMode.Disable;
-            dgvProductos.Location = new Point(503, 62);
-            dgvProductos.Name = "dgvProductos";
-            dgvProductos.ReadOnly = true;
-            dgvProductos.RowHeadersVisible = false;
-            dgvProductos.RowHeadersWidth = 62;
-            dgvProductos.Size = new Size(622, 234);
-            dgvProductos.TabIndex = 16;
+            dgvRegMov.AllowUserToAddRows = false;
+            dgvRegMov.AllowUserToDeleteRows = false;
+            dgvRegMov.AllowUserToResizeColumns = false;
+            dgvRegMov.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(250, 250, 250);
+            dgvRegMov.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dgvRegMov.BackgroundColor = Color.FromArgb(42, 34, 58);
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(159, 122, 234);
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            dataGridViewCellStyle2.ForeColor = Color.MediumPurple;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            dgvRegMov.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dgvRegMov.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvRegMov.Columns.AddRange(new DataGridViewColumn[] { colNombre, colCategoria, colCosto, colStock, colUbicacion, colImpuesto, colClave, colEstatus });
+            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = SystemColors.Window;
+            dataGridViewCellStyle8.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle8.ForeColor = Color.FromArgb(159, 122, 234);
+            dataGridViewCellStyle8.SelectionBackColor = Color.FromArgb(232, 218, 255);
+            dataGridViewCellStyle8.SelectionForeColor = Color.MediumPurple;
+            dataGridViewCellStyle8.WrapMode = DataGridViewTriState.False;
+            dgvRegMov.DefaultCellStyle = dataGridViewCellStyle8;
+            dgvRegMov.GridColor = SystemColors.Info;
+            dgvRegMov.ImeMode = ImeMode.Disable;
+            dgvRegMov.Location = new Point(503, 62);
+            dgvRegMov.Name = "dgvRegMov";
+            dgvRegMov.ReadOnly = true;
+            dgvRegMov.RowHeadersVisible = false;
+            dgvRegMov.RowHeadersWidth = 62;
+            dgvRegMov.Size = new Size(622, 234);
+            dgvRegMov.TabIndex = 16;
             // 
             // colNombre
             // 
-            dataGridViewCellStyle11.BackColor = Color.FromArgb(74, 60, 96);
-            dataGridViewCellStyle11.ForeColor = Color.White;
-            colNombre.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle3.BackColor = Color.FromArgb(74, 60, 96);
+            dataGridViewCellStyle3.ForeColor = Color.White;
+            colNombre.DefaultCellStyle = dataGridViewCellStyle3;
             colNombre.HeaderText = "Nombre";
             colNombre.MinimumWidth = 8;
             colNombre.Name = "colNombre";
@@ -271,9 +270,9 @@ namespace InvSis.Views
             // 
             // colCategoria
             // 
-            dataGridViewCellStyle12.BackColor = Color.FromArgb(74, 60, 96);
-            dataGridViewCellStyle12.ForeColor = Color.White;
-            colCategoria.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle4.BackColor = Color.FromArgb(74, 60, 96);
+            dataGridViewCellStyle4.ForeColor = Color.White;
+            colCategoria.DefaultCellStyle = dataGridViewCellStyle4;
             colCategoria.HeaderText = "Categoria";
             colCategoria.MinimumWidth = 8;
             colCategoria.Name = "colCategoria";
@@ -288,9 +287,9 @@ namespace InvSis.Views
             // 
             // colStock
             // 
-            dataGridViewCellStyle13.BackColor = Color.FromArgb(74, 60, 96);
-            dataGridViewCellStyle13.ForeColor = Color.White;
-            colStock.DefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle5.BackColor = Color.FromArgb(74, 60, 96);
+            dataGridViewCellStyle5.ForeColor = Color.White;
+            colStock.DefaultCellStyle = dataGridViewCellStyle5;
             colStock.HeaderText = "Stock";
             colStock.MinimumWidth = 8;
             colStock.Name = "colStock";
@@ -311,9 +310,9 @@ namespace InvSis.Views
             // 
             // colClave
             // 
-            dataGridViewCellStyle14.BackColor = Color.FromArgb(74, 60, 96);
-            dataGridViewCellStyle14.ForeColor = Color.White;
-            colClave.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle6.BackColor = Color.FromArgb(74, 60, 96);
+            dataGridViewCellStyle6.ForeColor = Color.White;
+            colClave.DefaultCellStyle = dataGridViewCellStyle6;
             colClave.HeaderText = "Clave";
             colClave.MinimumWidth = 8;
             colClave.Name = "colClave";
@@ -322,9 +321,9 @@ namespace InvSis.Views
             // 
             // colEstatus
             // 
-            dataGridViewCellStyle15.BackColor = Color.FromArgb(74, 60, 96);
-            dataGridViewCellStyle15.ForeColor = Color.White;
-            colEstatus.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle7.BackColor = Color.FromArgb(74, 60, 96);
+            dataGridViewCellStyle7.ForeColor = Color.White;
+            colEstatus.DefaultCellStyle = dataGridViewCellStyle7;
             colEstatus.HeaderText = "Estatus";
             colEstatus.MinimumWidth = 8;
             colEstatus.Name = "colEstatus";
@@ -337,7 +336,7 @@ namespace InvSis.Views
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(230, 242, 248);
             ClientSize = new Size(1193, 630);
-            Controls.Add(dgvProductos);
+            Controls.Add(dgvRegMov);
             Controls.Add(lbSeleccioneOperador);
             Controls.Add(dgvOperadores);
             Controls.Add(btnCancelar);
@@ -360,12 +359,12 @@ namespace InvSis.Views
             ((System.ComponentModel.ISupportInitialize)dgvSeleccion).EndInit();
             ((System.ComponentModel.ISupportInitialize)nudCantidad).EndInit();
             ((System.ComponentModel.ISupportInitialize)dgvOperadores).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dgvProductos).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvRegMov).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
         private Label lbSeleccioneOperador;
-        private DataGridView dgvProductos;
+        private DataGridView dgvRegMov;
         private DataGridViewTextBoxColumn colNombre;
         private DataGridViewTextBoxColumn colCategoria;
         private DataGridViewTextBoxColumn colCosto;

@@ -11,12 +11,13 @@ namespace InventariosCore.Controllers
     public class ProductosController
     {
         private readonly ProductosDataAccess _productosDA;
+        private readonly AuditoriaService _auditoriaService;
 
         public ProductosController()
         {
             _productosDA = new ProductosDataAccess();
+            _auditoriaService = new AuditoriaService();
         }
-
 
         public List<Producto> ObtenerProductosConStockBajo()
         {
@@ -71,7 +72,14 @@ namespace InventariosCore.Controllers
         public int InsertarProducto(Producto producto)
         {
             ValidarProducto(producto);
-            return _productosDA.InsertarProducto(producto);
+            int id = _productosDA.InsertarProducto(producto);
+
+            if (id > 0)
+            {
+                _auditoriaService.RegistrarAccion("Inserción", "Productos");
+            }
+
+            return id;
         }
 
         public bool ActualizarProducto(Producto producto)
@@ -80,7 +88,14 @@ namespace InventariosCore.Controllers
                 throw new ArgumentException("El Id del producto es inválido.");
 
             ValidarProducto(producto);
-            return _productosDA.ActualizarProducto(producto);
+            bool resultado = _productosDA.ActualizarProducto(producto);
+
+            if (resultado)
+            {
+                _auditoriaService.RegistrarAccion("Actualización", "Productos");
+            }
+
+            return resultado;
         }
 
         public Producto? ObtenerProductoPorClave(string clave)
@@ -91,7 +106,6 @@ namespace InventariosCore.Controllers
             return _productosDA.ObtenerProductoPorClave(clave);
         }
 
-        // Nuevo método agregado
         public Producto? ObtenerProductoPorNombre(string nombre)
         {
             var productos = ObtenerProductosActivos();

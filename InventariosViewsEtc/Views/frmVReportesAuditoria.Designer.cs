@@ -30,17 +30,21 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle10 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle16 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle11 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle12 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle13 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle14 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle15 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
             pnlTitulo = new Panel();
             lblTitulo = new Label();
             gbFiltros = new GroupBox();
+            cmbTabla = new ComboBox();
+            lblTabla = new Label();
+            btnReiniciarF = new Button();
+            btnExportar = new Button();
             btnAplicarF = new Button();
             cmbMovimiento = new ComboBox();
             lblMovimiento = new Label();
@@ -49,6 +53,7 @@
             label2 = new Label();
             label1 = new Label();
             dgvAuditorias = new DataGridView();
+            toolTip = new ToolTip(components);
             colIdMovimiento = new DataGridViewTextBoxColumn();
             colFecha = new DataGridViewTextBoxColumn();
             colTipoMovimiento = new DataGridViewTextBoxColumn();
@@ -56,11 +61,6 @@
             colIdUsuario = new DataGridViewTextBoxColumn();
             colIpEquipo = new DataGridViewTextBoxColumn();
             colNombreEquipo = new DataGridViewTextBoxColumn();
-            toolTip = new ToolTip(components);
-            btnExportar = new Button();
-            btnReiniciarF = new Button();
-            cmbTabla = new ComboBox();
-            lblTabla = new Label();
             pnlTitulo.SuspendLayout();
             gbFiltros.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvAuditorias).BeginInit();
@@ -73,7 +73,7 @@
             pnlTitulo.Dock = DockStyle.Top;
             pnlTitulo.Location = new Point(0, 0);
             pnlTitulo.Name = "pnlTitulo";
-            pnlTitulo.Size = new Size(1307, 60);
+            pnlTitulo.Size = new Size(1468, 60);
             pnlTitulo.TabIndex = 0;
             // 
             // lblTitulo
@@ -85,7 +85,7 @@
             lblTitulo.Location = new Point(0, 0);
             lblTitulo.Name = "lblTitulo";
             lblTitulo.Padding = new Padding(0, 10, 0, 0);
-            lblTitulo.Size = new Size(1307, 60);
+            lblTitulo.Size = new Size(1468, 60);
             lblTitulo.TabIndex = 0;
             lblTitulo.Text = "REPORTE DE AUDITORÍAS";
             lblTitulo.TextAlign = ContentAlignment.MiddleCenter;
@@ -109,10 +109,59 @@
             gbFiltros.ForeColor = Color.FromArgb(159, 122, 234);
             gbFiltros.Location = new Point(12, 77);
             gbFiltros.Name = "gbFiltros";
-            gbFiltros.Size = new Size(1283, 157);
+            gbFiltros.Size = new Size(1444, 157);
             gbFiltros.TabIndex = 1;
             gbFiltros.TabStop = false;
             gbFiltros.Text = "Filtros de Auditoría";
+            // 
+            // cmbTabla
+            // 
+            cmbTabla.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbTabla.FormattingEnabled = true;
+            cmbTabla.Items.AddRange(new object[] { "Todos", "Creación", "Modificación", "Eliminación", "Login", "Acceso" });
+            cmbTabla.Location = new Point(469, 100);
+            cmbTabla.Name = "cmbTabla";
+            cmbTabla.Size = new Size(150, 25);
+            cmbTabla.TabIndex = 14;
+            // 
+            // lblTabla
+            // 
+            lblTabla.AutoSize = true;
+            lblTabla.Location = new Point(362, 100);
+            lblTabla.Name = "lblTabla";
+            lblTabla.Size = new Size(101, 17);
+            lblTabla.TabIndex = 13;
+            lblTabla.Text = "Tabla afectada:";
+            // 
+            // btnReiniciarF
+            // 
+            btnReiniciarF.AutoSize = true;
+            btnReiniciarF.BackColor = Color.FromArgb(159, 122, 234);
+            btnReiniciarF.FlatStyle = FlatStyle.Flat;
+            btnReiniciarF.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnReiniciarF.ForeColor = Color.White;
+            btnReiniciarF.Location = new Point(692, 100);
+            btnReiniciarF.Name = "btnReiniciarF";
+            btnReiniciarF.Size = new Size(110, 35);
+            btnReiniciarF.TabIndex = 12;
+            btnReiniciarF.Text = "Reiniciar Filtro";
+            btnReiniciarF.UseVisualStyleBackColor = false;
+            btnReiniciarF.Click += btnReiniciarF_Click;
+            // 
+            // btnExportar
+            // 
+            btnExportar.AutoSize = true;
+            btnExportar.BackColor = Color.FromArgb(76, 175, 80);
+            btnExportar.FlatStyle = FlatStyle.Flat;
+            btnExportar.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnExportar.ForeColor = Color.White;
+            btnExportar.Location = new Point(872, 43);
+            btnExportar.Name = "btnExportar";
+            btnExportar.Size = new Size(118, 35);
+            btnExportar.TabIndex = 11;
+            btnExportar.Text = "Exportar a Excel";
+            btnExportar.UseVisualStyleBackColor = false;
+            btnExportar.Click += btnExportar_Click;
             // 
             // btnAplicarF
             // 
@@ -190,37 +239,37 @@
             dgvAuditorias.AllowUserToDeleteRows = false;
             dgvAuditorias.AllowUserToResizeColumns = false;
             dgvAuditorias.AllowUserToResizeRows = false;
-            dataGridViewCellStyle9.BackColor = Color.FromArgb(250, 250, 250);
-            dgvAuditorias.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(250, 250, 250);
+            dgvAuditorias.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             dgvAuditorias.Anchor = AnchorStyles.None;
             dgvAuditorias.BackgroundColor = Color.FromArgb(42, 34, 58);
-            dataGridViewCellStyle10.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = Color.FromArgb(159, 122, 234);
-            dataGridViewCellStyle10.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            dataGridViewCellStyle10.ForeColor = Color.White;
-            dataGridViewCellStyle10.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = DataGridViewTriState.True;
-            dgvAuditorias.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(159, 122, 234);
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            dataGridViewCellStyle2.ForeColor = Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            dgvAuditorias.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dgvAuditorias.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvAuditorias.Columns.AddRange(new DataGridViewColumn[] { colIdMovimiento, colFecha, colTipoMovimiento, colTabla, colIdUsuario, colIpEquipo, colNombreEquipo });
-            dataGridViewCellStyle16.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle16.BackColor = SystemColors.Window;
-            dataGridViewCellStyle16.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle16.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle16.SelectionBackColor = Color.FromArgb(232, 218, 255);
-            dataGridViewCellStyle16.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle16.WrapMode = DataGridViewTriState.False;
-            dgvAuditorias.DefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = SystemColors.Window;
+            dataGridViewCellStyle8.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle8.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = Color.FromArgb(232, 218, 255);
+            dataGridViewCellStyle8.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle8.WrapMode = DataGridViewTriState.False;
+            dgvAuditorias.DefaultCellStyle = dataGridViewCellStyle8;
             dgvAuditorias.GridColor = SystemColors.Info;
             dgvAuditorias.ImeMode = ImeMode.Disable;
-            dgvAuditorias.Location = new Point(69, 254);
+            dgvAuditorias.Location = new Point(13, 242);
             dgvAuditorias.Margin = new Padding(4, 5, 4, 5);
             dgvAuditorias.Name = "dgvAuditorias";
             dgvAuditorias.ReadOnly = true;
             dgvAuditorias.RowHeadersVisible = false;
             dgvAuditorias.RowHeadersWidth = 62;
-            dgvAuditorias.Size = new Size(1147, 437);
+            dgvAuditorias.Size = new Size(1442, 474);
             dgvAuditorias.TabIndex = 0;
             // 
             // colIdMovimiento
@@ -235,9 +284,9 @@
             // colFecha
             // 
             colFecha.DataPropertyName = "Fecha";
-            dataGridViewCellStyle11.BackColor = Color.FromArgb(74, 60, 96);
-            dataGridViewCellStyle11.ForeColor = Color.White;
-            colFecha.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle3.BackColor = Color.FromArgb(74, 60, 96);
+            dataGridViewCellStyle3.ForeColor = Color.White;
+            colFecha.DefaultCellStyle = dataGridViewCellStyle3;
             colFecha.HeaderText = "FECHA";
             colFecha.MinimumWidth = 8;
             colFecha.Name = "colFecha";
@@ -247,9 +296,9 @@
             // colTipoMovimiento
             // 
             colTipoMovimiento.DataPropertyName = "tipo_movimiento";
-            dataGridViewCellStyle12.BackColor = Color.FromArgb(74, 60, 96);
-            dataGridViewCellStyle12.ForeColor = Color.White;
-            colTipoMovimiento.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle4.BackColor = Color.FromArgb(74, 60, 96);
+            dataGridViewCellStyle4.ForeColor = Color.White;
+            colTipoMovimiento.DefaultCellStyle = dataGridViewCellStyle4;
             colTipoMovimiento.HeaderText = "TIPO DE MOVIMIENTO";
             colTipoMovimiento.MinimumWidth = 8;
             colTipoMovimiento.Name = "colTipoMovimiento";
@@ -266,9 +315,9 @@
             // colIdUsuario
             // 
             colIdUsuario.DataPropertyName = "id_Usuario";
-            dataGridViewCellStyle13.BackColor = Color.FromArgb(74, 60, 96);
-            dataGridViewCellStyle13.ForeColor = Color.White;
-            colIdUsuario.DefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle5.BackColor = Color.FromArgb(74, 60, 96);
+            dataGridViewCellStyle5.ForeColor = Color.White;
+            colIdUsuario.DefaultCellStyle = dataGridViewCellStyle5;
             colIdUsuario.HeaderText = "ID USUARIO";
             colIdUsuario.MinimumWidth = 8;
             colIdUsuario.Name = "colIdUsuario";
@@ -278,9 +327,9 @@
             // colIpEquipo
             // 
             colIpEquipo.DataPropertyName = "ip_equipo";
-            dataGridViewCellStyle14.BackColor = Color.FromArgb(74, 60, 96);
-            dataGridViewCellStyle14.ForeColor = Color.White;
-            colIpEquipo.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle6.BackColor = Color.FromArgb(74, 60, 96);
+            dataGridViewCellStyle6.ForeColor = Color.White;
+            colIpEquipo.DefaultCellStyle = dataGridViewCellStyle6;
             colIpEquipo.HeaderText = "IP EQUIPO";
             colIpEquipo.MinimumWidth = 8;
             colIpEquipo.Name = "colIpEquipo";
@@ -291,67 +340,18 @@
             // 
             colNombreEquipo.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             colNombreEquipo.DataPropertyName = "nombre_equipo";
-            dataGridViewCellStyle15.BackColor = Color.FromArgb(74, 60, 96);
-            dataGridViewCellStyle15.ForeColor = Color.White;
-            colNombreEquipo.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle7.BackColor = Color.FromArgb(74, 60, 96);
+            dataGridViewCellStyle7.ForeColor = Color.White;
+            colNombreEquipo.DefaultCellStyle = dataGridViewCellStyle7;
             colNombreEquipo.HeaderText = "NOMBRE DE EQUIPO";
-            colNombreEquipo.MinimumWidth = 8;
+            colNombreEquipo.MinimumWidth = 250;
             colNombreEquipo.Name = "colNombreEquipo";
             colNombreEquipo.ReadOnly = true;
-            // 
-            // btnExportar
-            // 
-            btnExportar.AutoSize = true;
-            btnExportar.BackColor = Color.FromArgb(76, 175, 80);
-            btnExportar.FlatStyle = FlatStyle.Flat;
-            btnExportar.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnExportar.ForeColor = Color.White;
-            btnExportar.Location = new Point(872, 43);
-            btnExportar.Name = "btnExportar";
-            btnExportar.Size = new Size(118, 35);
-            btnExportar.TabIndex = 11;
-            btnExportar.Text = "Exportar a Excel";
-            btnExportar.UseVisualStyleBackColor = false;
-            btnExportar.Click += btnExportar_Click;
-            // 
-            // btnReiniciarF
-            // 
-            btnReiniciarF.AutoSize = true;
-            btnReiniciarF.BackColor = Color.FromArgb(159, 122, 234);
-            btnReiniciarF.FlatStyle = FlatStyle.Flat;
-            btnReiniciarF.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnReiniciarF.ForeColor = Color.White;
-            btnReiniciarF.Location = new Point(692, 100);
-            btnReiniciarF.Name = "btnReiniciarF";
-            btnReiniciarF.Size = new Size(110, 35);
-            btnReiniciarF.TabIndex = 12;
-            btnReiniciarF.Text = "Reiniciar Filtro";
-            btnReiniciarF.UseVisualStyleBackColor = false;
-            btnReiniciarF.Click += btnReiniciarF_Click;
-            // 
-            // cmbTabla
-            // 
-            cmbTabla.DropDownStyle = ComboBoxStyle.DropDownList;
-            cmbTabla.FormattingEnabled = true;
-            cmbTabla.Items.AddRange(new object[] { "Todos", "Creación", "Modificación", "Eliminación", "Login", "Acceso" });
-            cmbTabla.Location = new Point(469, 100);
-            cmbTabla.Name = "cmbTabla";
-            cmbTabla.Size = new Size(150, 25);
-            cmbTabla.TabIndex = 14;
-            // 
-            // lblTabla
-            // 
-            lblTabla.AutoSize = true;
-            lblTabla.Location = new Point(362, 100);
-            lblTabla.Name = "lblTabla";
-            lblTabla.Size = new Size(101, 17);
-            lblTabla.TabIndex = 13;
-            lblTabla.Text = "Tabla afectada:";
             // 
             // frmVReportesAuditoria
             // 
             BackColor = Color.FromArgb(245, 245, 245);
-            ClientSize = new Size(1307, 661);
+            ClientSize = new Size(1468, 730);
             Controls.Add(dgvAuditorias);
             Controls.Add(gbFiltros);
             Controls.Add(pnlTitulo);
@@ -382,6 +382,11 @@
         private System.Windows.Forms.Button btnAplicarF;
         private DataGridView dgvAuditorias;
         private System.Windows.Forms.ToolTip toolTip;
+        private Button btnExportar;
+        private ComboBox cmbTabla;
+        private Label lblTabla;
+        private Button btnReiniciarF;
+        private TextBox txtUsuario;
         private DataGridViewTextBoxColumn colIdMovimiento;
         private DataGridViewTextBoxColumn colFecha;
         private DataGridViewTextBoxColumn colTipoMovimiento;
@@ -389,10 +394,5 @@
         private DataGridViewTextBoxColumn colIdUsuario;
         private DataGridViewTextBoxColumn colIpEquipo;
         private DataGridViewTextBoxColumn colNombreEquipo;
-        private Button btnExportar;
-        private ComboBox cmbTabla;
-        private Label lblTabla;
-        private Button btnReiniciarF;
-        private TextBox txtUsuario;
     }
 }

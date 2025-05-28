@@ -8,25 +8,42 @@ namespace InventariosCore.Controllers
     public class MovimientoProductoController
     {
         private readonly MovimientoProductoDataAccess _movProdDA;
+        private readonly AuditoriaService _auditoriaService;
 
         public MovimientoProductoController()
         {
             _movProdDA = new MovimientoProductoDataAccess();
+            _auditoriaService = new AuditoriaService();
         }
 
         public int InsertarMovimientoProducto(MovimientoProducto movimientoProducto)
         {
-            return _movProdDA.InsertarMovimientoProducto(movimientoProducto);
+            int id = _movProdDA.InsertarMovimientoProducto(movimientoProducto);
+            if (id > 0)
+            {
+                _auditoriaService.RegistrarAccion("Inserción", "Movimientos_Productos");
+            }
+            return id;
         }
 
         public bool ActualizarMovimientoProducto(MovimientoProducto movimientoProducto)
         {
-            return _movProdDA.ActualizarMovimientoProducto(movimientoProducto);
+            bool exito = _movProdDA.ActualizarMovimientoProducto(movimientoProducto);
+            if (exito)
+            {
+                _auditoriaService.RegistrarAccion("Actualización", "Movimientos_Productos");
+            }
+            return exito;
         }
 
         public bool EliminarMovimientoProducto(int idMovimientoProducto)
         {
-            return _movProdDA.EliminarMovimientoProducto(idMovimientoProducto);
+            bool exito = _movProdDA.EliminarMovimientoProducto(idMovimientoProducto);
+            if (exito)
+            {
+                _auditoriaService.RegistrarAccion("Eliminación", "Movimientos_Productos");
+            }
+            return exito;
         }
 
         public MovimientoProducto? ObtenerMovimientoProductoPorId(int idMovimientoProducto)
@@ -56,7 +73,12 @@ namespace InventariosCore.Controllers
 
         public bool ActualizarCantidadMovimientoProducto(int idMovimientoProducto, int nuevaCantidad)
         {
-            return _movProdDA.ActualizarCantidadMovimientoProducto(idMovimientoProducto, nuevaCantidad);
+            bool exito = _movProdDA.ActualizarCantidadMovimientoProducto(idMovimientoProducto, nuevaCantidad);
+            if (exito)
+            {
+                _auditoriaService.RegistrarAccion("Actualización cantidad", "Movimientos_Productos");
+            }
+            return exito;
         }
 
         public int ObtenerTotalCantidadPorProducto(int idProducto)
