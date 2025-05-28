@@ -1218,11 +1218,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\esqui\\OneDrive\\Documents\\8 SEMESTRE\\definitiva progra\\InventariosViewsEtc\\InvSis.csproj",
+      "projectUniqueName": "C:\\Users\\esqui\\OneDrive\\Documents\\8 SEMESTRE\\progra def\\InventariosViewsEtc\\InvSis.csproj",
       "projectName": "InvSis",
-      "projectPath": "C:\\Users\\esqui\\OneDrive\\Documents\\8 SEMESTRE\\definitiva progra\\InventariosViewsEtc\\InvSis.csproj",
+      "projectPath": "C:\\Users\\esqui\\OneDrive\\Documents\\8 SEMESTRE\\progra def\\InventariosViewsEtc\\InvSis.csproj",
       "packagesPath": "C:\\Users\\esqui\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\esqui\\OneDrive\\Documents\\8 SEMESTRE\\definitiva progra\\InventariosViewsEtc\\obj\\",
+      "outputPath": "C:\\Users\\esqui\\OneDrive\\Documents\\8 SEMESTRE\\progra def\\InventariosViewsEtc\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -1243,8 +1243,8 @@
         "net8.0-windows7.0": {
           "targetAlias": "net8.0-windows",
           "projectReferences": {
-            "C:\\Users\\esqui\\OneDrive\\Documents\\8 SEMESTRE\\definitiva progra\\InventariosCore\\InventariosCore.csproj": {
-              "projectPath": "C:\\Users\\esqui\\OneDrive\\Documents\\8 SEMESTRE\\definitiva progra\\InventariosCore\\InventariosCore.csproj"
+            "C:\\Users\\esqui\\OneDrive\\Documents\\8 SEMESTRE\\progra def\\InventariosCore\\InventariosCore.csproj": {
+              "projectPath": "C:\\Users\\esqui\\OneDrive\\Documents\\8 SEMESTRE\\progra def\\InventariosCore\\InventariosCore.csproj"
             }
           }
         }

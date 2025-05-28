@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "3Z+nw+DRBVc=",
+  "dgSpecHash": "I84sHTikh+M=",
   "success": true,
-  "projectFilePath": "C:\\Users\\esqui\\OneDrive\\Documents\\8 SEMESTRE\\definitiva progra\\Inventarios_API\\Inventarios_API.csproj",
+  "projectFilePath": "C:\\Users\\esqui\\OneDrive\\Documents\\8 SEMESTRE\\progra def\\Inventarios_API\\Inventarios_API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\esqui\\.nuget\\packages\\epplus\\8.0.5\\epplus.8.0.5.nupkg.sha512",
     "C:\\Users\\esqui\\.nuget\\packages\\epplus.interfaces\\8.0.0\\epplus.interfaces.8.0.0.nupkg.sha512",
