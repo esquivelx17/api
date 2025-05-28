@@ -24,44 +24,9 @@ namespace InventariosCore.Controllers
             return _movProdDA.ActualizarMovimientoProducto(movimientoProducto);
         }
 
-        public bool EliminarMovimientoProducto(int idMovimientoProducto)
-        {
-            return _movProdDA.EliminarMovimientoProducto(idMovimientoProducto);
-        }
-
-        public MovimientoProducto? ObtenerMovimientoProductoPorId(int idMovimientoProducto)
-        {
-            return _movProdDA.ObtenerMovimientoProductoPorId(idMovimientoProducto);
-        }
-
         public List<MovimientoProducto> ObtenerTodosLosMovimientosProductos()
         {
-            return _movProdDA.ObtenerTodosLosMovimientosProductos();
-        }
-
-        public List<MovimientoProducto> ObtenerMovimientosProductosPorProducto(int idProducto)
-        {
-            return _movProdDA.ObtenerMovimientosProductosPorProducto(idProducto);
-        }
-
-        public List<MovimientoProducto> ObtenerMovimientosProductosPorMovimiento(int idMovimiento)
-        {
-            return _movProdDA.ObtenerMovimientosProductosPorMovimiento(idMovimiento);
-        }
-
-        public List<MovimientoProducto> ObtenerMovimientosProductosPorRangoFechas(DateTime fechaInicio, DateTime fechaFin)
-        {
-            return _movProdDA.ObtenerMovimientosProductosPorRangoFechas(fechaInicio, fechaFin);
-        }
-
-        public bool ActualizarCantidadMovimientoProducto(int idMovimientoProducto, int nuevaCantidad)
-        {
-            return _movProdDA.ActualizarCantidadMovimientoProducto(idMovimientoProducto, nuevaCantidad);
-        }
-
-        public int ObtenerTotalCantidadPorProducto(int idProducto)
-        {
-            return _movProdDA.ObtenerTotalCantidadPorProducto(idProducto);
+            return _movProdDA.ObtenerTodos();
         }
     }
 }

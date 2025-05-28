@@ -1,85 +1,46 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace InventariosCore.Model
 {
     public class MovimientoProducto
     {
-        /// <summary>
-        /// Identificador único del movimiento de producto
-        /// </summary>
         public int IdMovimientoProducto { get; set; }
 
-        /// <summary>
-        /// Identificador del producto asociado
-        /// </summary>
         public int IdProducto { get; set; }
 
-        /// <summary>
-        /// Identificador del movimiento asociado
-        /// </summary>
-        public int IdMovimiento { get; set; }
+        public int IdOperador { get; set; }  // Referencia a Usuario que actúa como operador
 
-        /// <summary>
-        /// Cantidad de productos
-        /// </summary>
         public int Cantidad { get; set; }
 
-        /// <summary>
-        /// Fecha del movimiento de producto
-        /// </summary>
         public DateTime Fecha { get; set; }
 
         /// <summary>
-        /// Referencia al producto
+        /// Estado: 0 = Rechazado, 1 = Aprobado, 2 = Pendiente
         /// </summary>
+        public short Estatus { get; set; }
+
         public Producto Producto { get; set; }
 
-        /// <summary>
-        /// Referencia al movimiento
-        /// </summary>
-        public Movimiento Movimiento { get; set; }
+        public Usuario Operador { get; set; }
 
-        /// <summary>
-        /// Constructor por defecto
-        /// </summary>
         public MovimientoProducto()
         {
-            Fecha = DateTime.Now;
+            Fecha = DateTime.Today;
             Cantidad = 0;
+            Estatus = 2; // Pendiente por defecto
             Producto = new Producto();
-            Movimiento = new Movimiento();
+            Operador = new Usuario();
         }
 
-        /// <summary>
-        /// Constructor con datos básicos
-        /// </summary>
-        public MovimientoProducto(int idProducto, int idMovimiento, int cantidad)
+        public MovimientoProducto(int idProducto, int idOperador, int cantidad, DateTime fecha, short estatus)
         {
             IdProducto = idProducto;
-            IdMovimiento = idMovimiento;
+            IdOperador = idOperador;
             Cantidad = cantidad;
-            Fecha = DateTime.Now;
+            Fecha = fecha.Date; // Solo fecha sin hora
+            Estatus = estatus;
             Producto = new Producto();
-            Movimiento = new Movimiento();
-        }
-
-        /// <summary>
-        /// Constructor completo
-        /// </summary>
-        public MovimientoProducto(int idMovimientoProducto, int idProducto, int idMovimiento, int cantidad, DateTime fecha)
-        {
-            IdMovimientoProducto = idMovimientoProducto;
-            IdProducto = idProducto;
-            IdMovimiento = idMovimiento;
-            Cantidad = cantidad;
-            Fecha = fecha;
-            Producto = new Producto();
-            Movimiento = new Movimiento();
+            Operador = new Usuario();
         }
     }
-
 }
