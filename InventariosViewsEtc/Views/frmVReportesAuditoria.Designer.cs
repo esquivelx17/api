@@ -1,4 +1,6 @@
-﻿namespace InvSis.Views
+﻿using System.Windows.Forms;
+
+namespace InvSis.Views
 {
     partial class frmVReportesAuditoria
     {
@@ -32,12 +34,12 @@
             components = new System.ComponentModel.Container();
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
+
             pnlTitulo = new Panel();
             lblTitulo = new Label();
             gbFiltros = new GroupBox();
@@ -61,13 +63,13 @@
             colIdUsuario = new DataGridViewTextBoxColumn();
             colIpEquipo = new DataGridViewTextBoxColumn();
             colNombreEquipo = new DataGridViewTextBoxColumn();
+
             pnlTitulo.SuspendLayout();
             gbFiltros.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvAuditorias).BeginInit();
             SuspendLayout();
-            // 
+
             // pnlTitulo
-            // 
             pnlTitulo.BackColor = Color.FromArgb(159, 122, 234);
             pnlTitulo.Controls.Add(lblTitulo);
             pnlTitulo.Dock = DockStyle.Top;
@@ -75,9 +77,8 @@
             pnlTitulo.Name = "pnlTitulo";
             pnlTitulo.Size = new Size(1468, 60);
             pnlTitulo.TabIndex = 0;
-            // 
+
             // lblTitulo
-            // 
             lblTitulo.BackColor = Color.FromArgb(159, 122, 234);
             lblTitulo.Dock = DockStyle.Top;
             lblTitulo.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
@@ -89,9 +90,8 @@
             lblTitulo.TabIndex = 0;
             lblTitulo.Text = "REPORTE DE AUDITORÍAS";
             lblTitulo.TextAlign = ContentAlignment.MiddleCenter;
-            // 
+
             // gbFiltros
-            // 
             gbFiltros.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             gbFiltros.BackColor = Color.FromArgb(230, 242, 248);
             gbFiltros.Controls.Add(cmbTabla);
@@ -113,9 +113,8 @@
             gbFiltros.TabIndex = 1;
             gbFiltros.TabStop = false;
             gbFiltros.Text = "Filtros de Auditoría";
-            // 
+
             // cmbTabla
-            // 
             cmbTabla.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbTabla.FormattingEnabled = true;
             cmbTabla.Items.AddRange(new object[] { "Todos", "Creación", "Modificación", "Eliminación", "Login", "Acceso" });
@@ -123,18 +122,16 @@
             cmbTabla.Name = "cmbTabla";
             cmbTabla.Size = new Size(150, 25);
             cmbTabla.TabIndex = 14;
-            // 
+
             // lblTabla
-            // 
             lblTabla.AutoSize = true;
             lblTabla.Location = new Point(362, 100);
             lblTabla.Name = "lblTabla";
             lblTabla.Size = new Size(101, 17);
             lblTabla.TabIndex = 13;
             lblTabla.Text = "Tabla afectada:";
-            // 
+
             // btnReiniciarF
-            // 
             btnReiniciarF.AutoSize = true;
             btnReiniciarF.BackColor = Color.FromArgb(159, 122, 234);
             btnReiniciarF.FlatStyle = FlatStyle.Flat;
@@ -147,9 +144,8 @@
             btnReiniciarF.Text = "Reiniciar Filtro";
             btnReiniciarF.UseVisualStyleBackColor = false;
             btnReiniciarF.Click += btnReiniciarF_Click;
-            // 
+
             // btnExportar
-            // 
             btnExportar.AutoSize = true;
             btnExportar.BackColor = Color.FromArgb(76, 175, 80);
             btnExportar.FlatStyle = FlatStyle.Flat;
@@ -162,9 +158,8 @@
             btnExportar.Text = "Exportar a Excel";
             btnExportar.UseVisualStyleBackColor = false;
             btnExportar.Click += btnExportar_Click;
-            // 
+
             // btnAplicarF
-            // 
             btnAplicarF.AutoSize = true;
             btnAplicarF.BackColor = Color.FromArgb(159, 122, 234);
             btnAplicarF.FlatStyle = FlatStyle.Flat;
@@ -177,9 +172,8 @@
             btnAplicarF.Text = "Aplicar Filtro";
             btnAplicarF.UseVisualStyleBackColor = false;
             btnAplicarF.Click += btnGenerar_Click;
-            // 
+
             // cmbMovimiento
-            // 
             cmbMovimiento.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbMovimiento.FormattingEnabled = true;
             cmbMovimiento.Items.AddRange(new object[] { "Todos", "Creación", "Modificación", "Eliminación", "Login", "Acceso" });
@@ -187,54 +181,48 @@
             cmbMovimiento.Name = "cmbMovimiento";
             cmbMovimiento.Size = new Size(150, 25);
             cmbMovimiento.TabIndex = 7;
-            // 
+
             // lblMovimiento
-            // 
             lblMovimiento.AutoSize = true;
             lblMovimiento.Location = new Point(362, 40);
             lblMovimiento.Name = "lblMovimiento";
             lblMovimiento.Size = new Size(87, 17);
             lblMovimiento.TabIndex = 6;
             lblMovimiento.Text = "Movimiento:";
-            // 
+
             // dtpFechaFin
-            // 
             dtpFechaFin.Format = DateTimePickerFormat.Short;
             dtpFechaFin.Location = new Point(171, 100);
             dtpFechaFin.MinDate = new DateTime(2025, 1, 1, 0, 0, 0, 0);
             dtpFechaFin.Name = "dtpFechaFin";
             dtpFechaFin.Size = new Size(120, 25);
             dtpFechaFin.TabIndex = 3;
-            // 
+
             // dtpFechaInicio
-            // 
             dtpFechaInicio.Format = DateTimePickerFormat.Short;
             dtpFechaInicio.Location = new Point(171, 43);
             dtpFechaInicio.MinDate = new DateTime(2025, 1, 1, 0, 0, 0, 0);
             dtpFechaInicio.Name = "dtpFechaInicio";
             dtpFechaInicio.Size = new Size(120, 25);
             dtpFechaInicio.TabIndex = 2;
-            // 
+
             // label2
-            // 
             label2.AutoSize = true;
             label2.Location = new Point(62, 100);
             label2.Name = "label2";
             label2.Size = new Size(70, 17);
             label2.TabIndex = 1;
             label2.Text = "Fecha Fin:";
-            // 
+
             // label1
-            // 
             label1.AutoSize = true;
             label1.Location = new Point(62, 43);
             label1.Name = "label1";
             label1.Size = new Size(85, 17);
             label1.TabIndex = 0;
             label1.Text = "Fecha Inicio:";
-            // 
+
             // dgvAuditorias
-            // 
             dgvAuditorias.AllowUserToAddRows = false;
             dgvAuditorias.AllowUserToDeleteRows = false;
             dgvAuditorias.AllowUserToResizeColumns = false;
@@ -252,7 +240,15 @@
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
             dgvAuditorias.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dgvAuditorias.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvAuditorias.Columns.AddRange(new DataGridViewColumn[] { colIdMovimiento, colFecha, colTipoMovimiento, colTabla, colIdUsuario, colIpEquipo, colNombreEquipo });
+            dgvAuditorias.Columns.AddRange(new DataGridViewColumn[] {
+                                                                    colIdMovimiento,
+                                                                    colFecha,
+                                                                    colTipoMovimiento,
+                                                                    colTabla,
+                                                                    colIdUsuario,
+                                                                    colIpEquipo,
+                                                                    colNombreEquipo});
+            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
             dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle8.BackColor = SystemColors.Window;
             dataGridViewCellStyle8.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -271,18 +267,16 @@
             dgvAuditorias.RowHeadersWidth = 62;
             dgvAuditorias.Size = new Size(1442, 474);
             dgvAuditorias.TabIndex = 0;
-            // 
+
             // colIdMovimiento
-            // 
-            colIdMovimiento.DataPropertyName = "id_Movimiento_Producto";
+            colIdMovimiento.DataPropertyName = "IdAuditoria";
             colIdMovimiento.HeaderText = "ID MOVIMIENTO";
             colIdMovimiento.MinimumWidth = 8;
             colIdMovimiento.Name = "colIdMovimiento";
             colIdMovimiento.ReadOnly = true;
             colIdMovimiento.Width = 150;
-            // 
+
             // colFecha
-            // 
             colFecha.DataPropertyName = "Fecha";
             dataGridViewCellStyle3.BackColor = Color.FromArgb(74, 60, 96);
             dataGridViewCellStyle3.ForeColor = Color.White;
@@ -292,10 +286,9 @@
             colFecha.Name = "colFecha";
             colFecha.ReadOnly = true;
             colFecha.Width = 150;
-            // 
+
             // colTipoMovimiento
-            // 
-            colTipoMovimiento.DataPropertyName = "tipo_movimiento";
+            colTipoMovimiento.DataPropertyName = "TipoMovimiento";
             dataGridViewCellStyle4.BackColor = Color.FromArgb(74, 60, 96);
             dataGridViewCellStyle4.ForeColor = Color.White;
             colTipoMovimiento.DefaultCellStyle = dataGridViewCellStyle4;
@@ -304,17 +297,16 @@
             colTipoMovimiento.Name = "colTipoMovimiento";
             colTipoMovimiento.ReadOnly = true;
             colTipoMovimiento.Width = 180;
-            // 
+
             // colTabla
-            // 
+            colTabla.DataPropertyName = "TablaAfectada";
             colTabla.HeaderText = "TABLA AFECTADA";
             colTabla.Name = "colTabla";
             colTabla.ReadOnly = true;
             colTabla.Width = 150;
-            // 
+
             // colIdUsuario
-            // 
-            colIdUsuario.DataPropertyName = "id_Usuario";
+            colIdUsuario.DataPropertyName = "IdUsuario";
             dataGridViewCellStyle5.BackColor = Color.FromArgb(74, 60, 96);
             dataGridViewCellStyle5.ForeColor = Color.White;
             colIdUsuario.DefaultCellStyle = dataGridViewCellStyle5;
@@ -323,10 +315,9 @@
             colIdUsuario.Name = "colIdUsuario";
             colIdUsuario.ReadOnly = true;
             colIdUsuario.Width = 180;
-            // 
+
             // colIpEquipo
-            // 
-            colIpEquipo.DataPropertyName = "ip_equipo";
+            colIpEquipo.DataPropertyName = "IpEquipo";
             dataGridViewCellStyle6.BackColor = Color.FromArgb(74, 60, 96);
             dataGridViewCellStyle6.ForeColor = Color.White;
             colIpEquipo.DefaultCellStyle = dataGridViewCellStyle6;
@@ -335,11 +326,9 @@
             colIpEquipo.Name = "colIpEquipo";
             colIpEquipo.ReadOnly = true;
             colIpEquipo.Width = 150;
-            // 
+
             // colNombreEquipo
-            // 
-            colNombreEquipo.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            colNombreEquipo.DataPropertyName = "nombre_equipo";
+            colNombreEquipo.DataPropertyName = "NombreEquipo";
             dataGridViewCellStyle7.BackColor = Color.FromArgb(74, 60, 96);
             dataGridViewCellStyle7.ForeColor = Color.White;
             colNombreEquipo.DefaultCellStyle = dataGridViewCellStyle7;
@@ -347,6 +336,8 @@
             colNombreEquipo.MinimumWidth = 250;
             colNombreEquipo.Name = "colNombreEquipo";
             colNombreEquipo.ReadOnly = true;
+            colNombreEquipo.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+
             // 
             // frmVReportesAuditoria
             // 
@@ -359,12 +350,14 @@
             Name = "frmVReportesAuditoria";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Reporte de Auditorías";
+
             pnlTitulo.ResumeLayout(false);
             gbFiltros.ResumeLayout(false);
             gbFiltros.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgvAuditorias).EndInit();
             ResumeLayout(false);
         }
+
 
         #endregion
 
