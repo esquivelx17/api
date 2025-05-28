@@ -287,5 +287,15 @@ namespace InvSis.Views
         {
 
         }
+
+        private void dgvProductos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void frmRegMov_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
