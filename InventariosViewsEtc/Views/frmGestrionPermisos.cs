@@ -17,6 +17,7 @@ namespace InvSis.Views
             ActualizarListadoPermisos();
             dataGridView1.SelectionChanged += DataGridView1_SelectionChanged;
             dataGridView1.CellFormatting += dataGridView1_CellFormatting;
+            SeguridadUI.BloquearBotonesSiEsLector(btnAgregar, btnInhabilitar);
         }
 
         public void ShowMessage(string message)

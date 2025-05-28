@@ -75,6 +75,19 @@ namespace InvSis.Views
             }
         }
 
+        private void EjecutarConWaitCursor(Action accion)
+        {
+            try
+            {
+                Cursor.Current = Cursors.WaitCursor;
+                accion();
+            }
+            finally
+            {
+                Cursor.Current = Cursors.Default;
+            }
+        }
+
         private void OpenFormInPanel(string formName)
         {
             Form formToShow;
@@ -134,34 +147,49 @@ namespace InvSis.Views
             }
         }
 
-        private void btnAdmUsr_Click(object sender, EventArgs e) => OpenFormInPanel("frmUsuarios");
-        private void btnGesRoles_Click(object sender, EventArgs e) => OpenFormInPanel("frmGestionRoles");
-        private void btnRepAud_Click(object sender, EventArgs e) => OpenFormInPanel("frmVReportesAuditoria");
-        private void btnAPI_Click(object sender, EventArgs e) => OpenFormInPanel("frmRepAPI");
-        private void btnRegMov_Click(object sender, EventArgs e) => OpenFormInPanel("frmRegMov");
-        private void btnRepInv_Click(object sender, EventArgs e) => OpenFormInPanel("frmRepInv");
-        private void btnGestionarPermisos_Click(object sender, EventArgs e) => OpenFormInPanel("frmGestrionPermisos");
-        private void btnAdmProd_Click(object sender, EventArgs e) => OpenFormInPanel("frmAdminProd");
+        private void btnAdmUsr_Click(object sender, EventArgs e)
+        {
+            EjecutarConWaitCursor(() => OpenFormInPanel("frmUsuarios"));
+        }
+
+        private void btnGesRoles_Click(object sender, EventArgs e)
+        {
+            EjecutarConWaitCursor(() => OpenFormInPanel("frmGestionRoles"));
+        }
+
+        private void btnRepAud_Click(object sender, EventArgs e)
+        {
+            EjecutarConWaitCursor(() => OpenFormInPanel("frmVReportesAuditoria"));
+        }
+
+        private void btnAPI_Click(object sender, EventArgs e)
+        {
+            EjecutarConWaitCursor(() => OpenFormInPanel("frmRepAPI"));
+        }
+
+        private void btnRegMov_Click(object sender, EventArgs e)
+        {
+            EjecutarConWaitCursor(() => OpenFormInPanel("frmRegMov"));
+        }
+
+        private void btnRepInv_Click(object sender, EventArgs e)
+        {
+            EjecutarConWaitCursor(() => OpenFormInPanel("frmRepInv"));
+        }
+
+        private void btnGestionarPermisos_Click(object sender, EventArgs e)
+        {
+            EjecutarConWaitCursor(() => OpenFormInPanel("frmGestrionPermisos"));
+        }
+
+        private void btnAdmProd_Click(object sender, EventArgs e)
+        {
+            EjecutarConWaitCursor(() => OpenFormInPanel("frmAdminProd"));
+        }
 
         private void btnClose_Click(object sender, EventArgs e)
         {
-            foreach (var form in openForms.Values)
-            {
-                form.Close();
-                form.Dispose();
-            }
-            openForms.Clear();
-        }
-
-        private void btnCambiarUsuario_Click(object sender, EventArgs e)
-        {
-            var result = MessageBox.Show(
-                $"¿Está seguro que desea cerrar la sesión de {Sesion.UsuarioActual}?",
-                "Cerrar Sesión",
-                MessageBoxButtons.YesNo,
-                MessageBoxIcon.Question);
-
-            if (result == DialogResult.Yes)
+            EjecutarConWaitCursor(() =>
             {
                 foreach (var form in openForms.Values)
                 {
@@ -169,19 +197,41 @@ namespace InvSis.Views
                     form.Dispose();
                 }
                 openForms.Clear();
+            });
+        }
 
-                Sesion.CerrarSesion();
+        private void btnCambiarUsuario_Click(object sender, EventArgs e)
+        {
+            EjecutarConWaitCursor(() =>
+            {
+                var result = MessageBox.Show(
+                    $"¿Está seguro que desea cerrar la sesión de {Sesion.UsuarioActual}?",
+                    "Cerrar Sesión",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question);
 
-                var login = new frmLogIn();
-                if (login.ShowDialog() == DialogResult.OK)
+                if (result == DialogResult.Yes)
                 {
-                    ConfigurarPermisosBotones();
+                    foreach (var form in openForms.Values)
+                    {
+                        form.Close();
+                        form.Dispose();
+                    }
+                    openForms.Clear();
+
+                    Sesion.CerrarSesion();
+
+                    var login = new frmLogIn();
+                    if (login.ShowDialog() == DialogResult.OK)
+                    {
+                        ConfigurarPermisosBotones();
+                    }
+                    else
+                    {
+                        this.Close();
+                    }
                 }
-                else
-                {
-                    this.Close();
-                }
-            }
+            });
         }
     }
 

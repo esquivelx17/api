@@ -23,6 +23,7 @@ namespace InvSis.Views
             CargarUsuariosEnGrid();
 
             dgvSeleccionUsuario.SelectionChanged += DgvSeleccionUsuario_SelectionChanged;
+            SeguridadUI.BloquearBotonesSiEsLector(btGuardarCambios, btEliminar, btRegistroPersona, btAlta);
         }
 
         private void frmUsuarios_Load(object sender, EventArgs e)

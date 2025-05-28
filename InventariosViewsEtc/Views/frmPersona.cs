@@ -27,6 +27,7 @@ namespace InvSis.Views
             // Asignar eventos para botones
             btGuardarCambios.Click += BtGuardarCambios_Click;
             btEliminar.Click += BtEliminar_Click;
+            SeguridadUI.BloquearBotonesSiEsLector(btAlta, btEliminar, btRegistroPersona);
         }
 
         private void PoblaComboSexo(ComboBox comboBox)
@@ -250,6 +251,10 @@ namespace InvSis.Views
             cbSexo.SelectedIndex = -1;
         }
 
+        private void btEliminar_Click_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 

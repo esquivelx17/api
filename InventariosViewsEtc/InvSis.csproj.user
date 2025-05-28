@@ -23,9 +23,6 @@
     <Compile Update="Views\frmPersona.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Views\frmRegMov.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Update="Views\frmRepAPI.cs">
       <SubType>Form</SubType>
     </Compile>

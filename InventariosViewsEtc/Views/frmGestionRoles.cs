@@ -25,13 +25,19 @@ namespace InvSis.Views
             btnEliminar.Click += BtnEliminar_Click;
             btnAgregarRol.Click += BtnAgregarRol_Click;
 
-            // Usar CellFormatting con tus nombres de columnas actuales
             dgvRoles.CellFormatting += Dgv_CellFormatting_Estatus;
             dgvPermisosAsignados.CellFormatting += Dgv_CellFormatting_Estatus;
             dtvPermisosDiaponibles.CellFormatting += Dgv_CellFormatting_Estatus;
 
             btnAgregar.Enabled = false;
             btnEliminar.Enabled = false;
+
+            AplicarSeguridadBotones();
+        }
+
+        private void AplicarSeguridadBotones()
+        {
+            SeguridadUI.BloquearBotonesSiEsLector(btnEliminar, btnAgregarRol, btnAgregar);
         }
 
         private void CargarRoles()
@@ -43,6 +49,8 @@ namespace InvSis.Views
             LimpiarPermisos();
             btnAgregar.Enabled = false;
             btnEliminar.Enabled = false;
+
+            AplicarSeguridadBotones();
         }
 
         private void DgvRoles_SelectionChanged(object? sender, EventArgs e)
@@ -53,6 +61,7 @@ namespace InvSis.Views
                 LimpiarPermisos();
                 btnAgregar.Enabled = false;
                 btnEliminar.Enabled = false;
+                AplicarSeguridadBotones();
                 return;
             }
 
@@ -70,6 +79,8 @@ namespace InvSis.Views
                 btnAgregar.Enabled = false;
                 btnEliminar.Enabled = false;
             }
+
+            AplicarSeguridadBotones();
         }
 
         private void ActualizarPermisos(int idRol)
@@ -83,6 +94,8 @@ namespace InvSis.Views
             dtvPermisosDiaponibles.Refresh();
 
             btnEliminar.Enabled = false;
+
+            AplicarSeguridadBotones();
         }
 
         private void LimpiarPermisos()
@@ -159,14 +172,16 @@ namespace InvSis.Views
             CargarRoles();
         }
 
-        private void dgvPermisosAsignados_SelectionChanged(object? sender, EventArgs e)
+        private void dgvPermisosAsignados_SelectionChanged(object sender, EventArgs e)
         {
             btnEliminar.Enabled = dgvPermisosAsignados.CurrentRow != null;
+            AplicarSeguridadBotones();
         }
 
-        private void dtvPermisosDiaponibles_SelectionChanged(object? sender, EventArgs e)
+        private void dtvPermisosDiaponibles_SelectionChanged(object sender, EventArgs e)
         {
             btnAgregar.Enabled = dtvPermisosDiaponibles.CurrentRow != null && rolSeleccionado != null;
+            AplicarSeguridadBotones();
         }
 
         private void Dgv_CellFormatting_Estatus(object sender, DataGridViewCellFormattingEventArgs e)
@@ -177,11 +192,11 @@ namespace InvSis.Views
 
             string estatusColName = "";
             if (dgv == dgvRoles)
-                estatusColName = "EstatusPermiso"; // según tu InitializeComponent
+                estatusColName = "EstatusPermiso";
             else if (dgv == dgvPermisosAsignados)
-                estatusColName = "dataGridViewTextBoxColumn2"; // columna estatus asignados
+                estatusColName = "dataGridViewTextBoxColumn2";
             else if (dgv == dtvPermisosDiaponibles)
-                estatusColName = "dataGridViewTextBoxColumn5"; // columna estatus disponibles
+                estatusColName = "dataGridViewTextBoxColumn5";
 
             if (dgv.Columns[e.ColumnIndex].Name == estatusColName && e.Value != null)
             {
@@ -198,20 +213,18 @@ namespace InvSis.Views
             }
         }
 
-
         private void DgvPermisosAsignados_SelectionChanged(object sender, EventArgs e)
         {
             btnEliminar.Enabled = dgvPermisosAsignados.CurrentRow != null;
+            AplicarSeguridadBotones();
         }
 
         private void DtvPermisosDiaponibles_SelectionChanged(object sender, EventArgs e)
         {
             btnAgregar.Enabled = dtvPermisosDiaponibles.CurrentRow != null && rolSeleccionado != null;
+            AplicarSeguridadBotones();
         }
 
-        private void btnAgregar_Click_1(object sender, EventArgs e)
-        {
 
-        }
     }
 }

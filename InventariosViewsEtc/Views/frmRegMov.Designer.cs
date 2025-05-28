@@ -170,7 +170,6 @@ namespace InvSis.Views
             btnGuardar.TabIndex = 11;
             btnGuardar.Text = "Guardar Movimiento";
             btnGuardar.UseVisualStyleBackColor = true;
-            btnGuardar.Click += btnGuardar_Click_1;
             // 
             // btnCancelar
             // 
@@ -447,7 +446,6 @@ namespace InvSis.Views
             ForeColor = Color.FromArgb(159, 122, 234);
             Name = "frmRegMov";
             Text = "Registro Movimientos";
-            Load += frmRegMov_Load;
             ((System.ComponentModel.ISupportInitialize)nudCantidad).EndInit();
             ((System.ComponentModel.ISupportInitialize)dgvProductos).EndInit();
             ((System.ComponentModel.ISupportInitialize)dgvSeleccionUsuario).EndInit();

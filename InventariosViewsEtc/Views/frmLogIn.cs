@@ -28,39 +28,47 @@ namespace InvSis.Views
 
         }
 
-        
+
 
         private void btnIniciarSesion_Click(object sender, EventArgs e)
         {
-            // Validaciones de usuario y contraseña (omito para brevity)...
-
-            string usuarioIngresado = txtUsuario.Text.Trim();
-            string contrasenaIngresada = txtContraseña.Text;
-
-            var usuario = _usuariosController.AutenticarUsuario(usuarioIngresado, contrasenaIngresada);
-            if (usuario == null)
+            try
             {
-                MessageBox.Show("Usuario o contraseña incorrectos o inactivo.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
+                Cursor.Current = Cursors.WaitCursor;
+
+                string usuarioIngresado = txtUsuario.Text.Trim();
+                string contrasenaIngresada = txtContraseña.Text;
+
+                var usuario = _usuariosController.AutenticarUsuario(usuarioIngresado, contrasenaIngresada);
+                if (usuario == null)
+                {
+                    MessageBox.Show("Usuario o contraseña incorrectos o inactivo.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                var rol = _rolesController.ObtenerRoles(false)
+                    .FirstOrDefault(r => r.IdRol == usuario.IdRol);
+
+                if (rol == null)
+                {
+                    MessageBox.Show("El rol asignado al usuario no existe.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                var permisos = _rolesController.ObtenerPermisosAsignados(rol.IdRol);
+
+                Sesion.IniciarSesion(usuario, rol, permisos);
+
+                MessageBox.Show($"Bienvenido {usuario.Nickname}.", "Inicio de sesión", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                this.DialogResult = DialogResult.OK;
+                this.Close();
             }
-
-            var rol = _rolesController.ObtenerRoles(false)
-                .FirstOrDefault(r => r.IdRol == usuario.IdRol);
-
-            if (rol == null)
+            finally
             {
-                MessageBox.Show("El rol asignado al usuario no existe.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
+                Cursor.Current = Cursors.Default;
             }
-
-            var permisos = _rolesController.ObtenerPermisosAsignados(rol.IdRol);
-
-            Sesion.IniciarSesion(usuario, rol, permisos);
-
-            MessageBox.Show($"Bienvenido {usuario.Nickname}.", "Inicio de sesión", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-            this.DialogResult = DialogResult.OK;
-            this.Close();
         }
+
     }
 }

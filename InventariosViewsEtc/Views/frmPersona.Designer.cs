@@ -41,7 +41,11 @@
             txtNombre = new TextBox();
             lblNombre = new Label();
             gbEdicionOEliminacion = new GroupBox();
-            btAlta.Click += btAlta_Click;
+            dgvSeleccionPersona = new DataGridView();
+            Nombre = new DataGridViewTextBoxColumn();
+            Edad = new DataGridViewTextBoxColumn();
+            Sexo = new DataGridViewTextBoxColumn();
+            Nacionalidad = new DataGridViewTextBoxColumn();
             nudCambioEdad = new NumericUpDown();
             btEliminar = new Button();
             btGuardarCambios = new Button();
@@ -54,11 +58,6 @@
             lblCambioNombre = new Label();
             lblSelección = new Label();
             lblTitulo = new Label();
-            dgvSeleccionPersona = new DataGridView();
-            Nombre = new DataGridViewTextBoxColumn();
-            Edad = new DataGridViewTextBoxColumn();
-            Sexo = new DataGridViewTextBoxColumn();
-            Nacionalidad = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)scPersonas).BeginInit();
             scPersonas.Panel1.SuspendLayout();
             scPersonas.Panel2.SuspendLayout();
@@ -66,8 +65,8 @@
             gbAlta.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)nudEdad).BeginInit();
             gbEdicionOEliminacion.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)nudCambioEdad).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvSeleccionPersona).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)nudCambioEdad).BeginInit();
             SuspendLayout();
             // 
             // scPersonas
@@ -133,6 +132,7 @@
             btAlta.Text = "Guardar";
             btAlta.TextAlign = ContentAlignment.MiddleRight;
             btAlta.UseVisualStyleBackColor = true;
+            btAlta.Click += btAlta_Click;
             // 
             // lblDatosObligatorios
             // 
@@ -237,6 +237,39 @@
             gbEdicionOEliminacion.TabStop = false;
             gbEdicionOEliminacion.Text = "Edición o eliminación de persona";
             // 
+            // dgvSeleccionPersona
+            // 
+            dgvSeleccionPersona.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvSeleccionPersona.Columns.AddRange(new DataGridViewColumn[] { Nombre, Edad, Sexo, Nacionalidad });
+            dgvSeleccionPersona.Location = new Point(9, 62);
+            dgvSeleccionPersona.Name = "dgvSeleccionPersona";
+            dgvSeleccionPersona.Size = new Size(1044, 480);
+            dgvSeleccionPersona.TabIndex = 26;
+            // 
+            // Nombre
+            // 
+            Nombre.HeaderText = "Nombre completo";
+            Nombre.MinimumWidth = 550;
+            Nombre.Name = "Nombre";
+            Nombre.Width = 550;
+            // 
+            // Edad
+            // 
+            Edad.HeaderText = "Edad";
+            Edad.Name = "Edad";
+            // 
+            // Sexo
+            // 
+            Sexo.HeaderText = "Sexo";
+            Sexo.Name = "Sexo";
+            // 
+            // Nacionalidad
+            // 
+            Nacionalidad.HeaderText = "Nacionalidad";
+            Nacionalidad.MinimumWidth = 250;
+            Nacionalidad.Name = "Nacionalidad";
+            Nacionalidad.Width = 250;
+            // 
             // nudCambioEdad
             // 
             nudCambioEdad.Location = new Point(473, 665);
@@ -259,6 +292,7 @@
             btEliminar.Text = "Eliminar persona";
             btEliminar.TextAlign = ContentAlignment.MiddleRight;
             btEliminar.UseVisualStyleBackColor = true;
+            btEliminar.Click += btEliminar_Click_1;
             // 
             // btGuardarCambios
             // 
@@ -364,39 +398,6 @@
             lblTitulo.Text = "CONTROL PERSONAS";
             lblTitulo.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // dgvSeleccionPersona
-            // 
-            dgvSeleccionPersona.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvSeleccionPersona.Columns.AddRange(new DataGridViewColumn[] { Nombre, Edad, Sexo, Nacionalidad });
-            dgvSeleccionPersona.Location = new Point(9, 62);
-            dgvSeleccionPersona.Name = "dgvSeleccionPersona";
-            dgvSeleccionPersona.Size = new Size(1044, 480);
-            dgvSeleccionPersona.TabIndex = 26;
-            // 
-            // Nombre
-            // 
-            Nombre.HeaderText = "Nombre completo";
-            Nombre.MinimumWidth = 550;
-            Nombre.Name = "Nombre";
-            Nombre.Width = 550;
-            // 
-            // Edad
-            // 
-            Edad.HeaderText = "Edad";
-            Edad.Name = "Edad";
-            // 
-            // Sexo
-            // 
-            Sexo.HeaderText = "Sexo";
-            Sexo.Name = "Sexo";
-            // 
-            // Nacionalidad
-            // 
-            Nacionalidad.HeaderText = "Nacionalidad";
-            Nacionalidad.MinimumWidth = 250;
-            Nacionalidad.Name = "Nacionalidad";
-            Nacionalidad.Width = 250;
-            // 
             // frmPersona
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -420,8 +421,8 @@
             ((System.ComponentModel.ISupportInitialize)nudEdad).EndInit();
             gbEdicionOEliminacion.ResumeLayout(false);
             gbEdicionOEliminacion.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)nudCambioEdad).EndInit();
             ((System.ComponentModel.ISupportInitialize)dgvSeleccionPersona).EndInit();
+            ((System.ComponentModel.ISupportInitialize)nudCambioEdad).EndInit();
             ResumeLayout(false);
         }
 

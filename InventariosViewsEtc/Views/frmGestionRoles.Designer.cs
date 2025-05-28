@@ -215,7 +215,6 @@ namespace InvSis.Views
             btnAgregar.TabIndex = 26;
             btnAgregar.Text = "Agregar";
             btnAgregar.UseVisualStyleBackColor = true;
-            btnAgregar.Click += btnAgregar_Click_1;
             // 
             // btnEliminar
             // 
