@@ -38,6 +38,8 @@ namespace InvSis.Views
             {
                 var auditorias = _controller.ObtenerAuditorias(fechaInicio, fechaFin, tipoMovimiento, tablaAfectada);
 
+                dgvAuditorias.AutoGenerateColumns = false;  // Agrega esta línea
+
                 dgvAuditorias.DataSource = null;
                 dgvAuditorias.DataSource = auditorias;
             }
@@ -46,6 +48,7 @@ namespace InvSis.Views
                 MessageBox.Show($"Error al cargar auditorías: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
 
         private void btnGenerar_Click(object sender, EventArgs e)
         {
