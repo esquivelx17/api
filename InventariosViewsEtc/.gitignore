@@ -22,6 +22,51 @@ obj/
 # Archivos de paquetes NuGet
 *.nupkg
 packages/
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# Archivos generados que Visual Studio crea (para que no molesten)
+**/project.assets.json
+**/project.nuget.cache
+
+# ASP.NET Scaffolding
+ScaffoldingReadMe.txt
+
+# Resharper
+_ReSharper*/
+*.[Rr]e[Ss]harper
+*.DotSettings.user
+
+# DotCover
+*.dotCover
+
+# Mono auto generated files
+mono_crash.*
+
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+# Folder config file
+Desktop.ini
+
+# Visual Studio profiler
+*.psess
+*.vsp
+*.vspx
+*.sap
+
+# Rider
+.idea/
+*.sln.iml
+
+# Otros archivos que no deben ir al repo
+*.pdb
+*.cache
+*.ilk
+*.vspscc
+*.vssscc
 
 # Archivos de configuración local y secretos
 .env

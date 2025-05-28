@@ -31,7 +31,9 @@ namespace InvSis.Views
             CargarOperadores();
             CargarMovimientos();
 
-            cmbEstatus.SelectedIndex = 0; // Pendiente (índice 0) por defecto
+            // Aquí configuramos el combo de estatus según el rol del usuario
+            ConfigurarComboEstatusPorRol();
+
             dtpFecha.MaxDate = DateTime.Today;
             dtpFecha.Value = DateTime.Today;
 
@@ -40,6 +42,33 @@ namespace InvSis.Views
             dtgRegMov.ClearSelection();
 
             dtgRegMov.SelectionChanged += DtRegMov_SelectionChanged;
+        }
+
+        private void ConfigurarComboEstatusPorRol()
+        {
+            cmbEstatus.Items.Clear();
+
+            string rol = Sesion.RolActual?.NombreRol ?? "";
+
+            if (rol.Equals("Operador", StringComparison.OrdinalIgnoreCase))
+            {
+                cmbEstatus.Items.Add("Pendiente");
+                cmbEstatus.SelectedIndex = 0;
+                cmbEstatus.Enabled = false;  // Opcional: bloquea para que no cambie
+            }
+            else if (rol.Equals("Autorizador", StringComparison.OrdinalIgnoreCase))
+            {
+                cmbEstatus.Items.AddRange(new object[] { "Pendiente", "Aprobado", "Revisado", "Rechazado" });
+                cmbEstatus.SelectedIndex = 0;
+                cmbEstatus.Enabled = true;
+            }
+            else
+            {
+                // Para otros roles muestra todas las opciones
+                cmbEstatus.Items.AddRange(new object[] { "Pendiente", "Aprobado", "Revisado", "Rechazado" });
+                cmbEstatus.SelectedIndex = 0;
+                cmbEstatus.Enabled = true;
+            }
         }
 
         private void ConfigurarDgvProductos()
@@ -232,96 +261,106 @@ namespace InvSis.Views
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            if (dgvProductos.CurrentRow == null)
+            try
             {
-                MessageBox.Show("Seleccione un producto.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
+                Cursor.Current = Cursors.WaitCursor;
 
-            if (dgvSeleccionUsuario.SelectedRows.Count == 0)
-            {
-                MessageBox.Show("Seleccione un operador.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            int cantidad = (int)nudCantidad.Value;
-            if (cantidad <= 0)
-            {
-                MessageBox.Show("Ingrese una cantidad válida.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            var productoClave = dgvProductos.CurrentRow.Cells["Clave"].Value?.ToString() ?? string.Empty;
-            var producto = productosController.ObtenerProductoPorClave(productoClave);
-
-            if (producto == null)
-            {
-                MessageBox.Show("Producto no válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            int operadorId = (int)dgvSeleccionUsuario.SelectedRows[0].Cells["IdUsuario"].Value;
-
-            short estatus = cmbEstatus.SelectedIndex switch
-            {
-                0 => 2, // Pendiente
-                1 => 1, // Aprobado
-                2 => 0, // Rechazado
-                _ => 2
-            };
-
-            var movimientoProducto = new MovimientoProducto
-            {
-                IdProducto = producto.IdProducto,
-                IdOperador = operadorId,
-                Cantidad = cantidad,
-                Fecha = dtpFecha.Value.Date,
-                Estatus = estatus,
-                Producto = producto,
-                Operador = usuariosController.ObtenerUsuarioPorId(operadorId) ?? new Usuario()
-            };
-
-            if (idMovimientoProductoActual == null)
-            {
-                int idNuevo = movimientoProductoController.InsertarMovimientoProducto(movimientoProducto);
-                if (idNuevo <= 0)
+                if (dgvProductos.CurrentRow == null)
                 {
-                    MessageBox.Show("Error al guardar movimiento.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-                idMovimientoProductoActual = idNuevo;
-
-                if (estatus == 1) // Solo si está aprobado actualiza stock
-                {
-                    producto.Stock = (producto.Stock ?? 0) + cantidad;
-                    productosController.ActualizarProducto(producto);
-                }
-
-                MessageBox.Show("Movimiento guardado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            else
-            {
-                movimientoProducto.IdMovimientoProducto = idMovimientoProductoActual.Value;
-
-                if (!movimientoProductoController.ActualizarMovimientoProducto(movimientoProducto))
-                {
-                    MessageBox.Show("Error al actualizar movimiento.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Seleccione un producto.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
-                if (estatus == 1)
+                if (dgvSeleccionUsuario.SelectedRows.Count == 0)
                 {
-                    producto.Stock = (producto.Stock ?? 0) + cantidad;
-                    productosController.ActualizarProducto(producto);
+                    MessageBox.Show("Seleccione un operador.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
                 }
 
-                MessageBox.Show("Movimiento actualizado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
+                int cantidad = (int)nudCantidad.Value;
+                if (cantidad <= 0)
+                {
+                    MessageBox.Show("Ingrese una cantidad válida.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
 
-            CargarProductos();
-            CargarMovimientos();
-            LimpiarFormulario();
+                var productoClave = dgvProductos.CurrentRow.Cells["Clave"].Value?.ToString() ?? string.Empty;
+                var producto = productosController.ObtenerProductoPorClave(productoClave);
+
+                if (producto == null)
+                {
+                    MessageBox.Show("Producto no válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                int operadorId = (int)dgvSeleccionUsuario.SelectedRows[0].Cells["IdUsuario"].Value;
+
+                short estatus = cmbEstatus.SelectedIndex switch
+                {
+                    0 => 2, // Pendiente
+                    1 => 1, // Aprobado
+                    2 => 0, // Rechazado
+                    _ => 2
+                };
+
+                var movimientoProducto = new MovimientoProducto
+                {
+                    IdProducto = producto.IdProducto,
+                    IdOperador = operadorId,
+                    Cantidad = cantidad,
+                    Fecha = dtpFecha.Value.Date,
+                    Estatus = estatus,
+                    Producto = producto,
+                    Operador = usuariosController.ObtenerUsuarioPorId(operadorId) ?? new Usuario()
+                };
+
+                if (idMovimientoProductoActual == null)
+                {
+                    int idNuevo = movimientoProductoController.InsertarMovimientoProducto(movimientoProducto);
+                    if (idNuevo <= 0)
+                    {
+                        MessageBox.Show("Error al guardar movimiento.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                    idMovimientoProductoActual = idNuevo;
+
+                    if (estatus == 1) // Solo si está aprobado actualiza stock
+                    {
+                        producto.Stock = (producto.Stock ?? 0) + cantidad;
+                        productosController.ActualizarProducto(producto);
+                    }
+
+                    MessageBox.Show("Movimiento guardado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    movimientoProducto.IdMovimientoProducto = idMovimientoProductoActual.Value;
+
+                    if (!movimientoProductoController.ActualizarMovimientoProducto(movimientoProducto))
+                    {
+                        MessageBox.Show("Error al actualizar movimiento.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+
+                    if (estatus == 1)
+                    {
+                        producto.Stock = (producto.Stock ?? 0) + cantidad;
+                        productosController.ActualizarProducto(producto);
+                    }
+
+                    MessageBox.Show("Movimiento actualizado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
+                CargarProductos();
+                CargarMovimientos();
+                LimpiarFormulario();
+            }
+            finally
+            {
+                Cursor.Current = Cursors.Default;
+            }
         }
+
 
         private void LimpiarFormulario()
         {
