@@ -86,3 +86,16 @@ C:\Users\esqui\OneDrive\Documents\8 SEMESTRE\version con api\InventariosCore\obj
 C:\Users\esqui\OneDrive\Documents\8 SEMESTRE\version con api\InventariosCore\obj\Debug\net8.0\refint\InventariosCore.dll
 C:\Users\esqui\OneDrive\Documents\8 SEMESTRE\version con api\InventariosCore\obj\Debug\net8.0\InventariosCore.pdb
 C:\Users\esqui\OneDrive\Documents\8 SEMESTRE\version con api\InventariosCore\obj\Debug\net8.0\ref\InventariosCore.dll
+C:\Users\Erick\Source\Repos\api\InventariosCore\bin\Debug\net8.0\InventariosCore.deps.json
+C:\Users\Erick\Source\Repos\api\InventariosCore\bin\Debug\net8.0\InventariosCore.dll
+C:\Users\Erick\Source\Repos\api\InventariosCore\bin\Debug\net8.0\InventariosCore.pdb
+C:\Users\Erick\Source\Repos\api\InventariosCore\obj\Debug\net8.0\InventariosCore.csproj.AssemblyReference.cache
+C:\Users\Erick\Source\Repos\api\InventariosCore\obj\Debug\net8.0\InventariosCore.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Erick\Source\Repos\api\InventariosCore\obj\Debug\net8.0\InventariosCore.AssemblyInfoInputs.cache
+C:\Users\Erick\Source\Repos\api\InventariosCore\obj\Debug\net8.0\InventariosCore.AssemblyInfo.cs
+C:\Users\Erick\Source\Repos\api\InventariosCore\obj\Debug\net8.0\InventariosCore.csproj.CoreCompileInputs.cache
+C:\Users\Erick\Source\Repos\api\InventariosCore\obj\Debug\net8.0\InventariosCore.sourcelink.json
+C:\Users\Erick\Source\Repos\api\InventariosCore\obj\Debug\net8.0\InventariosCore.dll
+C:\Users\Erick\Source\Repos\api\InventariosCore\obj\Debug\net8.0\refint\InventariosCore.dll
+C:\Users\Erick\Source\Repos\api\InventariosCore\obj\Debug\net8.0\InventariosCore.pdb
+C:\Users\Erick\Source\Repos\api\InventariosCore\obj\Debug\net8.0\ref\InventariosCore.dll
