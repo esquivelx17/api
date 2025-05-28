@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\esqui\\OneDrive\\Documents\\8 SEMESTRE\\version con api\\InventariosCore\\InventariosCore.csproj": {}
+    "C:\\Users\\esqui\\OneDrive\\Documents\\8 SEMESTRE\\definitiva progra\\InventariosCore\\InventariosCore.csproj": {}
   },
   "projects": {
-    "C:\\Users\\esqui\\OneDrive\\Documents\\8 SEMESTRE\\version con api\\InventariosCore\\InventariosCore.csproj": {
+    "C:\\Users\\esqui\\OneDrive\\Documents\\8 SEMESTRE\\definitiva progra\\InventariosCore\\InventariosCore.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\esqui\\OneDrive\\Documents\\8 SEMESTRE\\version con api\\InventariosCore\\InventariosCore.csproj",
+        "projectUniqueName": "C:\\Users\\esqui\\OneDrive\\Documents\\8 SEMESTRE\\definitiva progra\\InventariosCore\\InventariosCore.csproj",
         "projectName": "InventariosCore",
-        "projectPath": "C:\\Users\\esqui\\OneDrive\\Documents\\8 SEMESTRE\\version con api\\InventariosCore\\InventariosCore.csproj",
+        "projectPath": "C:\\Users\\esqui\\OneDrive\\Documents\\8 SEMESTRE\\definitiva progra\\InventariosCore\\InventariosCore.csproj",
         "packagesPath": "C:\\Users\\esqui\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\esqui\\OneDrive\\Documents\\8 SEMESTRE\\version con api\\InventariosCore\\obj\\",
+        "outputPath": "C:\\Users\\esqui\\OneDrive\\Documents\\8 SEMESTRE\\definitiva progra\\InventariosCore\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

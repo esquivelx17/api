@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "znm0wZaUcio=",
+  "dgSpecHash": "zluVXt+R4Bk=",
   "success": true,
-  "projectFilePath": "C:\\Users\\esqui\\OneDrive\\Documents\\8 SEMESTRE\\version con api\\InventariosViewsEtc\\InvSis.csproj",
+  "projectFilePath": "C:\\Users\\esqui\\OneDrive\\Documents\\8 SEMESTRE\\definitiva progra\\InventariosViewsEtc\\InvSis.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\esqui\\.nuget\\packages\\epplus\\8.0.5\\epplus.8.0.5.nupkg.sha512",
     "C:\\Users\\esqui\\.nuget\\packages\\epplus.interfaces\\8.0.0\\epplus.interfaces.8.0.0.nupkg.sha512",
