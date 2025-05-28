@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using InventariosCore.Business;
 using InventariosCore.Controllers;
 using InventariosCore.Model;
 
@@ -44,7 +45,7 @@ namespace InvSis.Views
             colUbicacion.DataPropertyName = "Ubicacion";
             colClave.DataPropertyName = "Clave";
 
-            // colImpuesto y colEstatus se llenan manualmente en DataBindingComplete
+            // colImpuesto y colEstatus se llenan en DataBindingComplete
         }
 
         private void CargarDatos(string? categoria = null, int? estatus = null, string? ubicacion = null)
@@ -57,17 +58,24 @@ namespace InvSis.Views
 
         private void dgvProductos_DataBindingComplete(object? sender, DataGridViewBindingCompleteEventArgs e)
         {
+            int existenciaMinima = ProductosNegocio.ObtenerExistenciaMinima();
+
             foreach (DataGridViewRow row in dgvProductos.Rows)
             {
                 if (row.DataBoundItem is Producto p)
                 {
-                    // Impuesto: mostrar "N/A" si no aplica
                     row.Cells["colImpuesto"].Value = (p.AplicaImpuesto && p.Impuesto != null)
                         ? (p.Impuesto.TipoImpuesto ?? "N/A")
                         : "N/A";
 
-                    // Estatus: mostrar texto según valor
                     row.Cells["colEstatus"].Value = p.Estatus == 1 ? "Activo" : "Inactivo";
+
+                    // Resaltar si stock bajo
+                    if (p.Stock.HasValue && p.Stock.Value < existenciaMinima)
+                    {
+                        row.DefaultCellStyle.BackColor = Color.LightSalmon;
+                        row.DefaultCellStyle.ForeColor = Color.Black;
+                    }
                 }
             }
         }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using InventariosCore.Business;
 using InventariosCore.Data;
 using InventariosCore.Model;
 
@@ -32,7 +33,13 @@ namespace InventariosCore.Controllers
             if (!string.IsNullOrEmpty(ubicacion) && ubicacion != "Todo")
                 productos = productos.FindAll(p => p.Ubicacion.Equals(ubicacion, StringComparison.OrdinalIgnoreCase));
 
-            // Convertimos la lista a ProductoConCostoTexto agregando la propiedad con el texto del costo
+            // Si quieres manejar la lógica de stock bajo aquí, puedes usar esta lista:
+            int existenciaMinima = ProductosNegocio.ObtenerExistenciaMinima();
+            var productosStockBajo = productos.FindAll(p => p.Stock.HasValue && p.Stock.Value < existenciaMinima);
+
+            // Puedes usar productosStockBajo para alertas o lógica visual si quieres,
+            // pero para devolver la lista completa de productos transformada:
+
             var productosConTexto = productos.Select(p => new ProductoConCostoTexto
             {
                 IdProducto = p.IdProducto,
@@ -50,6 +57,16 @@ namespace InventariosCore.Controllers
             }).ToList();
 
             return productosConTexto;
+        }
+
+        /// <summary>
+        /// Método para obtener solo productos con stock bajo.
+        /// </summary>
+        public List<Producto> ObtenerProductosConStockBajo()
+        {
+            int existenciaMinima = ProductosNegocio.ObtenerExistenciaMinima();
+            var productos = _productosDA.ObtenerTodosLosProductos();
+            return productos.FindAll(p => p.Stock.HasValue && p.Stock.Value < existenciaMinima);
         }
 
         /// <summary>

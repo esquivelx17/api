@@ -2,6 +2,7 @@
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+using InventariosCore.Business;
 using InventariosCore.Controllers;
 using InventariosCore.Model;
 
@@ -13,7 +14,7 @@ namespace InvSis.Views
         private readonly ProductosController productosController;
         private readonly UsuariosController usuariosController;
 
-        private int? idMovimientoProductoActual = null;  // IdMovimientoProducto que es PK en la tabla movimientos_productos
+        private int? idMovimientoProductoActual = null;  // IdMovimientoProducto PK en movimientos_productos
 
         public frmRegMov()
         {
@@ -31,7 +32,7 @@ namespace InvSis.Views
             CargarOperadores();
             CargarMovimientos();
 
-            // Aquí configuramos el combo de estatus según el rol del usuario
+            // Configura combo estatus según rol
             ConfigurarComboEstatusPorRol();
 
             dtpFecha.MaxDate = DateTime.Today;
@@ -54,18 +55,18 @@ namespace InvSis.Views
             {
                 cmbEstatus.Items.Add("Pendiente");
                 cmbEstatus.SelectedIndex = 0;
-                cmbEstatus.Enabled = false;  // Opcional: bloquea para que no cambie
+                cmbEstatus.Enabled = false;
             }
             else if (rol.Equals("Autorizador", StringComparison.OrdinalIgnoreCase))
             {
-                cmbEstatus.Items.AddRange(new object[] { "Pendiente", "Aprobado", "Revisado", "Rechazado" });
+                // Ajustado a solo 3 estatus sin "Revisado"
+                cmbEstatus.Items.AddRange(new object[] { "Pendiente", "Aprobado", "Rechazado" });
                 cmbEstatus.SelectedIndex = 0;
                 cmbEstatus.Enabled = true;
             }
             else
             {
-                // Para otros roles muestra todas las opciones
-                cmbEstatus.Items.AddRange(new object[] { "Pendiente", "Aprobado", "Revisado", "Rechazado" });
+                cmbEstatus.Items.AddRange(new object[] { "Pendiente", "Aprobado", "Rechazado" });
                 cmbEstatus.SelectedIndex = 0;
                 cmbEstatus.Enabled = true;
             }
@@ -125,10 +126,12 @@ namespace InvSis.Views
         {
             var productos = productosController.ObtenerProductos();
 
+            int existenciaMinima = ProductosNegocio.ObtenerExistenciaMinima();
+
             dgvProductos.Rows.Clear();
             foreach (var p in productos)
             {
-                dgvProductos.Rows.Add(
+                var rowIndex = dgvProductos.Rows.Add(
                     p.Nombre,
                     p.Categoria,
                     p.Costo.ToString("C2"),
@@ -138,6 +141,14 @@ namespace InvSis.Views
                     p.Clave,
                     p.Estatus == 1 ? "Activo" : "Inactivo"
                 );
+
+                // Resaltar productos con stock bajo
+                if (p.Stock.HasValue && p.Stock.Value < existenciaMinima)
+                {
+                    var row = dgvProductos.Rows[rowIndex];
+                    row.DefaultCellStyle.BackColor = Color.LightSalmon;
+                    row.DefaultCellStyle.ForeColor = Color.Black;
+                }
             }
         }
 
@@ -360,7 +371,6 @@ namespace InvSis.Views
                 Cursor.Current = Cursors.Default;
             }
         }
-
 
         private void LimpiarFormulario()
         {
