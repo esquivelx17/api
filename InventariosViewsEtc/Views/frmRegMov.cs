@@ -349,5 +349,10 @@ namespace InvSis.Views
         {
             btnCancelar_Click(sender, e);
         }
+
+        private void btnGuardar_Click_2(object sender, EventArgs e)
+        {
+            btnGuardar_Click(sender, e);
+        }
     }
 }
