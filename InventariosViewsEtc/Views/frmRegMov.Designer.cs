@@ -19,17 +19,7 @@ namespace InvSis.Views
         private Label lblCan;
         private Button btnGuardar;
         private Button btnCancelar;
-        private DataGridView dgvRegMov;
         private DataGridView dgvOperadores;
-
-        private DataGridViewTextBoxColumn colNombre;
-        private DataGridViewTextBoxColumn colCategoria;
-        private DataGridViewTextBoxColumn colCosto;
-        private DataGridViewTextBoxColumn colStock;
-        private DataGridViewTextBoxColumn colUbicacion;
-        private DataGridViewTextBoxColumn colImpuesto;
-        private DataGridViewTextBoxColumn colClave;
-        private DataGridViewTextBoxColumn colEstatus;
 
         /// <summary>
         /// Limpiar recursos usados.
@@ -49,6 +39,14 @@ namespace InvSis.Views
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle10 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle16 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle11 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle12 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle13 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle14 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle15 = new DataGridViewCellStyle();
             lblTitulo = new Label();
             cmbTipoMov = new ComboBox();
             lblMovi = new Label();
@@ -62,7 +60,9 @@ namespace InvSis.Views
             lblCan = new Label();
             btnGuardar = new Button();
             btnCancelar = new Button();
-            dgvRegMov = new DataGridView();
+            dgvOperadores = new DataGridView();
+            lbSeleccioneOperador = new Label();
+            dgvProductos = new DataGridView();
             colNombre = new DataGridViewTextBoxColumn();
             colCategoria = new DataGridViewTextBoxColumn();
             colCosto = new DataGridViewTextBoxColumn();
@@ -71,12 +71,10 @@ namespace InvSis.Views
             colImpuesto = new DataGridViewTextBoxColumn();
             colClave = new DataGridViewTextBoxColumn();
             colEstatus = new DataGridViewTextBoxColumn();
-            dgvOperadores = new DataGridView();
-            lbSeleccioneOperador = new Label();
             ((System.ComponentModel.ISupportInitialize)dgvSeleccion).BeginInit();
             ((System.ComponentModel.ISupportInitialize)nudCantidad).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dgvRegMov).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvOperadores).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvProductos).BeginInit();
             SuspendLayout();
             // 
             // lblTitulo
@@ -192,6 +190,7 @@ namespace InvSis.Views
             btnGuardar.TabIndex = 11;
             btnGuardar.Text = "Guardar Movimiento";
             btnGuardar.UseVisualStyleBackColor = true;
+            btnGuardar.Click += btnGuardar_Click_1;
             // 
             // btnCancelar
             // 
@@ -201,80 +200,6 @@ namespace InvSis.Views
             btnCancelar.TabIndex = 12;
             btnCancelar.Text = "Cancelar";
             btnCancelar.UseVisualStyleBackColor = true;
-            // 
-            // dgvRegMov
-            // 
-            dgvRegMov.Columns.AddRange(new DataGridViewColumn[] { colNombre, colCategoria, colCosto, colStock, colUbicacion, colImpuesto, colClave, colEstatus });
-            dgvRegMov.Location = new Point(503, 62);
-            dgvRegMov.MultiSelect = false;
-            dgvRegMov.Name = "dgvRegMov";
-            dgvRegMov.ReadOnly = true;
-            dgvRegMov.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvRegMov.Size = new Size(654, 246);
-            dgvRegMov.TabIndex = 13;
-            // 
-            // colNombre
-            // 
-            colNombre.HeaderText = "Nombre";
-            colNombre.MinimumWidth = 8;
-            colNombre.Name = "colNombre";
-            colNombre.ReadOnly = true;
-            colNombre.Width = 140;
-            // 
-            // colCategoria
-            // 
-            colCategoria.HeaderText = "Categoría";
-            colCategoria.MinimumWidth = 8;
-            colCategoria.Name = "colCategoria";
-            colCategoria.ReadOnly = true;
-            colCategoria.Width = 140;
-            // 
-            // colCosto
-            // 
-            colCosto.HeaderText = "Costo Unitario";
-            colCosto.MinimumWidth = 8;
-            colCosto.Name = "colCosto";
-            colCosto.ReadOnly = true;
-            colCosto.Width = 90;
-            // 
-            // colStock
-            // 
-            colStock.HeaderText = "Stock";
-            colStock.MinimumWidth = 8;
-            colStock.Name = "colStock";
-            colStock.ReadOnly = true;
-            colStock.Width = 60;
-            // 
-            // colUbicacion
-            // 
-            colUbicacion.HeaderText = "Ubicación";
-            colUbicacion.MinimumWidth = 8;
-            colUbicacion.Name = "colUbicacion";
-            colUbicacion.ReadOnly = true;
-            colUbicacion.Width = 120;
-            // 
-            // colImpuesto
-            // 
-            colImpuesto.HeaderText = "Impuesto";
-            colImpuesto.MinimumWidth = 8;
-            colImpuesto.Name = "colImpuesto";
-            colImpuesto.ReadOnly = true;
-            // 
-            // colClave
-            // 
-            colClave.HeaderText = "Clave";
-            colClave.MinimumWidth = 8;
-            colClave.Name = "colClave";
-            colClave.ReadOnly = true;
-            colClave.Width = 120;
-            // 
-            // colEstatus
-            // 
-            colEstatus.HeaderText = "Estatus";
-            colEstatus.MinimumWidth = 8;
-            colEstatus.Name = "colEstatus";
-            colEstatus.ReadOnly = true;
-            colEstatus.Width = 90;
             // 
             // dgvOperadores
             // 
@@ -295,15 +220,126 @@ namespace InvSis.Views
             lbSeleccioneOperador.TabIndex = 15;
             lbSeleccioneOperador.Text = "Seleccione operador";
             // 
+            // dgvProductos
+            // 
+            dgvProductos.AllowUserToAddRows = false;
+            dgvProductos.AllowUserToDeleteRows = false;
+            dgvProductos.AllowUserToResizeColumns = false;
+            dgvProductos.AllowUserToResizeRows = false;
+            dataGridViewCellStyle9.BackColor = Color.FromArgb(250, 250, 250);
+            dgvProductos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle9;
+            dgvProductos.Anchor = AnchorStyles.None;
+            dgvProductos.BackgroundColor = Color.FromArgb(42, 34, 58);
+            dataGridViewCellStyle10.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = Color.FromArgb(159, 122, 234);
+            dataGridViewCellStyle10.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            dataGridViewCellStyle10.ForeColor = Color.MediumPurple;
+            dataGridViewCellStyle10.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = DataGridViewTriState.True;
+            dgvProductos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            dgvProductos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvProductos.Columns.AddRange(new DataGridViewColumn[] { colNombre, colCategoria, colCosto, colStock, colUbicacion, colImpuesto, colClave, colEstatus });
+            dataGridViewCellStyle16.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle16.BackColor = SystemColors.Window;
+            dataGridViewCellStyle16.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle16.ForeColor = Color.FromArgb(159, 122, 234);
+            dataGridViewCellStyle16.SelectionBackColor = Color.FromArgb(232, 218, 255);
+            dataGridViewCellStyle16.SelectionForeColor = Color.MediumPurple;
+            dataGridViewCellStyle16.WrapMode = DataGridViewTriState.False;
+            dgvProductos.DefaultCellStyle = dataGridViewCellStyle16;
+            dgvProductos.GridColor = SystemColors.Info;
+            dgvProductos.ImeMode = ImeMode.Disable;
+            dgvProductos.Location = new Point(503, 62);
+            dgvProductos.Name = "dgvProductos";
+            dgvProductos.ReadOnly = true;
+            dgvProductos.RowHeadersVisible = false;
+            dgvProductos.RowHeadersWidth = 62;
+            dgvProductos.Size = new Size(622, 234);
+            dgvProductos.TabIndex = 16;
+            // 
+            // colNombre
+            // 
+            dataGridViewCellStyle11.BackColor = Color.FromArgb(74, 60, 96);
+            dataGridViewCellStyle11.ForeColor = Color.White;
+            colNombre.DefaultCellStyle = dataGridViewCellStyle11;
+            colNombre.HeaderText = "Nombre";
+            colNombre.MinimumWidth = 8;
+            colNombre.Name = "colNombre";
+            colNombre.ReadOnly = true;
+            colNombre.Width = 140;
+            // 
+            // colCategoria
+            // 
+            dataGridViewCellStyle12.BackColor = Color.FromArgb(74, 60, 96);
+            dataGridViewCellStyle12.ForeColor = Color.White;
+            colCategoria.DefaultCellStyle = dataGridViewCellStyle12;
+            colCategoria.HeaderText = "Categoria";
+            colCategoria.MinimumWidth = 8;
+            colCategoria.Name = "colCategoria";
+            colCategoria.ReadOnly = true;
+            colCategoria.Width = 140;
+            // 
+            // colCosto
+            // 
+            colCosto.HeaderText = "Costo unitario";
+            colCosto.Name = "colCosto";
+            colCosto.ReadOnly = true;
+            // 
+            // colStock
+            // 
+            dataGridViewCellStyle13.BackColor = Color.FromArgb(74, 60, 96);
+            dataGridViewCellStyle13.ForeColor = Color.White;
+            colStock.DefaultCellStyle = dataGridViewCellStyle13;
+            colStock.HeaderText = "Stock";
+            colStock.MinimumWidth = 8;
+            colStock.Name = "colStock";
+            colStock.ReadOnly = true;
+            // 
+            // colUbicacion
+            // 
+            colUbicacion.HeaderText = "Ubicación";
+            colUbicacion.Name = "colUbicacion";
+            colUbicacion.ReadOnly = true;
+            colUbicacion.Width = 140;
+            // 
+            // colImpuesto
+            // 
+            colImpuesto.HeaderText = "Impuesto";
+            colImpuesto.Name = "colImpuesto";
+            colImpuesto.ReadOnly = true;
+            // 
+            // colClave
+            // 
+            dataGridViewCellStyle14.BackColor = Color.FromArgb(74, 60, 96);
+            dataGridViewCellStyle14.ForeColor = Color.White;
+            colClave.DefaultCellStyle = dataGridViewCellStyle14;
+            colClave.HeaderText = "Clave";
+            colClave.MinimumWidth = 8;
+            colClave.Name = "colClave";
+            colClave.ReadOnly = true;
+            colClave.Width = 120;
+            // 
+            // colEstatus
+            // 
+            dataGridViewCellStyle15.BackColor = Color.FromArgb(74, 60, 96);
+            dataGridViewCellStyle15.ForeColor = Color.White;
+            colEstatus.DefaultCellStyle = dataGridViewCellStyle15;
+            colEstatus.HeaderText = "Estatus";
+            colEstatus.MinimumWidth = 8;
+            colEstatus.Name = "colEstatus";
+            colEstatus.ReadOnly = true;
+            colEstatus.Width = 130;
+            // 
             // frmRegMov
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(230, 242, 248);
             ClientSize = new Size(1193, 630);
+            Controls.Add(dgvProductos);
             Controls.Add(lbSeleccioneOperador);
             Controls.Add(dgvOperadores);
-            Controls.Add(dgvRegMov);
             Controls.Add(btnCancelar);
             Controls.Add(btnGuardar);
             Controls.Add(lblCan);
@@ -323,11 +359,20 @@ namespace InvSis.Views
             Text = "Registro Movimientos";
             ((System.ComponentModel.ISupportInitialize)dgvSeleccion).EndInit();
             ((System.ComponentModel.ISupportInitialize)nudCantidad).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dgvRegMov).EndInit();
             ((System.ComponentModel.ISupportInitialize)dgvOperadores).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvProductos).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
         private Label lbSeleccioneOperador;
+        private DataGridView dgvProductos;
+        private DataGridViewTextBoxColumn colNombre;
+        private DataGridViewTextBoxColumn colCategoria;
+        private DataGridViewTextBoxColumn colCosto;
+        private DataGridViewTextBoxColumn colStock;
+        private DataGridViewTextBoxColumn colUbicacion;
+        private DataGridViewTextBoxColumn colImpuesto;
+        private DataGridViewTextBoxColumn colClave;
+        private DataGridViewTextBoxColumn colEstatus;
     }
 }

@@ -38,37 +38,73 @@ namespace InvSis.Views
 
         private void ConfigurarDgvRegMovProductos()
         {
-            dgvRegMov.AllowUserToAddRows = false;
-            dgvRegMov.AllowUserToDeleteRows = false;
-            dgvRegMov.ReadOnly = true;
-            dgvRegMov.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvRegMov.MultiSelect = false;
-            dgvRegMov.AutoGenerateColumns = false;
-            dgvRegMov.Columns.Clear();
+            dgvProductos.AllowUserToAddRows = false;
+            dgvProductos.AllowUserToDeleteRows = false;
+            dgvProductos.ReadOnly = true;
+            dgvProductos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvProductos.MultiSelect = false;
+            dgvProductos.AutoGenerateColumns = false;
+            dgvProductos.Columns.Clear();
 
-            dgvRegMov.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "Nombre", HeaderText = "Nombre", Width = 140 });
-            dgvRegMov.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "Categoria", HeaderText = "Categoría", Width = 140 });
-            dgvRegMov.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "Costo", HeaderText = "Costo Unitario", Width = 90, DefaultCellStyle = { Format = "C2" } });
-            dgvRegMov.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "Stock", HeaderText = "Stock", Width = 60 });
-            dgvRegMov.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "Ubicacion", HeaderText = "Ubicación", Width = 120 });
-            dgvRegMov.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Impuesto", Width = 100, Name = "colImpuesto" });
-            dgvRegMov.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "Clave", HeaderText = "Clave", Width = 120 });
-            dgvRegMov.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Estatus", Width = 90, Name = "colEstatus" });
+            dgvProductos.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "Nombre", HeaderText = "Nombre", Width = 140 });
+            dgvProductos.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "Categoria", HeaderText = "Categoría", Width = 140 });
+            dgvProductos.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "Costo", HeaderText = "Costo Unitario", Width = 90, DefaultCellStyle = { Format = "C2" } });
+            dgvProductos.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "Stock", HeaderText = "Stock", Width = 60 });
+            dgvProductos.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "Ubicacion", HeaderText = "Ubicación", Width = 120 });
+            dgvProductos.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Impuesto", Width = 100, Name = "colImpuesto" });
+            dgvProductos.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "Clave", HeaderText = "Clave", Width = 120 });
+            dgvProductos.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Estatus", Width = 90, Name = "colEstatus" });
         }
 
-        private void CargarProductos()
+        private void CargarProductos(string? categoria = null, int? estatus = null, string? ubicacion = null)
         {
-            var productos = productosController.ObtenerProductosActivos();
-            dgvRegMov.DataSource = null;
-            dgvRegMov.DataSource = productos;
+            var productos = _controller.ObtenerProductos(categoria, estatus);
 
-            foreach (DataGridViewRow row in dgvRegMov.Rows)
+            if (!string.IsNullOrEmpty(ubicacion))
+                productos = productos.FindAll(p => p.Ubicacion == ubicacion);
+
+            _productosCache = productos;
+
+            dgvProductos.DataSource = null;
+            dgvProductos.DataSource = productos;
+
+            var productosStockBajo = _controller.ObtenerProductosConStockBajo();
+            var idsStockBajo = new HashSet<int>(productosStockBajo.ConvertAll(p => p.IdProducto));
+
+            foreach (DataGridViewRow row in dgvProductos.Rows)
             {
                 if (row.DataBoundItem is Producto p)
                 {
+                    // Aquí asignamos el nombre del impuesto o "No Aplica"
                     row.Cells["colImpuesto"].Value = p.Impuesto?.TipoImpuesto ?? "No Aplica";
-                    row.Cells["Estatus"].Value = p.Estatus == 1 ? "Activo" : "Inactivo";
+                    row.Cells["colEstatus"].Value = p.Estatus == 1 ? "Activo" : "Inactivo";
+
+                    if (idsStockBajo.Contains(p.IdProducto))
+                    {
+                        row.DefaultCellStyle.BackColor = Color.LightSalmon;
+                        row.DefaultCellStyle.ForeColor = Color.Black;
+                    }
+                    else
+                    {
+                        row.DefaultCellStyle.BackColor = Color.White;
+                        row.DefaultCellStyle.ForeColor = Color.Black;
+                    }
                 }
+            }
+
+            dgvProductos.ClearSelection();
+            _productoSeleccionado = null;
+            _modoEdicion = false;
+            spcProductos.Panel2Collapsed = true;
+            spcProductos.Panel1.Enabled = true;
+
+            if (productosStockBajo.Count > 0)
+            {
+                MessageBox.Show(
+                    $"Hay {productosStockBajo.Count} producto(s) con menos de la existencia mínima.",
+                    "Alerta de Stock Bajo",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
             }
         }
 
@@ -154,7 +190,7 @@ namespace InvSis.Views
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            if (dgvRegMov.CurrentRow == null)
+            if (dgvProductos.CurrentRow == null)
             {
                 MessageBox.Show("Seleccione un producto.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
@@ -185,7 +221,7 @@ namespace InvSis.Views
 
         private void GuardarMovimiento(int cantidad)
         {
-            var producto = dgvRegMov.CurrentRow.DataBoundItem as Producto;
+            var producto = dgvProductos.CurrentRow.DataBoundItem as Producto;
             int operadorId = (int)dgvOperadores.SelectedRows[0].Cells["IdUsuario"].Value;
 
             var movimiento = new Movimiento
@@ -230,7 +266,7 @@ namespace InvSis.Views
 
         private void ActualizarMovimiento(int cantidad)
         {
-            var producto = dgvRegMov.CurrentRow.DataBoundItem as Producto;
+            var producto = dgvProductos.CurrentRow.DataBoundItem as Producto;
             int operadorId = (int)dgvOperadores.SelectedRows[0].Cells["IdUsuario"].Value;
 
             var movimiento = new Movimiento
@@ -278,7 +314,7 @@ namespace InvSis.Views
             cmbEstatus.SelectedIndex = 0;
             dtpFecha.Value = DateTime.Today;
             nudCantidad.Value = 1;
-            dgvRegMov.ClearSelection();
+            dgvProductos.ClearSelection();
             dgvOperadores.ClearSelection();
             dgvSeleccion.ClearSelection();
             idMovimientoActual = null;
@@ -288,6 +324,11 @@ namespace InvSis.Views
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             LimpiarFormulario();
+        }
+
+        private void btnGuardar_Click_1(object sender, EventArgs e)
+        {
+
         }
     }
 }
