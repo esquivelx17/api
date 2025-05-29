@@ -112,6 +112,25 @@ namespace InventariosCore.Controllers
             return productos.FirstOrDefault(p => p.Nombre.Equals(nombre, StringComparison.OrdinalIgnoreCase));
         }
 
+        public bool ModificarStockPorClave(string clave, int cantidadARestar)
+        {
+            // Obtener el producto por clave
+            var producto = _productosDA.ObtenerProductoPorClave(clave);
+            if (producto == null)
+                throw new Exception("Producto no encontrado");
+
+            // Calcular nuevo stock restando la cantidad indicada
+            int stockActual = producto.Stock ?? 0;
+            int nuevoStock = stockActual - cantidadARestar;
+
+            if (nuevoStock < 0)
+                nuevoStock = 0; // O lanzar excepción si no quieres stock negativo
+
+            // Actualizar el stock en la base de datos
+            return _productosDA.ActualizarStock(producto.IdProducto, nuevoStock);
+        }
+
+
         private void ValidarProducto(Producto producto)
         {
             if (string.IsNullOrWhiteSpace(producto.Clave))
