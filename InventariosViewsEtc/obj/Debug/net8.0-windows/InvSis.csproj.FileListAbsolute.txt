@@ -587,3 +587,4 @@ C:\Users\esqui\OneDrive\Documents\8 SEMESTRE\prog v2\InventariosViewsEtc\obj\Deb
 C:\Users\esqui\OneDrive\Documents\8 SEMESTRE\prog v2\InventariosViewsEtc\obj\Debug\net8.0-windows\InvSis.pdb
 C:\Users\esqui\OneDrive\Documents\8 SEMESTRE\prog v2\InventariosViewsEtc\obj\Debug\net8.0-windows\InvSis.genruntimeconfig.cache
 C:\Users\esqui\OneDrive\Documents\8 SEMESTRE\prog v2\InventariosViewsEtc\obj\Debug\net8.0-windows\ref\InvSis.dll
+C:\Users\esqui\OneDrive\Documents\8 SEMESTRE\prog v2\InventariosViewsEtc\bin\Debug\net8.0-windows\Newtonsoft.Json.dll
