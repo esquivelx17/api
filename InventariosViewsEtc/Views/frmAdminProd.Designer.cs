@@ -37,6 +37,7 @@
             DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
             spcProductos = new SplitContainer();
+            btnExportar = new Button();
             btnReiniciarF = new Button();
             lblFilUbi = new Label();
             cmbUbi = new ComboBox();
@@ -47,7 +48,6 @@
             cmbEstatus = new ComboBox();
             btnAgregar = new Button();
             btnEdittemp = new Button();
-            btnCarga = new Button();
             dgvProductos = new DataGridView();
             colNombre = new DataGridViewTextBoxColumn();
             colCategoria = new DataGridViewTextBoxColumn();
@@ -87,11 +87,12 @@
             // 
             // spcProductos
             // 
-            spcProductos.Location = new Point(0, 45);
+            spcProductos.Location = new Point(0, 40);
             spcProductos.Name = "spcProductos";
             // 
             // spcProductos.Panel1
             // 
+            spcProductos.Panel1.Controls.Add(btnExportar);
             spcProductos.Panel1.Controls.Add(btnReiniciarF);
             spcProductos.Panel1.Controls.Add(lblFilUbi);
             spcProductos.Panel1.Controls.Add(cmbUbi);
@@ -102,7 +103,6 @@
             spcProductos.Panel1.Controls.Add(cmbEstatus);
             spcProductos.Panel1.Controls.Add(btnAgregar);
             spcProductos.Panel1.Controls.Add(btnEdittemp);
-            spcProductos.Panel1.Controls.Add(btnCarga);
             spcProductos.Panel1.Controls.Add(dgvProductos);
             // 
             // spcProductos.Panel2
@@ -126,9 +126,24 @@
             spcProductos.Panel2.Controls.Add(lblCat);
             spcProductos.Panel2.Controls.Add(lblNombre);
             spcProductos.Panel2.Controls.Add(label1);
-            spcProductos.Size = new Size(1409, 843);
+            spcProductos.Size = new Size(1409, 744);
             spcProductos.SplitterDistance = 1010;
             spcProductos.TabIndex = 4;
+            // 
+            // btnExportar
+            // 
+            btnExportar.AutoSize = true;
+            btnExportar.BackColor = Color.FromArgb(76, 175, 80);
+            btnExportar.FlatStyle = FlatStyle.Flat;
+            btnExportar.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnExportar.ForeColor = Color.White;
+            btnExportar.Location = new Point(875, 533);
+            btnExportar.Name = "btnExportar";
+            btnExportar.Size = new Size(118, 35);
+            btnExportar.TabIndex = 36;
+            btnExportar.Text = "Exportar a Excel";
+            btnExportar.UseVisualStyleBackColor = false;
+            btnExportar.Click += btnExportar_Click;
             // 
             // btnReiniciarF
             // 
@@ -137,9 +152,9 @@
             btnReiniciarF.FlatStyle = FlatStyle.Flat;
             btnReiniciarF.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
             btnReiniciarF.ForeColor = Color.White;
-            btnReiniciarF.Location = new Point(842, 164);
+            btnReiniciarF.Location = new Point(842, 145);
             btnReiniciarF.Name = "btnReiniciarF";
-            btnReiniciarF.Size = new Size(152, 42);
+            btnReiniciarF.Size = new Size(152, 37);
             btnReiniciarF.TabIndex = 35;
             btnReiniciarF.Text = "Reiniciar Filtro";
             btnReiniciarF.UseVisualStyleBackColor = false;
@@ -150,7 +165,7 @@
             lblFilUbi.AutoSize = true;
             lblFilUbi.Font = new Font("Segoe UI", 16F, FontStyle.Bold);
             lblFilUbi.ForeColor = Color.MediumPurple;
-            lblFilUbi.Location = new Point(771, 26);
+            lblFilUbi.Location = new Point(771, 23);
             lblFilUbi.Name = "lblFilUbi";
             lblFilUbi.Size = new Size(222, 30);
             lblFilUbi.TabIndex = 26;
@@ -162,9 +177,9 @@
             cmbUbi.ForeColor = Color.Black;
             cmbUbi.FormattingEnabled = true;
             cmbUbi.Items.AddRange(new object[] { "Tijuana", "CDMX", "Toluca", "Durango", "SLP", "Cancún" });
-            cmbUbi.Location = new Point(771, 68);
+            cmbUbi.Location = new Point(771, 60);
             cmbUbi.Name = "cmbUbi";
-            cmbUbi.Size = new Size(223, 25);
+            cmbUbi.Size = new Size(223, 23);
             cmbUbi.TabIndex = 25;
             // 
             // lblFilCat
@@ -172,7 +187,7 @@
             lblFilCat.AutoSize = true;
             lblFilCat.Font = new Font("Segoe UI", 16F, FontStyle.Bold);
             lblFilCat.ForeColor = Color.MediumPurple;
-            lblFilCat.Location = new Point(395, 26);
+            lblFilCat.Location = new Point(395, 23);
             lblFilCat.Name = "lblFilCat";
             lblFilCat.Size = new Size(221, 30);
             lblFilCat.TabIndex = 24;
@@ -183,7 +198,7 @@
             lblFilStatus.AutoSize = true;
             lblFilStatus.Font = new Font("Segoe UI", 16F, FontStyle.Bold);
             lblFilStatus.ForeColor = Color.MediumPurple;
-            lblFilStatus.Location = new Point(21, 29);
+            lblFilStatus.Location = new Point(21, 26);
             lblFilStatus.Name = "lblFilStatus";
             lblFilStatus.Size = new Size(198, 30);
             lblFilStatus.TabIndex = 23;
@@ -195,9 +210,9 @@
             cmbCat.ForeColor = Color.Black;
             cmbCat.FormattingEnabled = true;
             cmbCat.Items.AddRange(new object[] { "Cat X", "Cat Y", "Cat Z" });
-            cmbCat.Location = new Point(395, 68);
+            cmbCat.Location = new Point(395, 60);
             cmbCat.Name = "cmbCat";
-            cmbCat.Size = new Size(223, 25);
+            cmbCat.Size = new Size(223, 23);
             cmbCat.Sorted = true;
             cmbCat.TabIndex = 22;
             // 
@@ -208,9 +223,9 @@
             btnApF.FlatStyle = FlatStyle.Flat;
             btnApF.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
             btnApF.ForeColor = Color.White;
-            btnApF.Location = new Point(672, 164);
+            btnApF.Location = new Point(672, 145);
             btnApF.Name = "btnApF";
-            btnApF.Size = new Size(144, 42);
+            btnApF.Size = new Size(144, 37);
             btnApF.TabIndex = 20;
             btnApF.Text = "Aplicar Filtro";
             btnApF.UseVisualStyleBackColor = false;
@@ -222,9 +237,9 @@
             cmbEstatus.ForeColor = Color.Black;
             cmbEstatus.FormattingEnabled = true;
             cmbEstatus.Items.AddRange(new object[] { "Inactivo", "Activo" });
-            cmbEstatus.Location = new Point(21, 67);
+            cmbEstatus.Location = new Point(21, 59);
             cmbEstatus.Name = "cmbEstatus";
-            cmbEstatus.Size = new Size(197, 25);
+            cmbEstatus.Size = new Size(197, 23);
             cmbEstatus.TabIndex = 19;
             // 
             // btnAgregar
@@ -234,9 +249,9 @@
             btnAgregar.FlatStyle = FlatStyle.Flat;
             btnAgregar.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
             btnAgregar.ForeColor = Color.White;
-            btnAgregar.Location = new Point(12, 604);
+            btnAgregar.Location = new Point(12, 533);
             btnAgregar.Name = "btnAgregar";
-            btnAgregar.Size = new Size(228, 54);
+            btnAgregar.Size = new Size(228, 48);
             btnAgregar.TabIndex = 18;
             btnAgregar.Text = "Agregar Productos";
             btnAgregar.UseVisualStyleBackColor = false;
@@ -253,29 +268,13 @@
             btnEdittemp.FlatStyle = FlatStyle.Flat;
             btnEdittemp.Font = new Font("MS PGothic", 14.25F, FontStyle.Bold);
             btnEdittemp.ForeColor = Color.Black;
-            btnEdittemp.Location = new Point(395, 604);
+            btnEdittemp.Location = new Point(395, 533);
             btnEdittemp.Name = "btnEdittemp";
-            btnEdittemp.Size = new Size(78, 41);
+            btnEdittemp.Size = new Size(78, 36);
             btnEdittemp.TabIndex = 16;
             btnEdittemp.Text = "Editar";
             btnEdittemp.UseVisualStyleBackColor = false;
             btnEdittemp.Click += btnEdittemp_Click;
-            // 
-            // btnCarga
-            // 
-            btnCarga.AutoSize = true;
-            btnCarga.BackColor = Color.FromArgb(159, 122, 234);
-            btnCarga.FlatAppearance.BorderSize = 0;
-            btnCarga.FlatStyle = FlatStyle.Flat;
-            btnCarga.Font = new Font("MS PGothic", 14.25F, FontStyle.Bold);
-            btnCarga.ForeColor = Color.Black;
-            btnCarga.Location = new Point(840, 612);
-            btnCarga.Name = "btnCarga";
-            btnCarga.Size = new Size(153, 41);
-            btnCarga.TabIndex = 17;
-            btnCarga.Text = "Carga Excel";
-            btnCarga.UseVisualStyleBackColor = false;
-            btnCarga.Click += btnCarga_Click_1;
             // 
             // dgvProductos
             // 
@@ -307,12 +306,12 @@
             dgvProductos.DefaultCellStyle = dataGridViewCellStyle8;
             dgvProductos.GridColor = SystemColors.Info;
             dgvProductos.ImeMode = ImeMode.Disable;
-            dgvProductos.Location = new Point(21, 239);
+            dgvProductos.Location = new Point(21, 211);
             dgvProductos.Name = "dgvProductos";
             dgvProductos.ReadOnly = true;
             dgvProductos.RowHeadersVisible = false;
             dgvProductos.RowHeadersWidth = 62;
-            dgvProductos.Size = new Size(973, 297);
+            dgvProductos.Size = new Size(973, 262);
             dgvProductos.TabIndex = 15;
             // 
             // colNombre
@@ -394,9 +393,9 @@
             btnCancelar.FlatAppearance.BorderColor = Color.FromArgb(159, 122, 234);
             btnCancelar.FlatStyle = FlatStyle.Flat;
             btnCancelar.ForeColor = Color.FromArgb(159, 122, 234);
-            btnCancelar.Location = new Point(208, 787);
+            btnCancelar.Location = new Point(208, 694);
             btnCancelar.Name = "btnCancelar";
-            btnCancelar.Size = new Size(75, 26);
+            btnCancelar.Size = new Size(75, 23);
             btnCancelar.TabIndex = 53;
             btnCancelar.Text = "Cancelar";
             btnCancelar.UseVisualStyleBackColor = false;
@@ -408,9 +407,9 @@
             btnGuardar.FlatAppearance.BorderSize = 0;
             btnGuardar.FlatStyle = FlatStyle.Flat;
             btnGuardar.ForeColor = Color.White;
-            btnGuardar.Location = new Point(58, 787);
+            btnGuardar.Location = new Point(58, 694);
             btnGuardar.Name = "btnGuardar";
-            btnGuardar.Size = new Size(75, 26);
+            btnGuardar.Size = new Size(75, 23);
             btnGuardar.TabIndex = 52;
             btnGuardar.Text = "Guardar";
             btnGuardar.UseVisualStyleBackColor = false;
@@ -423,9 +422,9 @@
             cmbxImpuesto.ForeColor = Color.FromArgb(42, 34, 58);
             cmbxImpuesto.FormattingEnabled = true;
             cmbxImpuesto.Items.AddRange(new object[] { "No Aplica", "Impuesto A", "Impuesto B", "Impuesto C" });
-            cmbxImpuesto.Location = new Point(58, 695);
+            cmbxImpuesto.Location = new Point(58, 613);
             cmbxImpuesto.Name = "cmbxImpuesto";
-            cmbxImpuesto.Size = new Size(253, 25);
+            cmbxImpuesto.Size = new Size(253, 23);
             cmbxImpuesto.TabIndex = 51;
             // 
             // cmbxStatus
@@ -435,9 +434,9 @@
             cmbxStatus.ForeColor = Color.FromArgb(42, 34, 58);
             cmbxStatus.FormattingEnabled = true;
             cmbxStatus.Items.AddRange(new object[] { "Inactivo", "Activo" });
-            cmbxStatus.Location = new Point(58, 609);
+            cmbxStatus.Location = new Point(58, 537);
             cmbxStatus.Name = "cmbxStatus";
-            cmbxStatus.Size = new Size(253, 25);
+            cmbxStatus.Size = new Size(253, 23);
             cmbxStatus.TabIndex = 50;
             // 
             // nmupdnStock
@@ -446,7 +445,7 @@
             nmupdnStock.BorderStyle = BorderStyle.FixedSingle;
             nmupdnStock.Font = new Font("MS PGothic", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             nmupdnStock.ForeColor = Color.FromArgb(42, 34, 58);
-            nmupdnStock.Location = new Point(58, 345);
+            nmupdnStock.Location = new Point(58, 304);
             nmupdnStock.Name = "nmupdnStock";
             nmupdnStock.Size = new Size(120, 22);
             nmupdnStock.TabIndex = 49;
@@ -456,9 +455,9 @@
             txtCosto.BackColor = Color.FromArgb(245, 245, 245);
             txtCosto.BorderStyle = BorderStyle.FixedSingle;
             txtCosto.ForeColor = Color.FromArgb(159, 122, 234);
-            txtCosto.Location = new Point(58, 264);
+            txtCosto.Location = new Point(58, 233);
             txtCosto.Name = "txtCosto";
-            txtCosto.Size = new Size(253, 25);
+            txtCosto.Size = new Size(253, 23);
             txtCosto.TabIndex = 48;
             // 
             // txtClave
@@ -466,9 +465,9 @@
             txtClave.BackColor = Color.White;
             txtClave.BorderStyle = BorderStyle.FixedSingle;
             txtClave.ForeColor = Color.FromArgb(42, 34, 58);
-            txtClave.Location = new Point(58, 522);
+            txtClave.Location = new Point(58, 461);
             txtClave.Name = "txtClave";
-            txtClave.Size = new Size(253, 25);
+            txtClave.Size = new Size(253, 23);
             txtClave.TabIndex = 47;
             // 
             // cmbxUbi
@@ -479,7 +478,7 @@
             cmbxUbi.ForeColor = Color.FromArgb(159, 122, 234);
             cmbxUbi.FormattingEnabled = true;
             cmbxUbi.Items.AddRange(new object[] { "Tijuana", "CDMX", "Toluca", "Durango", "SLP", "Cancún" });
-            cmbxUbi.Location = new Point(58, 436);
+            cmbxUbi.Location = new Point(58, 385);
             cmbxUbi.Name = "cmbxUbi";
             cmbxUbi.Size = new Size(253, 25);
             cmbxUbi.TabIndex = 46;
@@ -492,7 +491,7 @@
             cmbxCat.ForeColor = Color.FromArgb(159, 122, 234);
             cmbxCat.FormattingEnabled = true;
             cmbxCat.Items.AddRange(new object[] { "Cat X", "Cat Y", "Cat Z" });
-            cmbxCat.Location = new Point(58, 175);
+            cmbxCat.Location = new Point(58, 154);
             cmbxCat.Name = "cmbxCat";
             cmbxCat.Size = new Size(253, 25);
             cmbxCat.Sorted = true;
@@ -504,7 +503,7 @@
             txtNombre.BorderStyle = BorderStyle.FixedSingle;
             txtNombre.Font = new Font("Segoe UI", 10F);
             txtNombre.ForeColor = Color.FromArgb(159, 122, 234);
-            txtNombre.Location = new Point(58, 92);
+            txtNombre.Location = new Point(58, 81);
             txtNombre.Name = "txtNombre";
             txtNombre.Size = new Size(253, 25);
             txtNombre.TabIndex = 44;
@@ -514,7 +513,7 @@
             lblImpuesto.AutoSize = true;
             lblImpuesto.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             lblImpuesto.ForeColor = Color.FromArgb(159, 122, 234);
-            lblImpuesto.Location = new Point(58, 668);
+            lblImpuesto.Location = new Point(58, 589);
             lblImpuesto.Name = "lblImpuesto";
             lblImpuesto.Size = new Size(86, 21);
             lblImpuesto.TabIndex = 43;
@@ -525,7 +524,7 @@
             lblEstatus.AutoSize = true;
             lblEstatus.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             lblEstatus.ForeColor = Color.FromArgb(159, 122, 234);
-            lblEstatus.Location = new Point(58, 581);
+            lblEstatus.Location = new Point(58, 513);
             lblEstatus.Name = "lblEstatus";
             lblEstatus.Size = new Size(68, 21);
             lblEstatus.TabIndex = 42;
@@ -536,7 +535,7 @@
             lblClave.AutoSize = true;
             lblClave.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             lblClave.ForeColor = Color.FromArgb(159, 122, 234);
-            lblClave.Location = new Point(58, 495);
+            lblClave.Location = new Point(58, 437);
             lblClave.Name = "lblClave";
             lblClave.Size = new Size(56, 21);
             lblClave.TabIndex = 41;
@@ -547,7 +546,7 @@
             lblUbicacion.AutoSize = true;
             lblUbicacion.Font = new Font("MS PGothic", 14.25F, FontStyle.Bold);
             lblUbicacion.ForeColor = Color.FromArgb(159, 122, 234);
-            lblUbicacion.Location = new Point(58, 411);
+            lblUbicacion.Location = new Point(58, 363);
             lblUbicacion.Name = "lblUbicacion";
             lblUbicacion.Size = new Size(101, 19);
             lblUbicacion.TabIndex = 40;
@@ -558,7 +557,7 @@
             lblStock.AutoSize = true;
             lblStock.Font = new Font("MS PGothic", 14.25F, FontStyle.Bold);
             lblStock.ForeColor = Color.FromArgb(159, 122, 234);
-            lblStock.Location = new Point(58, 320);
+            lblStock.Location = new Point(58, 282);
             lblStock.Name = "lblStock";
             lblStock.Size = new Size(66, 19);
             lblStock.TabIndex = 39;
@@ -569,7 +568,7 @@
             lblCosto.AutoSize = true;
             lblCosto.Font = new Font("MS PGothic", 14.25F, FontStyle.Bold);
             lblCosto.ForeColor = Color.FromArgb(159, 122, 234);
-            lblCosto.Location = new Point(58, 239);
+            lblCosto.Location = new Point(58, 211);
             lblCosto.Name = "lblCosto";
             lblCosto.Size = new Size(144, 19);
             lblCosto.TabIndex = 38;
@@ -580,7 +579,7 @@
             lblCat.AutoSize = true;
             lblCat.Font = new Font("MS PGothic", 14.25F, FontStyle.Bold);
             lblCat.ForeColor = Color.FromArgb(159, 122, 234);
-            lblCat.Location = new Point(58, 150);
+            lblCat.Location = new Point(58, 132);
             lblCat.Name = "lblCat";
             lblCat.Size = new Size(108, 19);
             lblCat.TabIndex = 37;
@@ -591,7 +590,7 @@
             lblNombre.AutoSize = true;
             lblNombre.Font = new Font("MS PGothic", 14.25F, FontStyle.Bold);
             lblNombre.ForeColor = Color.FromArgb(159, 122, 234);
-            lblNombre.Location = new Point(58, 67);
+            lblNombre.Location = new Point(58, 59);
             lblNombre.Name = "lblNombre";
             lblNombre.Size = new Size(82, 19);
             lblNombre.TabIndex = 36;
@@ -617,17 +616,17 @@
             lblTitulo.Location = new Point(0, 0);
             lblTitulo.Margin = new Padding(0);
             lblTitulo.Name = "lblTitulo";
-            lblTitulo.Size = new Size(1409, 48);
+            lblTitulo.Size = new Size(1409, 42);
             lblTitulo.TabIndex = 5;
             lblTitulo.Text = " ADMINISTRACIÓN DE PRODUCTOS ";
             lblTitulo.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // frmAdminProd
             // 
-            AutoScaleDimensions = new SizeF(7F, 17F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(230, 242, 248);
-            ClientSize = new Size(1409, 921);
+            ClientSize = new Size(1409, 813);
             Controls.Add(lblTitulo);
             Controls.Add(spcProductos);
             Name = "frmAdminProd";
@@ -654,7 +653,6 @@
         private ComboBox cmbEstatus;
         private Button btnAgregar;
         private Button btnEdittemp;
-        private Button btnCarga;
         private DataGridView dgvProductos;
         private Button btnCancelar;
         private Button btnGuardar;
@@ -685,5 +683,6 @@
         private DataGridViewTextBoxColumn colClave;
         private DataGridViewTextBoxColumn colEstatus;
         private Button btnReiniciarF;
+        private Button btnExportar;
     }
 }

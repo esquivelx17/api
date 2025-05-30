@@ -46,7 +46,7 @@ namespace InvSis
             spcProductos.Panel2Collapsed = true;
             spcProductos.Panel1.Enabled = true;
 
-            SeguridadUI.BloquearBotonesSiEsLector(btnGuardar, btnEdittemp, btnCarga);
+            SeguridadUI.BloquearBotonesSiEsLector(btnGuardar, btnEdittemp, btnExportar);
         }
 
         private void ConfigurarColumnasDGV()
@@ -404,5 +404,9 @@ namespace InvSis
             ReiniciarCampos();
         }
 
+        private void btnExportar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

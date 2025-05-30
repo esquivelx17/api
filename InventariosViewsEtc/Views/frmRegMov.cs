@@ -403,5 +403,10 @@ namespace InvSis.Views
         {
             btnGuardar_Click(sender, e);
         }
+
+        private void btnExportar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

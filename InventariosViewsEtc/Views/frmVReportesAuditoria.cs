@@ -73,7 +73,7 @@ namespace InvSis.Views
 
         private void btnExportar_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Función pendiente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            
         }
     }
 }

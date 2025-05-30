@@ -58,6 +58,7 @@
             btnApF = new Button();
             cmbEstatus = new ComboBox();
             btnReiniciarF = new Button();
+            btnExportar = new Button();
             pnlTitulo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvProductos).BeginInit();
             SuspendLayout();
@@ -324,12 +325,28 @@
             btnReiniciarF.UseVisualStyleBackColor = false;
             btnReiniciarF.Click += btnReiniciarF_Click;
             // 
+            // btnExportar
+            // 
+            btnExportar.AutoSize = true;
+            btnExportar.BackColor = Color.FromArgb(76, 175, 80);
+            btnExportar.FlatStyle = FlatStyle.Flat;
+            btnExportar.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnExportar.ForeColor = Color.White;
+            btnExportar.Location = new Point(33, 155);
+            btnExportar.Name = "btnExportar";
+            btnExportar.Size = new Size(118, 35);
+            btnExportar.TabIndex = 35;
+            btnExportar.Text = "Exportar a Excel";
+            btnExportar.UseVisualStyleBackColor = false;
+            btnExportar.Click += btnExportar_Click;
+            // 
             // frmRepInv
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(230, 242, 248);
             ClientSize = new Size(1194, 566);
+            Controls.Add(btnExportar);
             Controls.Add(btnReiniciarF);
             Controls.Add(lblFilUbi);
             Controls.Add(cmbUbi);
@@ -375,5 +392,6 @@
         private DataGridViewTextBoxColumn colClave;
         private DataGridViewTextBoxColumn colEstatus;
         private Button btnReiniciarF;
+        private Button btnExportar;
     }
 }

@@ -100,6 +100,7 @@ namespace InvSis.Views
             colEstatuss = new DataGridViewTextBoxColumn();
             colFecha = new DataGridViewTextBoxColumn();
             colCantidad = new DataGridViewTextBoxColumn();
+            btnExportar = new Button();
             ((System.ComponentModel.ISupportInitialize)nudCantidad).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvProductos).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvSeleccionUsuario).BeginInit();
@@ -183,7 +184,7 @@ namespace InvSis.Views
             // 
             // btnGuardar
             // 
-            btnGuardar.Location = new Point(1184, 562);
+            btnGuardar.Location = new Point(1184, 502);
             btnGuardar.Name = "btnGuardar";
             btnGuardar.Size = new Size(133, 25);
             btnGuardar.TabIndex = 11;
@@ -193,7 +194,7 @@ namespace InvSis.Views
             // 
             // btnCancelar
             // 
-            btnCancelar.Location = new Point(1184, 593);
+            btnCancelar.Location = new Point(1184, 533);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(76, 25);
             btnCancelar.TabIndex = 12;
@@ -440,12 +441,28 @@ namespace InvSis.Views
             colCantidad.Name = "colCantidad";
             colCantidad.ReadOnly = true;
             // 
+            // btnExportar
+            // 
+            btnExportar.AutoSize = true;
+            btnExportar.BackColor = Color.FromArgb(76, 175, 80);
+            btnExportar.FlatStyle = FlatStyle.Flat;
+            btnExportar.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnExportar.ForeColor = Color.White;
+            btnExportar.Location = new Point(1184, 581);
+            btnExportar.Name = "btnExportar";
+            btnExportar.Size = new Size(118, 35);
+            btnExportar.TabIndex = 28;
+            btnExportar.Text = "Exportar a Excel";
+            btnExportar.UseVisualStyleBackColor = false;
+            btnExportar.Click += btnExportar_Click;
+            // 
             // frmRegMov
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(230, 242, 248);
             ClientSize = new Size(1431, 642);
+            Controls.Add(btnExportar);
             Controls.Add(dtgRegMov);
             Controls.Add(dgvSeleccionUsuario);
             Controls.Add(dgvProductos);
@@ -471,5 +488,6 @@ namespace InvSis.Views
             ResumeLayout(false);
             PerformLayout();
         }
+        private Button btnExportar;
     }
 }

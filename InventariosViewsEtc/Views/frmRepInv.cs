@@ -103,5 +103,10 @@ namespace InvSis.Views
 
             CargarDatos();
         }
+
+        private void btnExportar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
