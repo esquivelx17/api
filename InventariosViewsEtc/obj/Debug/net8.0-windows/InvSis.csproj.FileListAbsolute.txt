@@ -587,3 +587,11 @@ C:\Users\esqui\OneDrive\Documents\8 SEMESTRE\prog v2\InventariosViewsEtc\obj\Deb
 C:\Users\esqui\OneDrive\Documents\8 SEMESTRE\prog v2\InventariosViewsEtc\obj\Debug\net8.0-windows\InvSis.pdb
 C:\Users\esqui\OneDrive\Documents\8 SEMESTRE\prog v2\InventariosViewsEtc\obj\Debug\net8.0-windows\InvSis.genruntimeconfig.cache
 C:\Users\esqui\OneDrive\Documents\8 SEMESTRE\prog v2\InventariosViewsEtc\obj\Debug\net8.0-windows\ref\InvSis.dll
+C:\Users\Erick\Source\Repos\api\InventariosViewsEtc\bin\Debug\net8.0-windows\ClosedXML.dll
+C:\Users\Erick\Source\Repos\api\InventariosViewsEtc\bin\Debug\net8.0-windows\ClosedXML.Parser.dll
+C:\Users\Erick\Source\Repos\api\InventariosViewsEtc\bin\Debug\net8.0-windows\DocumentFormat.OpenXml.dll
+C:\Users\Erick\Source\Repos\api\InventariosViewsEtc\bin\Debug\net8.0-windows\DocumentFormat.OpenXml.Framework.dll
+C:\Users\Erick\Source\Repos\api\InventariosViewsEtc\bin\Debug\net8.0-windows\ExcelNumberFormat.dll
+C:\Users\Erick\Source\Repos\api\InventariosViewsEtc\bin\Debug\net8.0-windows\RBush.dll
+C:\Users\Erick\Source\Repos\api\InventariosViewsEtc\bin\Debug\net8.0-windows\SixLabors.Fonts.dll
+C:\Users\Erick\Source\Repos\api\InventariosViewsEtc\bin\Debug\net8.0-windows\System.IO.Packaging.dll

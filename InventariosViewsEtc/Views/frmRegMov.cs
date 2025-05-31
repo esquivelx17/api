@@ -5,6 +5,7 @@ using System.Windows.Forms;
 using InventariosCore.Business;
 using InventariosCore.Controllers;
 using InventariosCore.Model;
+using InvSis.Views.UtilitiesForms;
 
 namespace InvSis.Views
 {
@@ -406,7 +407,13 @@ namespace InvSis.Views
 
         private void btnExportar_Click(object sender, EventArgs e)
         {
+            if (dtgRegMov.Rows.Count == 0)
+            {
+                MessageBox.Show("No hay datos para exportar.", "Exportar a Excel", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
+            ExportarExel.ExportarDataGridViewToExcel(dtgRegMov);
         }
     }
 }

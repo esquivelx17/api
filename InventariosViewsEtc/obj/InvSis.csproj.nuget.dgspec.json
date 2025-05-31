@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\esqui\\OneDrive\\Documents\\8 SEMESTRE\\prog v2\\InventariosViewsEtc\\InvSis.csproj": {}
+    "C:\\Users\\Erick\\Source\\Repos\\api\\InventariosViewsEtc\\InvSis.csproj": {}
   },
   "projects": {
-    "C:\\Users\\esqui\\OneDrive\\Documents\\8 SEMESTRE\\prog v2\\InventariosCore\\InventariosCore.csproj": {
+    "C:\\Users\\Erick\\Source\\Repos\\api\\InventariosCore\\InventariosCore.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\esqui\\OneDrive\\Documents\\8 SEMESTRE\\prog v2\\InventariosCore\\InventariosCore.csproj",
+        "projectUniqueName": "C:\\Users\\Erick\\Source\\Repos\\api\\InventariosCore\\InventariosCore.csproj",
         "projectName": "InventariosCore",
-        "projectPath": "C:\\Users\\esqui\\OneDrive\\Documents\\8 SEMESTRE\\prog v2\\InventariosCore\\InventariosCore.csproj",
-        "packagesPath": "C:\\Users\\esqui\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\esqui\\OneDrive\\Documents\\8 SEMESTRE\\prog v2\\InventariosCore\\obj\\",
+        "projectPath": "C:\\Users\\Erick\\Source\\Repos\\api\\InventariosCore\\InventariosCore.csproj",
+        "packagesPath": "C:\\Users\\Erick\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Erick\\Source\\Repos\\api\\InventariosCore\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\esqui\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Erick\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -50,6 +50,10 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "ClosedXML": {
+              "target": "Package",
+              "version": "[0.105.0, )"
+            },
             "EPPlus": {
               "target": "Package",
               "version": "[8.0.5, )"
@@ -87,20 +91,20 @@
         }
       }
     },
-    "C:\\Users\\esqui\\OneDrive\\Documents\\8 SEMESTRE\\prog v2\\InventariosViewsEtc\\InvSis.csproj": {
+    "C:\\Users\\Erick\\Source\\Repos\\api\\InventariosViewsEtc\\InvSis.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\esqui\\OneDrive\\Documents\\8 SEMESTRE\\prog v2\\InventariosViewsEtc\\InvSis.csproj",
+        "projectUniqueName": "C:\\Users\\Erick\\Source\\Repos\\api\\InventariosViewsEtc\\InvSis.csproj",
         "projectName": "InvSis",
-        "projectPath": "C:\\Users\\esqui\\OneDrive\\Documents\\8 SEMESTRE\\prog v2\\InventariosViewsEtc\\InvSis.csproj",
-        "packagesPath": "C:\\Users\\esqui\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\esqui\\OneDrive\\Documents\\8 SEMESTRE\\prog v2\\InventariosViewsEtc\\obj\\",
+        "projectPath": "C:\\Users\\Erick\\Source\\Repos\\api\\InventariosViewsEtc\\InvSis.csproj",
+        "packagesPath": "C:\\Users\\Erick\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Erick\\Source\\Repos\\api\\InventariosViewsEtc\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\esqui\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Erick\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -115,8 +119,8 @@
           "net8.0-windows7.0": {
             "targetAlias": "net8.0-windows",
             "projectReferences": {
-              "C:\\Users\\esqui\\OneDrive\\Documents\\8 SEMESTRE\\prog v2\\InventariosCore\\InventariosCore.csproj": {
-                "projectPath": "C:\\Users\\esqui\\OneDrive\\Documents\\8 SEMESTRE\\prog v2\\InventariosCore\\InventariosCore.csproj"
+              "C:\\Users\\Erick\\Source\\Repos\\api\\InventariosCore\\InventariosCore.csproj": {
+                "projectPath": "C:\\Users\\Erick\\Source\\Repos\\api\\InventariosCore\\InventariosCore.csproj"
               }
             }
           }
@@ -137,6 +141,10 @@
         "net8.0-windows7.0": {
           "targetAlias": "net8.0-windows",
           "dependencies": {
+            "ClosedXML": {
+              "target": "Package",
+              "version": "[0.105.0, )"
+            },
             "FontAwesome.Sharp": {
               "target": "Package",
               "version": "[6.6.0, )"

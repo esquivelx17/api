@@ -5,6 +5,8 @@ using InventariosCore.Data;
 using InventariosCore.Model;
 using InventariosCore.Business;
 using System.Configuration;
+using ClosedXML.Excel;
+using System.IO;
 
 namespace InventariosCore.Controllers
 {
@@ -153,5 +155,8 @@ namespace InventariosCore.Controllers
         {
             return _productosDA.ObtenerProductos(true);
         }
+
+
+
     }
 }
