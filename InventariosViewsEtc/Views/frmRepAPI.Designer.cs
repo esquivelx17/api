@@ -38,18 +38,18 @@
             lblConsulta = new Label();
             txtBusID = new TextBox();
             lblClave = new Label();
-            btnActualizar = new Button();
             btnBuscar = new Button();
             pnlTitulo = new Panel();
             lblTitulo = new Label();
             dgvProductos = new DataGridView();
-            btnResumen = new Button();
-            colClave = new DataGridViewTextBoxColumn();
-            colNombre = new DataGridViewTextBoxColumn();
+            colProducto = new DataGridViewTextBoxColumn();
+            colIdCompra = new DataGridViewTextBoxColumn();
+            colCodCompra = new DataGridViewTextBoxColumn();
             colCosto = new DataGridViewTextBoxColumn();
             colStock = new DataGridViewTextBoxColumn();
             colImpuesto = new DataGridViewTextBoxColumn();
             colEstatus = new DataGridViewTextBoxColumn();
+            Column1 = new DataGridViewTextBoxColumn();
             pnlTitulo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvProductos).BeginInit();
             SuspendLayout();
@@ -79,16 +79,6 @@
             lblClave.TabIndex = 4;
             lblClave.Text = "Clave de producto:";
             // 
-            // btnActualizar
-            // 
-            btnActualizar.AutoSize = true;
-            btnActualizar.Location = new Point(586, 92);
-            btnActualizar.Name = "btnActualizar";
-            btnActualizar.Size = new Size(136, 25);
-            btnActualizar.TabIndex = 6;
-            btnActualizar.Text = "Actualizar existencias";
-            btnActualizar.UseVisualStyleBackColor = true;
-            // 
             // btnBuscar
             // 
             btnBuscar.Location = new Point(226, 92);
@@ -107,7 +97,7 @@
             pnlTitulo.Location = new Point(0, 0);
             pnlTitulo.Margin = new Padding(2);
             pnlTitulo.Name = "pnlTitulo";
-            pnlTitulo.Size = new Size(752, 36);
+            pnlTitulo.Size = new Size(1054, 36);
             pnlTitulo.TabIndex = 0;
             // 
             // lblTitulo
@@ -120,9 +110,9 @@
             lblTitulo.Margin = new Padding(2, 0, 2, 0);
             lblTitulo.Name = "lblTitulo";
             lblTitulo.Padding = new Padding(0, 6, 0, 0);
-            lblTitulo.Size = new Size(752, 36);
+            lblTitulo.Size = new Size(1054, 36);
             lblTitulo.TabIndex = 0;
-            lblTitulo.Text = "API";
+            lblTitulo.Text = "Resumen de ventas";
             lblTitulo.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // dgvProductos
@@ -144,7 +134,7 @@
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
             dgvProductos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dgvProductos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvProductos.Columns.AddRange(new DataGridViewColumn[] { colClave, colNombre, colCosto, colStock, colImpuesto, colEstatus });
+            dgvProductos.Columns.AddRange(new DataGridViewColumn[] { colProducto, colIdCompra, colCodCompra, colCosto, colStock, colImpuesto, colEstatus, Column1 });
             dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle7.BackColor = SystemColors.Window;
             dataGridViewCellStyle7.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
@@ -155,55 +145,52 @@
             dgvProductos.DefaultCellStyle = dataGridViewCellStyle7;
             dgvProductos.GridColor = SystemColors.Info;
             dgvProductos.ImeMode = ImeMode.Disable;
-            dgvProductos.Location = new Point(29, 141);
+            dgvProductos.Location = new Point(29, 138);
             dgvProductos.Name = "dgvProductos";
             dgvProductos.ReadOnly = true;
             dgvProductos.RowHeadersVisible = false;
             dgvProductos.RowHeadersWidth = 62;
-            dgvProductos.Size = new Size(693, 399);
+            dgvProductos.Size = new Size(993, 399);
             dgvProductos.TabIndex = 16;
             // 
-            // btnResumen
+            // colProducto
             // 
-            btnResumen.AutoSize = true;
-            btnResumen.Location = new Point(596, 61);
-            btnResumen.Name = "btnResumen";
-            btnResumen.Size = new Size(126, 25);
-            btnResumen.TabIndex = 17;
-            btnResumen.Text = "Resumen de ventas";
-            btnResumen.UseVisualStyleBackColor = true;
-            btnResumen.Click += btnResumen_Click;
+            colProducto.HeaderText = "Clave de producto";
+            colProducto.Name = "colProducto";
+            colProducto.ReadOnly = true;
+            colProducto.Width = 120;
             // 
-            // colClave
+            // colIdCompra
             // 
-            colClave.DataPropertyName = "Clave";
+            colIdCompra.DataPropertyName = "Clave";
             dataGridViewCellStyle3.BackColor = Color.FromArgb(74, 60, 96);
             dataGridViewCellStyle3.ForeColor = Color.White;
-            colClave.DefaultCellStyle = dataGridViewCellStyle3;
-            colClave.HeaderText = "Clave";
-            colClave.MinimumWidth = 8;
-            colClave.Name = "colClave";
-            colClave.ReadOnly = true;
-            colClave.Width = 120;
+            colIdCompra.DefaultCellStyle = dataGridViewCellStyle3;
+            colIdCompra.HeaderText = "ID Compra";
+            colIdCompra.MinimumWidth = 8;
+            colIdCompra.Name = "colIdCompra";
+            colIdCompra.ReadOnly = true;
+            colIdCompra.Width = 120;
             // 
-            // colNombre
+            // colCodCompra
             // 
-            colNombre.DataPropertyName = "Nombre";
+            colCodCompra.DataPropertyName = "Nombre";
             dataGridViewCellStyle4.BackColor = Color.FromArgb(74, 60, 96);
             dataGridViewCellStyle4.ForeColor = Color.White;
-            colNombre.DefaultCellStyle = dataGridViewCellStyle4;
-            colNombre.HeaderText = "Nombre";
-            colNombre.MinimumWidth = 8;
-            colNombre.Name = "colNombre";
-            colNombre.ReadOnly = true;
-            colNombre.Width = 140;
+            colCodCompra.DefaultCellStyle = dataGridViewCellStyle4;
+            colCodCompra.HeaderText = "Codigo de compra";
+            colCodCompra.MinimumWidth = 8;
+            colCodCompra.Name = "colCodCompra";
+            colCodCompra.ReadOnly = true;
+            colCodCompra.Width = 140;
             // 
             // colCosto
             // 
             colCosto.DataPropertyName = "CostoUnitario";
-            colCosto.HeaderText = "Costo unitario";
+            colCosto.HeaderText = "Fecha";
             colCosto.Name = "colCosto";
             colCosto.ReadOnly = true;
+            colCosto.Width = 140;
             // 
             // colStock
             // 
@@ -211,15 +198,16 @@
             dataGridViewCellStyle5.BackColor = Color.FromArgb(74, 60, 96);
             dataGridViewCellStyle5.ForeColor = Color.White;
             colStock.DefaultCellStyle = dataGridViewCellStyle5;
-            colStock.HeaderText = "Stock";
+            colStock.HeaderText = "Cliente";
             colStock.MinimumWidth = 8;
             colStock.Name = "colStock";
             colStock.ReadOnly = true;
+            colStock.Width = 150;
             // 
             // colImpuesto
             // 
             colImpuesto.DataPropertyName = "Impuesto";
-            colImpuesto.HeaderText = "Impuesto";
+            colImpuesto.HeaderText = "Cantidad";
             colImpuesto.Name = "colImpuesto";
             colImpuesto.ReadOnly = true;
             // 
@@ -229,23 +217,27 @@
             dataGridViewCellStyle6.BackColor = Color.FromArgb(74, 60, 96);
             dataGridViewCellStyle6.ForeColor = Color.White;
             colEstatus.DefaultCellStyle = dataGridViewCellStyle6;
-            colEstatus.HeaderText = "Estatus";
+            colEstatus.HeaderText = "Costo";
             colEstatus.MinimumWidth = 8;
             colEstatus.Name = "colEstatus";
             colEstatus.ReadOnly = true;
-            colEstatus.Width = 130;
+            // 
+            // Column1
+            // 
+            Column1.HeaderText = "Estatus";
+            Column1.Name = "Column1";
+            Column1.ReadOnly = true;
+            Column1.Width = 120;
             // 
             // frmRepAPI
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(230, 242, 248);
-            ClientSize = new Size(752, 564);
-            Controls.Add(btnResumen);
+            ClientSize = new Size(1054, 564);
             Controls.Add(dgvProductos);
             Controls.Add(pnlTitulo);
             Controls.Add(btnBuscar);
-            Controls.Add(btnActualizar);
             Controls.Add(lblClave);
             Controls.Add(txtBusID);
             Controls.Add(lblConsulta);
@@ -263,17 +255,17 @@
         private Label lblConsulta;
         private TextBox txtBusID;
         private Label lblClave;
-        private Button btnActualizar;
         private Button btnBuscar;
         private System.Windows.Forms.Panel pnlTitulo;
         private System.Windows.Forms.Label lblTitulo;
         private DataGridView dgvProductos;
-        private Button btnResumen;
-        private DataGridViewTextBoxColumn colClave;
-        private DataGridViewTextBoxColumn colNombre;
+        private DataGridViewTextBoxColumn colProducto;
+        private DataGridViewTextBoxColumn colIdCompra;
+        private DataGridViewTextBoxColumn colCodCompra;
         private DataGridViewTextBoxColumn colCosto;
         private DataGridViewTextBoxColumn colStock;
         private DataGridViewTextBoxColumn colImpuesto;
         private DataGridViewTextBoxColumn colEstatus;
+        private DataGridViewTextBoxColumn Column1;
     }
 }
