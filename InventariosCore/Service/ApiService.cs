@@ -20,89 +20,52 @@ namespace InventariosCore.Service
             _httpClient.Timeout = TimeSpan.FromSeconds(30);
         }
 
-        // Obtener existencia (stock) por clave
-        public async Task<int> GetExistenciaAsync(string clave)
+        // Obtiene el resumen de ventas por producto (clave)
+        public async Task<ResumenVenta?> GetResumenVentasPorProductoAsync(string codigoArticulo)
         {
             try
             {
-                string endpoint = "existenciasapi/existencia";
-                string queryString = $"?clave={Uri.EscapeDataString(clave)}";
+                string endpoint = "VentasAPI/resumen";
+                string queryString = $"?codigoArticulo={Uri.EscapeDataString(codigoArticulo)}";
 
                 HttpResponseMessage response = await _httpClient.GetAsync(_baseUrl + endpoint + queryString);
 
                 if (response.IsSuccessStatusCode)
                 {
                     string json = await response.Content.ReadAsStringAsync();
-                    return JsonConvert.DeserializeObject<int>(json);
+                    return JsonConvert.DeserializeObject<ResumenVenta>(json);
                 }
                 else
                 {
                     string errorContent = await response.Content.ReadAsStringAsync();
-                    throw new Exception($"Error al obtener existencia: {response.StatusCode} - {errorContent}");
+                    throw new Exception($"Error al obtener resumen de ventas: {response.StatusCode} - {errorContent}");
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error en API (GetExistenciaAsync): {ex.Message}");
+                Console.WriteLine($"Error en API (GetResumenVentasPorProductoAsync): {ex.Message}");
                 throw;
             }
         }
+    }
 
-        // Restar existencia
-        public async Task<bool> RestarExistenciaAsync(string clave, int cantidad)
-        {
-            try
-            {
-                string endpoint = "existenciasapi/restar_existencia";
-                string queryString = $"?clave={Uri.EscapeDataString(clave)}&cantidad={cantidad}";
+    // Clases modelo para mapear JSON recibido
+    public class ResumenVenta
+    {
+        public string CodigoArticulo { get; set; } = string.Empty;
+        public int TotalVentas { get; set; }
+        public List<Venta> Ventas { get; set; } = new List<Venta>();
+    }
 
-                // Post sin body, parámetros en query string
-                HttpResponseMessage response = await _httpClient.PostAsync(_baseUrl + endpoint + queryString, null);
-
-                if (response.IsSuccessStatusCode)
-                {
-                    string json = await response.Content.ReadAsStringAsync();
-                    return JsonConvert.DeserializeObject<bool>(json);
-                }
-                else
-                {
-                    string errorContent = await response.Content.ReadAsStringAsync();
-                    throw new Exception($"Error al restar existencia: {response.StatusCode} - {errorContent}");
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Error en API (RestarExistenciaAsync): {ex.Message}");
-                throw;
-            }
-        }
-
-        // Obtener estatus (int 0/1)
-        public async Task<int> GetEstatusAsync(string clave)
-        {
-            try
-            {
-                string endpoint = "existenciasapi/estatus";
-                string queryString = $"?clave={Uri.EscapeDataString(clave)}";
-
-                HttpResponseMessage response = await _httpClient.GetAsync(_baseUrl + endpoint + queryString);
-
-                if (response.IsSuccessStatusCode)
-                {
-                    string json = await response.Content.ReadAsStringAsync();
-                    return JsonConvert.DeserializeObject<int>(json);
-                }
-                else
-                {
-                    string errorContent = await response.Content.ReadAsStringAsync();
-                    throw new Exception($"Error al obtener estatus: {response.StatusCode} - {errorContent}");
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Error en API (GetEstatusAsync): {ex.Message}");
-                throw;
-            }
-        }
+    public class Venta
+    {
+        public string CodigoArticulo { get; set; } = string.Empty;
+        public int IdCompra { get; set; }
+        public string CodigoCompra { get; set; } = string.Empty;
+        public DateTime FechaCompra { get; set; }
+        public string Cliente { get; set; } = string.Empty;
+        public int Cantidad { get; set; }
+        public decimal Costo { get; set; }
+        public string Estatus { get; set; } = string.Empty;
     }
 }

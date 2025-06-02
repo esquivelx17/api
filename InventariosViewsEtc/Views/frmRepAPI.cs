@@ -1,81 +1,63 @@
-﻿using InventariosCore.Business;
-using InventariosCore.Controllers;
+﻿using InventariosCore.Controllers;
+using InventariosCore.Model;
+using InventariosCore.Service;
 using System;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace InvSis.Views
 {
     public partial class frmRepAPI : Form
     {
-        private readonly ProductosController _productosController;
+        private readonly ApiService _apiService = new ApiService();
+        private readonly ProductosController _productosController = new ProductosController();
 
         public frmRepAPI()
         {
             InitializeComponent();
-            _productosController = new ProductosController();
-
-            // Desactivar auto generación de columnas para usar las del diseñador
-            dgvProductos.AutoGenerateColumns = false;
-
-            // Carga inicial
-            CargarProductos();
+            dgvResumenVentas.AutoGenerateColumns = false;
+            AjustarColumnasDataPropertyNames();
         }
 
-        private void CargarProductos(string? claveFiltro = null)
+        private void AjustarColumnasDataPropertyNames()
         {
-            var productos = _productosController.ObtenerProductosParaAPI(claveFiltro);
-
-            dgvProductos.DataSource = null;
-            dgvProductos.DataSource = productos;
+            colClaveProducto.DataPropertyName = nameof(Venta.CodigoArticulo); 
+            colIdCompra.DataPropertyName = nameof(Venta.IdCompra);
+            colCodigoCompra.DataPropertyName = nameof(Venta.CodigoCompra);
+            colFecha.DataPropertyName = nameof(Venta.FechaCompra);
+            colCliente.DataPropertyName = nameof(Venta.Cliente);
+            colCantidad.DataPropertyName = nameof(Venta.Cantidad);
+            colCosto.DataPropertyName = nameof(Venta.Costo);
+            colEstatus.DataPropertyName = nameof(Venta.Estatus);
         }
 
-        private void btnBuscar_Click(object sender, EventArgs e)
+        public async Task CargarResumenVentasAsync(string claveProducto)
         {
-            string clave = txtBusID.Text.Trim();
-
-            if (string.IsNullOrEmpty(clave))
-            {
-                MessageBox.Show("Ingrese una clave para filtrar los productos.",
-                    "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtBusID.Focus();
-                return;
-            }
-
             try
             {
-                CargarProductos(clave);
-
-                if (dgvProductos.Rows.Count == 0)
+                ResumenVenta? resumen = await _apiService.GetResumenVentasPorProductoAsync(claveProducto);
+                if (resumen == null || resumen.TotalVentas == 0)
                 {
-                    MessageBox.Show($"No se encontró ningún producto con clave '{clave}'.",
-                        "Resultado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("No hay ventas para mostrar para este producto.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    dgvResumenVentas.DataSource = null;
+                }
+                else
+                {
+                    dgvResumenVentas.DataSource = null;
+                    dgvResumenVentas.DataSource = resumen.Ventas;
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error al filtrar productos: {ex.Message}",
-                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Error al cargar resumen de ventas: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        private void btnActualizar_Click(object sender, EventArgs e)
+        private void btnRegresar_Click(object sender, EventArgs e)
         {
-            try
-            {
-                CargarProductos();
-                txtBusID.Clear();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error al cargar productos: {ex.Message}",
-                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void btnResumen_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Funcionalidad pendiente: Resumen de ventas.",
-                "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            this.Close();
+            var frmInicio = new frmApiInicio();
+            frmInicio.Show();
         }
     }
 }

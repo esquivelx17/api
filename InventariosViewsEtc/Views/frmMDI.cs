@@ -135,8 +135,8 @@ namespace InvSis.Views
                     return new frmVReportesAuditoria();
                 case "frmUsuarios":
                     return new frmUsuarios();
-                case "frmRepAPI":
-                    return new frmRepAPI();
+                case "frmApiInicio":  // <-- Cambiado aquí desde frmRepAPI
+                    return new frmApiInicio();
                 case "frmRegMov":
                     return new frmRegMov();
                 case "frmRepInv":
@@ -146,6 +146,7 @@ namespace InvSis.Views
                     return null;
             }
         }
+
 
         private void btnAdmUsr_Click(object sender, EventArgs e)
         {
@@ -164,7 +165,7 @@ namespace InvSis.Views
 
         private void btnAPI_Click(object sender, EventArgs e)
         {
-            EjecutarConWaitCursor(() => OpenFormInPanel("frmRepAPI"));
+            EjecutarConWaitCursor(() => OpenFormInPanel("frmApiInicio"));
         }
 
         private void btnRegMov_Click(object sender, EventArgs e)
