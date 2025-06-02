@@ -35,6 +35,7 @@ namespace InvSis.Views
         {
             try
             {
+                Cursor.Current = Cursors.WaitCursor;
                 ResumenVenta? resumen = await _apiService.GetResumenVentasPorProductoAsync(claveProducto);
                 if (resumen == null || resumen.TotalVentas == 0)
                 {
@@ -43,21 +44,26 @@ namespace InvSis.Views
                 }
                 else
                 {
+                    foreach (var venta in resumen.Ventas)
+                    {
+                        venta.CodigoArticulo = resumen.CodigoArticulo;
+                    }
+
                     dgvResumenVentas.DataSource = null;
                     dgvResumenVentas.DataSource = resumen.Ventas;
                 }
+                Cursor.Current = Cursors.Default;
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Error al cargar resumen de ventas: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            finally
+            {
+                Cursor.Current = Cursors.Default;  // Vuelve al cursor normal
+            }
         }
 
-        private void btnRegresar_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            var frmInicio = new frmApiInicio();
-            frmInicio.Show();
-        }
+        
     }
 }

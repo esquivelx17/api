@@ -233,20 +233,21 @@ namespace InvSis.Views
                 return;
             }
 
+            _resumenAbierto = true;
             try
             {
-                _resumenAbierto = true;
                 Cursor.Current = Cursors.WaitCursor;
 
                 var frmResumen = new frmRepAPI();
                 await frmResumen.CargarResumenVentasAsync(_productoSeleccionado.Clave);
 
                 Cursor.Current = Cursors.Default;
+
+                // Mostrar el formulario fuera del try para que el cursor vuelva a default inmediatamente
                 frmResumen.ShowDialog();
             }
             catch (Exception ex)
             {
-                Cursor.Current = Cursors.Default;
                 MessageBox.Show($"Error al cargar el resumen de ventas: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
@@ -255,5 +256,6 @@ namespace InvSis.Views
                 Cursor.Current = Cursors.Default;
             }
         }
+
     }
 }
